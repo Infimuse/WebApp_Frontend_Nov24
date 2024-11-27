@@ -1,0 +1,6 @@
+.custom-class {
+    margin-left: 10; /* Remove any left margin */
+    margin-right: 50px; /* Ensure it pushes right */
+    width: auto; /* Set width to auto */
+    margin-top: 1px;
+}

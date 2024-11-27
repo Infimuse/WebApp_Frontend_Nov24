@@ -1,21 +1,129 @@
+/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import 'react-datepicker/dist/react-datepicker.css';
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+
+
+.bg-rainbow-gradient {
+  background: linear-gradient(55deg,  #00ebdb,#3ed6cc, #e7667b, #e19200,#a4cd00,#a53ee5, #9000e9);
+}
+
+
+/* globals.css or style.css */
+
+/* Apply Montserrat for primary usage */
+/* body {
+  font-family: 'Montserrat', sans-serif;
+} */
+
+/* Use Poppins for secondary usage */
+/* h2, h3, h4, h5, h6, .secondary-font {
+  font-family: 'Poppins', sans-serif;
+} */
+h2, h3, h4, h5, h6, .secondary-font {
+  font-family: 'Rajdhani', 'Arial', sans-serif; /* Fallback to Arial */
+}
+/* Use Pacifico for accents */
+.accent-font {
+  font-family: 'Pacifico', cursive;
+}
+
+
+.location-slider {
+  margin-top: 20px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+
+.glow-effect {
+  background: linear-gradient(90deg, rgba(18, 185, 243, 1) 0%, rgba(128, 0, 128, 1) 100%);
+  box-shadow: 0 0 10px rgba(18, 185, 243, 0.5), 0 0 20px rgba(128, 0, 128, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 20px rgba(18, 185, 243, 1), 0 0 40px rgba(128, 0, 128, 1);
+}
+
+.rajdhani-light {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rajdhani-regular {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rajdhani-medium {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.rajdhani-semibold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.rajdhani-bold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
