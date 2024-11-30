@@ -376,12 +376,13 @@ const HomePage = () => {
   return (
     <div className="bg-white w-full">
       <Navbar />
+      <div className="pt-30"/>
       <Banner />
       <div className="container h-full  mx-auto px-4 sm:px-6 lg:px-8 my-4 text-black">
-        {/* <SubNavbar2 /> */}
+        <SubNavbar2 />
         <SubNavbar />
 
-        <section className="relative mb-8">
+        <section className="relative mb-8 max-w-[1240px] mx-auto">
           <div className="flex justify-between items-center mb-4">
             <div>
               <h2 className="text-2xl rajdhani-bold text-gray-700">
@@ -425,7 +426,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section className="relative mb-8">
+        <section className="relative mb-8 max-w-[1240px] mx-auto">
           <div className="flex space-x-10 justify-between items-center mb-4">
             <div>
               <h2 className="text-2xl font-bold">Workshops</h2>
@@ -467,7 +468,7 @@ const HomePage = () => {
           <Arrow onClick={() => scrollToEnd(sippingHangoutsRef)} />
         </section> */}
 
-        <section className="relative mb-8">
+        <section className="relative mb-8 max-w-[1240px] mx-auto">
           <div className="flex space-x-10 justify-between items-center mb-4 hide-scrollbar">
             <div>
               <h2 className="text-2xl font-bold">For Kids </h2>

@@ -18,20 +18,21 @@ export default function HomePage() {
     <div className="bg-white w-full flex flex-col justify-evenly">
       <Navbar toggleSidebar={toggleSidebar} />
 
-      <div className="flex w-full flex-col md:flex-row gap-4 px-4 overflow-x-hidden"> {/* Flex container for sidebars and main content */}
+      <div className="flex w-full flex-col md:flex-row gap-4 max-w-[1280px] mx-auto px-4 overflow-x-hidden">
+        {" "}
+        {/* Flex container for sidebars and main content */}
         {/* Sidebar */}
-        <div className="md:w-1/4 flex-1">
+        <div className="hidden lg:block lg:w-1/5 bg-white p-4">
           <Sidebar />
         </div>
-
         {/* Main content */}
-        <main className="w-full bg-white border-r border-l border-b border-primary-container_border_color flex-2">
-        
+        <main className="w-full bg-white border-r border-l border-b border-primary-container_border_color w-full lg:w-3/5 bg-white p-4">
           <MainContent />
         </main>
-
         {/* Right Sidebar */}
-        <aside className="w-full bg-white lg:block flex-1"> {/* Remove sticky class */}
+        <aside className="w-full bg-white hidden lg:block lg:w-1/5 bg-gray-100 p-4">
+          {" "}
+          {/* Remove sticky class */}
           <RightSidebar />
         </aside>
       </div>

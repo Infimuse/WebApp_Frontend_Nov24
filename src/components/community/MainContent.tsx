@@ -11,7 +11,7 @@ export default function ContainerPage() {
             {/* <div className="px-2 ml-10 w-full flex-2"> Center content and restrict the width */}
             <div className="px-2  w-half max-w-3xl flex-4 mr-10 ml-10">
                 {/* User image and TweetBox */}
-                <div className="flex justify-center pt-5">
+                <div className="flex w-full justify-center p-5">
                     {/* <img className="rounded-full h-5 w-5 mt-1" src="https://randomuser.me/api/portraits/women/57.jpg" /> */}
                     <TweetBox />
                 </div>

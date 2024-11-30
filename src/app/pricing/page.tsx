@@ -6,11 +6,13 @@ import Footer from '@/components/Footer'
 
 function page() {
   return (
-    <div className='bg-white'>
-        <Navbar />
+    <div className='bg-white '>
+        <div className="max-w-[1240px] mx-auto">
+          <Navbar />
         <Pricing />
         <Download />
         <Footer />
+        </div>
     </div>
   )
 }

@@ -126,7 +126,7 @@ export default function LinkedInPostBox() {
     return (
         <>
             {/* Start a Post button */}
-            <div className="bg-white p-4 rounded-xl shadow-md mb-4 border border-gray-300">
+            <div className="bg-white w-full p-4 rounded-xl shadow-md mb-4 border border-gray-300">
                 <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setShowModal(true)}>
                     <FaUserCircle className="w-10 h-10 text-gray-600" />
                     <p className="text-gray-500">Share your thoughts</p>

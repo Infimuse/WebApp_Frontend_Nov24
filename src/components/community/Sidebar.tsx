@@ -27,14 +27,14 @@ export default function SideBar() {
   }
 
   return (
-    <div className="flex md:flex-col flex-row justify-between px-3 bg-white text-black h-full w-80">
+    <div className="flex md:flex-col flex-row justify-between px-3 bg-white text-black h-full ">
       <div className="flex-row flex items-center md:items-start md:flex-col overflow-x-auto w-full">
         <nav className="mb-5 ">
           <ul className="flex w-screen md:w-full flex-row md:flex-col items-center md:items-start">
             <Link href="/">
               <div className="flex items-center hover:bg-primary-navi_hover hover:bg-opacity-70 rounded-full pl-3 pr-8 py-3 transform transition-colors duration-200">
                 <MdHome />
-                <li className="ml-4 sidebar-text-bold text-xs font-bold">Home</li>
+                <li className="ml-4 sidebar-text-bold text-xs font-semibold">Home</li>
               </div>
             </Link>
             <div>
@@ -44,7 +44,7 @@ export default function SideBar() {
               >
                 <FaCalendarDays />
                 <li className="font-regular ml-4">
-                  <Link href="/Explore" className="text-xs">
+                  <Link href="/Explore" className="text-sm">
                     Discover Groups
                   </Link>
                 </li>
@@ -53,7 +53,7 @@ export default function SideBar() {
             <Link href="">
               <div className="flex items-center hover:bg-primary-navi_hover hover:bg-opacity-70 rounded-full pl-3 pr-4 py-3 transform transition-colors duration-200">
                 <PiChalkboardTeacher />
-                <li className="ml-4 font-regular text-xs">Messages</li>
+                <li className="ml-4 font-regular text-sm">Messages</li>
               </div>
             </Link>
             <div>
@@ -62,7 +62,7 @@ export default function SideBar() {
                 onClick={() => setIsMyCommunitiesOpen(!isMyCommunitiesOpen)}
               >
                 <IoPeople />
-                <li className="ml-4 font-regular flex text-xs">My Communities</li>
+                <li className="ml-4 font-regular flex text-sm">My Communities</li>
               </div>
               {isMyCommunitiesOpen && (
                 <ul className="pl-12 mt-2">

@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import {Inter} from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import "./style.css";
 import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
-
-
 
 export const metadata: Metadata = {
   title: "Infimuse",
@@ -21,10 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className}  
+        style={{
+          backgroundColor: "#fff",
+        }}
+        className={inter.className}
       >
-        <Toaster richColors/>
-        {children}
+        <div className="">
+          <Toaster richColors />
+          {children}
+        </div>
       </body>
     </html>
   );

@@ -64,7 +64,6 @@ function Pricing() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                strokeLinecap
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
