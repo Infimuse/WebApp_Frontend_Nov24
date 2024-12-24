@@ -243,7 +243,7 @@ export default experiences;
 
 
 
-const Workshops = [
+export const Workshops = [
   {
     id: '12',
     image: 'https://images.pexels.com/photos/1799344/pexels-photo-1799344.jpeg',

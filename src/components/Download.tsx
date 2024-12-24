@@ -1,5 +1,4 @@
 import React from "react";
-import { FaGooglePlay } from "react-icons/fa";
 import Image from 'next/image';
 
 const Download = () =>{

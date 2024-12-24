@@ -6,7 +6,6 @@ import {
   FaCalendarAlt,
   FaMapMarkerAlt,
   FaMoneyBillAlt,
-  FaUsers,
 } from "react-icons/fa";
 
 interface CardProps{

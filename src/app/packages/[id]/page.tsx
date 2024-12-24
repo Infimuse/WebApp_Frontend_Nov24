@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import {
-  HeartIcon,
+ 
   GiftIcon,
   BookmarkIcon,
   UsersIcon,
@@ -22,7 +22,7 @@ const getLearningExperience = (id: string) => {
 
 export default function ExperienceDetail() {
   const params = useParams();
-  const [activeTab, setActiveTab] = useState("description");
+  // const [activeTab, setActiveTab] = useState("description");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const experience = getLearningExperience(params.id as string);
 
