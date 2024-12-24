@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Card from '@/components/Card'
-import Link from 'next/link';
+
 import SubNavbar from '@/components/SubNavbar';
 import Datepicker from '@/components/DatePicker';
 import SubNavbar2 from '@/components/SubNavbar2';
@@ -12,7 +12,7 @@ import Pagination from '@/components/pagination'; // Assuming you have a paginat
 
 
 const Workshops = () => {
-  const renderCards = (category) => {
+  const renderCards = (category:string) => {
     return experiences
       .filter((experience) => experience.category === category)
       .map((experience) => <Card key={experience.id} {...experience} />);

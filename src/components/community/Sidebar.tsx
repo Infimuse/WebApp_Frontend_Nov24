@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { MdHome, MdOutlineSchool, MdMoreHoriz, MdPostAdd } from "react-icons/md";
-import { FaCalendarDays, FaUserPlus } from "react-icons/fa6";
+import { MdHome,  MdPostAdd } from "react-icons/md";
+import { FaCalendarDays } from "react-icons/fa6";
 import { PiChalkboardTeacher } from "react-icons/pi";
-import { CiCircleList } from "react-icons/ci";
+// import { CiCircleList } from "react-icons/ci";
 import { IoPeople } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export default function SideBar() {
   }, []);
 
   if (showSignIn) {
-    return <SigninUp />;
+    return <SigninUp onClose={() => {}}/>;
   }
 
   return (

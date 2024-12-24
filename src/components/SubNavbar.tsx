@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import { FaFootballBall, FaBasketballBall, FaSwimmer, FaHiking, FaCampground, FaBook, FaPaintBrush, FaRobot, FaLaptopCode, FaMusic, FaDumbbell, FaTheaterMasks, FaCamera, FaLeaf, FaTshirt, FaArrowRight } from 'react-icons/fa';
-import { GiCookingPot, GiStairsGoal, GiMountainClimbing, GiChemicalDrop } from 'react-icons/gi';
+import React, { useState, useRef,  } from 'react';
+import { FaFootballBall ,FaHiking, FaBook, FaPaintBrush, FaRobot, FaLaptopCode, FaMusic, FaDumbbell, FaTheaterMasks, FaCamera, FaLeaf, FaTshirt,} from 'react-icons/fa';
+import { GiCookingPot, GiStairsGoal,  GiChemicalDrop } from 'react-icons/gi';
 import { MdPsychology, MdHealthAndSafety, MdBiotech } from 'react-icons/md';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import Link from 'next/link';
 // import { useRouter, usePathname } from 'next/navigation';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 import { usePathname } from 'next/navigation';
 
@@ -45,12 +45,16 @@ const categories = [
 const SubNavbar = () => {
   const [selectedCategories, setSelectedCategories] = useState(new Set());
   const [activeSubcategories, setActiveSubcategories] = useState(new Set());
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   
   // Get the current path using next/navigation
   const pathname = usePathname();
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: {
+    name: string;
+    icon: React.JSX.Element;
+    subcategories: string[];
+  }) => {
     const newSelection = new Set(selectedCategories);
     if (newSelection.has(category)) {
       newSelection.delete(category);
@@ -60,15 +64,23 @@ const SubNavbar = () => {
     setSelectedCategories(newSelection);
   };
 
-  const scrollLeft = () => {
+ const scrollLeft = () => {
+  
+
+  if (containerRef.current) {
     containerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
-  };
+  }
+};
 
-  const scrollRight = () => {
+const scrollRight = () => {
+ 
+
+  if (containerRef.current) {
     containerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
-  };
+  }
+};
 
-  const handleSubcategoryClick = (subcategory) => {
+  const handleSubcategoryClick = (subcategory: string) => {
     const newActiveSubcategories = new Set(activeSubcategories);
     if (newActiveSubcategories.has(subcategory)) {
       newActiveSubcategories.delete(subcategory);
@@ -89,7 +101,7 @@ const SubNavbar = () => {
               <div
                 key={category.name}
                 className={`relative flex flex-col items-center cursor-pointer transition duration-150 ease-in-out ${selectedCategories.has(category.name) ? 'text-[#BB2460]' : 'text-gray-800'}`}
-                onClick={() => handleCategoryClick(category.name)}
+                onClick={() => handleCategoryClick(category)}
               >
                 <span className="text-2xl mb-2">{category.icon}</span>
                 <span className="text-sm font-medium">{category.name}</span>

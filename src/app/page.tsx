@@ -6,16 +6,19 @@ import { IoIosArrowForward } from "react-icons/io";
 import Navbar from "@/components/Navbar";
 import SubNavbar from "@/components/SubNavbar";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
 import Card from "@/components/Card";
 import SubNavbar2 from "@/components/SubNavbar2";
-import Download from "@/components/Download";
+// import Download from "@/components/Download";
 import Banner from "@/components/Banner";
-import DatePicker from "@/components/DatePicker";
+// import DatePicker from "@/components/DatePicker";
 import Link from "next/link";
 import "./globals.css";
 
-const Arrow = ({ onClick }) => (
+interface ArrowProps{
+  onClick: () => void
+}
+const Arrow = ({ onClick }:ArrowProps) => (
   <div
     onClick={onClick}
     className="absolute hidden md:block top-1/2 transform -translate-y-1/2 flex justify-center items-center bg-gray-300 shadow-xl p-2 rounded-full cursor-pointer animate-dance"
@@ -357,17 +360,19 @@ const experiences = [
 ];
 
 const HomePage = () => {
-  const ExploreRef = useRef(null);
-  const sippingHangoutsRef = useRef(null);
-  const kidsActivitiesRef = useRef(null);
-  const workshopsRef = useRef(null);
-  const packagesRef = useRef(null);
+  const ExploreRef = useRef<HTMLDivElement | null>(null);
+  // const sippingHangoutsRef = useRef(null);
+  const kidsActivitiesRef = useRef<HTMLDivElement | null>(null);
+  const workshopsRef = useRef<HTMLDivElement | null>(null);
+  // const packagesRef = useRef(null);
 
-  const scrollToEnd = (ref) => {
-    ref.current.scrollTo({ left: ref.current.scrollWidth, behavior: "smooth" });
+
+
+  const scrollToEnd = (ref: React.MutableRefObject<HTMLDivElement | null>) => {
+    ref.current?.scrollTo({ left: ref.current.scrollWidth, behavior: "smooth" });
   };
 
-  const renderCards = (category) => {
+  const renderCards = (category: string) => {
     return experiences
       .filter((experience) => experience.category === category)
       .map((experience) => <Card key={experience.id} {...experience} />);
@@ -422,7 +427,7 @@ const HomePage = () => {
                 </div>
               ))}
             </div>
-            <Arrow onClick={() => scrollToEnd(ExploreRef2)} />
+            <Arrow onClick={() => scrollToEnd(ExploreRef)} />
           </div>
         </section>
 

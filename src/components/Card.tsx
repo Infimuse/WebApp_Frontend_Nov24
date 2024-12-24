@@ -9,7 +9,10 @@ import {
   FaUsers,
 } from "react-icons/fa";
 
-const Card = ({ id, image, title, host, price, rating, slotsBooked }) => {
+interface CardProps{
+  id: string, image: string, title: string, host: string, price: string, rating: number, slotsBooked: number;
+}
+const Card = ({ id, image, title, host, price, rating, slotsBooked }:CardProps) => {
   const ratingStars = Array.from({ length: 1 }, (_, i) => (
     <FaStar key={i} color={rating > i ? "gold" : "lightgray"} />
   ));

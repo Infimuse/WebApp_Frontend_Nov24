@@ -3,7 +3,12 @@ import { Media, Gif, Survey, Emoji, Plans } from './İcons';
 import { FaUserCircle } from 'react-icons/fa'; // Profile icon or image
 import { IoClose } from 'react-icons/io5'; // Close button
 
-const GifPicker = ({ onSelectGif, onClose }) => {
+
+interface GifPickerProps {
+  onClose: () => void;
+  onSelectGif: React.Dispatch<React.SetStateAction<string | null>>;
+}
+const GifPicker = ({ onSelectGif, onClose }:GifPickerProps) => {
     const gifs = [
         'https://media.giphy.com/media/l0IylN8P4eqjXhQ9O/giphy.gif',
         'https://media.giphy.com/media/xT9IgFQ1GzFzI7mYBy/giphy.gif',
@@ -34,7 +39,12 @@ const GifPicker = ({ onSelectGif, onClose }) => {
     );
 };
 
-const EmojiPicker = ({ onSelectEmoji, onClose }) => {
+
+interface EmojiPickerProps{
+onClose: () => void
+onSelectEmoji: (item:string) => void
+}
+const EmojiPicker = ({ onSelectEmoji, onClose }:EmojiPickerProps) => {
     const emojis = ['😊', '😂', '😍', '😢', '😎', '😡'];
 
     return (
@@ -61,7 +71,11 @@ const EmojiPicker = ({ onSelectEmoji, onClose }) => {
     );
 };
 
-const PlansPicker = ({ onSelectDate, onClose }) => {
+interface PlansPickerProps{
+    onSelectDate: React.Dispatch<React.SetStateAction<string | null>>
+    onClose: () => void
+}
+const PlansPicker = ({ onSelectDate, onClose }:PlansPickerProps) => {
     return (
         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-75">
             <div className="bg-white rounded-lg p-4">
@@ -79,9 +93,9 @@ const PlansPicker = ({ onSelectDate, onClose }) => {
 
 export default function LinkedInPostBox() {
     const [postContent, setPostContent] = useState('');
-    const [selectedGif, setSelectedGif] = useState(null);
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedGif, setSelectedGif] = useState<string|null>(null);
+    const [selectedImage, setSelectedImage] = useState<null| string>(null);
+    const [selectedDate, setSelectedDate] = useState<null| string>(null);
     const [showModal, setShowModal] = useState(false);
     const [showGifPicker, setShowGifPicker] = useState(false);
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -108,12 +122,12 @@ export default function LinkedInPostBox() {
         closeModal();
     };
 
-    const handleMediaUpload = (e) => {
-        const file = e.target.files[0];
-        setSelectedImage(URL.createObjectURL(file)); // Preview image
+    const handleMediaUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files && e.target.files[0];
+        if(file) setSelectedImage(URL.createObjectURL(file)); // Preview image
     };
 
-    const handleSelectEmoji = (emoji) => {
+    const handleSelectEmoji = (emoji:string) => {
         setPostContent((prevContent) => prevContent + emoji);
     };
 
@@ -247,7 +261,7 @@ export default function LinkedInPostBox() {
                                 <input
                                     type="file"
                                     accept="image/*"
-                                    onChange={handleMediaUpload}
+                                    onChange={e =>handleMediaUpload(e)}
                                     className="hidden"
                                     id="mediaUpload"
                                 />

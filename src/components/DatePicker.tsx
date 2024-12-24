@@ -7,13 +7,20 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 
 const DatePickerComponent = () => {
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState<null | Date>(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
 
-  const handleDateChange = (date) => {
-    setStartDate(date);
-    setShowDatePicker(false); // Hide date picker after selecting a date
+  const handleDateChange = (
+    date: Date | null,
+    event?: React.MouseEvent | React.KeyboardEvent
+  ) => {
+    console.log(event)
+    if (date) {
+      setStartDate(date);
+      setShowDatePicker(false); // Hide date picker after selecting a date
+    }
   };
+
 
   return (
     <div className="flex flex-col items-center justify-center md:mt-20 text-black w-full relative">

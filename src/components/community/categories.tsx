@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { FaFootballBall, FaBasketballBall, FaSwimmer, FaHiking, FaCampground, FaBook, FaPaintBrush, FaLaptopCode } from 'react-icons/fa';
+import { FaFootballBall,  FaHiking, FaBook, FaPaintBrush, FaLaptopCode } from 'react-icons/fa';
 import { GiCookingPot, GiStairsGoal } from 'react-icons/gi';
 import { MdPsychology } from 'react-icons/md';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
@@ -29,9 +29,13 @@ const SubNavbar = () => {
   const [activeSubcategories, setActiveSubcategories] = useState(new Set());
   // const [visibleCategories, setVisibleCategories] = useState(categories.slice(0, ITEMS_PER_PAGE));
   // const [showAllCategories, setShowAllCategories] = useState(false);
-  const containerRef = useRef(null);
+ 
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: {
+    name: string;
+    icon: React.JSX.Element;
+    subcategories: string[];
+}) => {
     const newSelection = new Set(selectedCategories);
     if (newSelection.has(category)) {
       newSelection.delete(category);
@@ -40,14 +44,17 @@ const SubNavbar = () => {
     }
     setSelectedCategories(newSelection);
   };
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   const scrollLeft = () => {
-    containerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
-  };
-  const scrollRight = () => {
-    containerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+    containerRef.current?.scrollBy({ left: -200, behavior: "smooth" });
   };
 
-  const handleSubcategoryClick = (subcategory) => {
+  const scrollRight = () => {
+    containerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
+  };
+
+  const handleSubcategoryClick = (subcategory: string) => {
     const newActiveSubcategories = new Set(activeSubcategories);
     if (newActiveSubcategories.has(subcategory)) {
       newActiveSubcategories.delete(subcategory);
@@ -71,7 +78,7 @@ const SubNavbar = () => {
               <div
                 key={category.name}
                 className={`relative flex flex-col items-center cursor-pointer transition duration-150 ease-in-out ${selectedCategories.has(category.name) ? 'text-[#BB2460]' : 'text-gray-800'}`}
-                onClick={() => handleCategoryClick(category.name)}
+                onClick={() => handleCategoryClick(category)}
               >
                 <span className="text-2xl mb-2">{category.icon}</span>
                 <span className="text-sm font-medium">{category.name}</span>

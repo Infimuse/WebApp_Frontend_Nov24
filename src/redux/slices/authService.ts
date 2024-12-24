@@ -1,7 +1,18 @@
 
+export interface Login{
+  email: string;
+  password: string;
+}
+
+export interface SignUp{
+  email: string;
+  password: string;
+  lastName: string;
+  firstName: string;
+}
 
 const AuthService = {
-    signUp: async (data) => {
+    signUp: async (data: SignUp) => {
       try {
         const response = await fetch(`https://whatever.lat/api/v1/customers/signup`, {
           method: 'POST',
@@ -18,7 +29,7 @@ const AuthService = {
     },
     // Add other authentication methods (signIn, signOut, etc.) here as needed
       // Add login method
-      login: async (data) => {
+      login: async (data:Login) => {
           try {
             const response = await fetch(`https://whatever.lat/api/v1/customers/login`, {
               method: 'POST',

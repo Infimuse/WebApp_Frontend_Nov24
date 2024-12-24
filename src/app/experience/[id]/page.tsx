@@ -5,8 +5,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import {
-  HeartIcon,
-  GiftIcon,
+  
   BookmarkIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
@@ -14,15 +13,17 @@ import Footer from "@/components/Footer";
 import Download from "@/components/Download";
 import BookingModal from "@/components/BookingModal";
 import experiences from "@/data/data";
+import { useParams } from "next/navigation";
 
-const getLearningExperience = (id) => {
+const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
 };
 
-export default function ExperienceDetail({ params }) {
-  const [activeTab, setActiveTab] = useState("description");
+export default function ExperienceDetail() {
+  // const [activeTab, setActiveTab] = useState("description");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const experience = getLearningExperience(params.id);
+  const params = useParams()
+  const experience = getLearningExperience(params.id as string);
 
   if (!experience) {
     notFound();
@@ -158,7 +159,7 @@ export default function ExperienceDetail({ params }) {
             <a href="/book" className="w-full">
               <button
                 className="w-full bg-[#12B9F3] text-white font-semibold py-3 rounded-lg shadow-md  transition duration-300 mb-4"
-                href="/book"
+                
               >
                 Book Now
               </button>

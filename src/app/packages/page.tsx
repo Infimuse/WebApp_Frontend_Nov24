@@ -12,7 +12,7 @@ import Location from '@/components/community/location';
 
 
 const Packages = () => {
-  const renderCards = (category) => {
+  const renderCards = (category: string) => {
     return experiences
       .filter((experience) => experience.category === category)
       .map((experience) => <Card key={experience.id} {...experience} />);

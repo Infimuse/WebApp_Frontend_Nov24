@@ -1,26 +1,28 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
-import AuthService from './authService';
+import AuthService, { Login, SignUp } from './authService';
 
 export const signUp = createAsyncThunk(
   'auth/SignUp',
-  async (user, thunkAPI) => {
+  async (user: SignUp, thunkAPI) => {
     try {
       const response = await AuthService.signUp(user);
       return response;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
+      return thunkAPI.rejectWithValue(error);
     }
   }
-);
+); 
+
+
 
 export const login = createAsyncThunk(
   'auth/login',
-  async (userData, thunkAPI) => {
+  async (userData:Login, thunkAPI) => {
     try {
       const response = await AuthService.login(userData);
       return response;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -59,7 +61,7 @@ export const authSlice = createSlice({
       .addCase(signUp.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload.message;
+        state.message = action.payload as string;
         state.user = null;
       })
       .addCase(signUpSuccess, (state) => {
@@ -76,7 +78,7 @@ export const authSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload.message;
+        state.message = action.payload as string;
         state.user = null;
       });
   },

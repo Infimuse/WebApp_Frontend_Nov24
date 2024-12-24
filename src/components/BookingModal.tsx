@@ -1,11 +1,17 @@
 import React, { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';  // Updated import for Heroicons v2
+import { Event } from '@/data/data';
 
-const BookingModal = ({ isOpen, closeModal, experience }) => {
+interface BookingModalProps{
+  isOpen : boolean,
+  closeModal: () => void
+  experience: Event
+}
+const BookingModal = (data:BookingModalProps) => {
   return (
-    <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={closeModal}>
+    <Transition appear show={data.isOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={data.closeModal}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -34,7 +40,7 @@ const BookingModal = ({ isOpen, closeModal, experience }) => {
                   <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
                     Book Your Experience
                   </Dialog.Title>
-                  <button onClick={closeModal}>
+                  <button onClick={data.closeModal}>
                     <XMarkIcon className="h-6 w-6 text-gray-500" />
                   </button>
                 </div>
@@ -61,14 +67,14 @@ const BookingModal = ({ isOpen, closeModal, experience }) => {
                     id="additionalNotes"
                     name="additionalNotes"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    rows="4"
+                    rows={4}
                   />
                 </div>
                 <div className="mt-4">
                   <button
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-[#12B9f3] px-4 py-2 text-sm font-medium text-white hover:bg-[#A72C76] focus:outline-none focus-visible:ring-2  focus-visible:ring-offset-2"
-                    onClick={closeModal}
+                    onClick={data.closeModal}
                   >
                     Submit
                   </button>

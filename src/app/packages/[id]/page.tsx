@@ -14,15 +14,17 @@ import Footer from "@/components/Footer";
 import Download from "@/components/Download";
 import BookingModal from "@/components/BookingModal";
 import experiences from "@/data/data";
+import { useParams } from "next/navigation";
 
-const getLearningExperience = (id) => {
+const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
 };
 
-export default function ExperienceDetail({ params }) {
+export default function ExperienceDetail() {
+  const params = useParams();
   const [activeTab, setActiveTab] = useState("description");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const experience = getLearningExperience(params.id);
+  const experience = getLearningExperience(params.id as string);
 
   if (!experience) {
     notFound();

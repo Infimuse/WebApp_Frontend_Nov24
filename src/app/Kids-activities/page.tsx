@@ -5,7 +5,6 @@ import Card from '@/components/Card';
 import SubNavbar from '@/components/SubNavbar';
 import Datepicker from '@/components/DatePicker';
 import SubNavbar2 from '@/components/SubNavbar2';
-import Link from 'next/link';
 import experiences from '@/data/experiences'; // Adjust the path as necessary
 import Location from '@/components/community/location';
 import Pagination from '@/components/pagination'; // Assuming you have a pagination component
@@ -13,7 +12,7 @@ import Pagination from '@/components/pagination'; // Assuming you have a paginat
 
 
 const KidsActivities = () => {
-  const renderCards = (category) => {
+  const renderCards = (category: string) => {
     return experiences
       .filter((experience) => experience.category === category)
       .map((experience) => <Card key={experience.id} {...experience} />);

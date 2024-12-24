@@ -11,18 +11,27 @@ const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   // Click outside handler
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [dropdownRef]);
+ useEffect(() => {
+   const handleClickOutside = (event: Event) => {
+     if (
+       dropdownRef.current &&
+       !dropdownRef.current.contains(event.target as Node)
+     ) {
+       setShowDropdown(false);
+     }
+   };
+
+   // Add event listener for 'mousedown'
+   document.addEventListener("mousedown", handleClickOutside);
+
+   // Cleanup the event listener on component unmount
+   return () => {
+     document.removeEventListener("mousedown", handleClickOutside);
+   };
+ }, [dropdownRef]);
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">

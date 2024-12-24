@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import {
-  HeartIcon,
   GiftIcon,
   BookmarkIcon,
   UsersIcon,
@@ -14,15 +13,17 @@ import Footer from "@/components/Footer";
 import Download from "@/components/Download";
 import BookingModal from "@/components/BookingModal";
 import experiences from "@/data/data";
+import { useParams } from "next/navigation";
 
-const getLearningExperience = (id) => {
+const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
 };
 
-export default function ExperienceDetail({ params }) {
-  const [activeTab, setActiveTab] = useState("description");
+export default function ExperienceDetail() {
+  // const [activeTab, setActiveTab] = useState("description");
+  const params = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const experience = getLearningExperience(params.id);
+  const experience = getLearningExperience(params.id as string);
 
   if (!experience) {
     notFound();
