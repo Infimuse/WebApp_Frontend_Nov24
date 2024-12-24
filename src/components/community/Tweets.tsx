@@ -9,7 +9,7 @@ const MAX_LENGTH = 200; // Max characters before "Show more"
 interface Props{
     text:string
 }
-function TweetText({ text }:Props) {
+export function TweetText({ text }:Props) {
     const [isExpanded, setIsExpanded] = useState(false); // To toggle between expanded and truncated text
     const toggleExpand = () => setIsExpanded(!isExpanded); // Toggle the text
 
