@@ -27,7 +27,7 @@ export default function ContainerPage() {
                 </div>
 
                 {/* Tweets Section */}
-                <div className="mx-auto flex flex-col items-center space-y-4">
+                <div className="mx-auto flex flex-col items-center space-y-2">
                     <Tweets />
                 </div>
             </div>

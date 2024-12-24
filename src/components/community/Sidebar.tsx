@@ -27,7 +27,7 @@ export default function SideBar() {
   }
 
   return (
-    <div className="flex md:flex-col flex-row justify-between px-3 bg-white text-black h-full ">
+    <div className="flex md:flex-col flex-row justify-between  w-full bg-white text-black h-full ">
       <div className="flex-row flex items-center md:items-start md:flex-col overflow-x-auto w-full">
         <nav className="mb-5 ">
           <ul className="flex w-screen md:w-full flex-row md:flex-col items-center md:items-start">
@@ -37,32 +37,32 @@ export default function SideBar() {
                 <li className="ml-4 sidebar-text-bold text-xs font-semibold">Home</li>
               </div>
             </Link>
-            <div>
+            <div className="hover:bg-gray-200 rounded-3xl duration-300">
               <div
                 className="flex items-center hover:bg-primary-navi_hover hover:bg-opacity-70 rounded-full pl-3 pr-4 py-3 transform transition-colors duration-200 cursor-pointer"
                 onClick={() => setIsDayExperiencesOpen(!isDayExperiencesOpen)}
               >
                 <FaCalendarDays />
                 <li className="font-regular ml-4">
-                  <Link href="/Explore" className="text-sm">
+                  <Link href="/Explore" className="text-lg hover">
                     Discover Groups
                   </Link>
                 </li>
               </div>
             </div>
-            <Link href="">
+            <Link href="" className="hover:bg-gray-200 rounded-3xl duration-300">
               <div className="flex items-center hover:bg-primary-navi_hover hover:bg-opacity-70 rounded-full pl-3 pr-4 py-3 transform transition-colors duration-200">
-                <PiChalkboardTeacher />
-                <li className="ml-4 font-regular text-sm">Messages</li>
+                <PiChalkboardTeacher size={20}/>
+                <li className="ml-4 font-regular text-lg">Messages</li>
               </div>
             </Link>
-            <div>
+            <div className="hover:bg-gray-200 rounded-3xl duration-300">
               <div
                 className="flex items-center hover:bg-primary-navi_hover hover:bg-opacity-70 rounded-full pl-3 pr-4 py-3 transform transition-colors duration-200 cursor-pointer"
                 onClick={() => setIsMyCommunitiesOpen(!isMyCommunitiesOpen)}
               >
-                <IoPeople />
-                <li className="ml-4 font-regular flex text-sm">My Communities</li>
+                <IoPeople size={20}/>
+                <li className="ml-4 font-regular flex text-lg">My Communities</li>
               </div>
               {isMyCommunitiesOpen && (
                 <ul className="pl-12 mt-2">
@@ -71,16 +71,16 @@ export default function SideBar() {
                 </ul>
               )}
             </div>
-            <Link href="">
+            <Link href="" className="hover:bg-gray-200 rounded-3xl duration-300">
               <div className="flex items-center hover:bg-primary-navi_hover hover:bg-opacity-70 rounded-full pl-3 pr-4 py-3 transform transition-colors duration-200">
-                <CgProfile />
-                <li className="ml-4 font-regular">Profile</li>
+                <CgProfile size={20}/>
+                <li className="ml-4 font-regular text-lg">Profile</li>
               </div>
             </Link>
-             <Link href="">
+             <Link href=""  className="hover:bg-gray-200 rounded-3xl duration-300">
               <div className="flex items-center hover:bg-primary-navi_hover hover:bg-opacity-70 rounded-full pl-3 pr-4 py-3 transform transition-colors duration-200">
-                <MdPostAdd />
-                <li className="ml-4 font-regular">Post</li>
+                <MdPostAdd size={20}/>
+                <li className="ml-4 font-regular text-lg">Post</li>
               </div>
             </Link>
           </ul>

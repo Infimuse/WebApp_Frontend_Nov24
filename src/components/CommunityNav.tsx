@@ -34,7 +34,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-20">
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white border-b p-5 md:px-20">
       {/* Left */}
       <Link
         href="/"

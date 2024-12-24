@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import { FaHeart, FaComment, FaTelegramPlane } from 'react-icons/fa';
-import './Tweets.css';
+// import './Tweets.css';
+
 
 const MAX_LENGTH = 200; // Max characters before "Show more"
 
@@ -17,7 +18,7 @@ function TweetText({ text }:Props) {
 
     return (
         <div className="tweet-text-container">
-            <p className="tweet-text">
+            <p className="tweet-text text-black">
                 {displayedText}
                 {shouldTruncate && (
                     <span>
@@ -93,43 +94,40 @@ export default function Tweets() {
         <>
             {tweets.map(tweet => (
                 <div key={tweet.id} className="tweet-container w-screen lg:w-full">
-                    <div className="flex flex-col items-start pt-12">
-                        <div className="tweet-header">
-                            <span className="tweet-name">{tweet.name}</span>
-                            <span className="tweet-username">{tweet.username}</span>
-                            <div className="dot">·</div>
-                            <span className="tweet-time">{tweet.time}</span>
+                    <div className="flex flex-col items-start pt-6">
+                        <div className=" flex gap-3 mb-2 px-2">
+                            <img src={tweet.portrait} width={50} className="rounded-full" height={50} />
+                            <div className="flex flex-col">
+                            <span className="tweet-name text-black">{tweet.name}</span>
+                            <span className="text-gray-700">{tweet.username} . {tweet.time}</span>
+                            </div>
                         </div>
+                        <img className="" src={tweet.image} alt="Tweet Visual" />
 
-                        <div className="pl-[65px]">
-                            <TweetText text={tweet.text} />
-                        </div>
-
-                        <img className="tweet-image" src={tweet.image} alt="Tweet Visual" />
-
-                        <ul className="tweet-actions">
-                            <li className="center-item">
-                                <div className="action-icon hover-heart">
-                                    <FaHeart />
+                        <ul className="flex gap-3 px-2">
+                            <li className="center-item flex items-center gap-1">
+                                <div className="action-icon hover:text-red-600">
+                                    <FaHeart size={18}/>
                                 </div>
                                 <span>{tweet.likes}</span>
                             </li>
-                            <li className="center-item move-right1">
-                                <div className="action-icon hover-comment">
-                                    <FaComment />
+
+                            <li className="center-item flex items-center gap-1">
+                                <div className="action-icon hover:text-red-600">
+                                    <FaComment size={16}/>
                                 </div>
                                 <span>{tweet.replies}</span>
                             </li>
-                            <li className="center-item move-right">
-                                <div className="action-icon hover-share">
-                                    <FaTelegramPlane />
+                            <li className="center-item flex items-center gap-1">
+                                <div className="action-icon hover:text-red-600">
+                                    <FaTelegramPlane size={18}/>
                                 </div>
                                 <span>{tweet.shares}</span>
                             </li>
                         </ul>
                     </div>
                     {/* <img src={tweet.portrait} className="tweet-portrait-left" alt="User Portrait" /> */}
-                    <img src={tweet.portrait} className="tweet-portrait-right" alt="User Portrait" />
+                    {/* <img src={tweet.portrait} className="tweet-portrait-right" alt="User Portrait" /> */}
                 </div>
             ))}
         </>
