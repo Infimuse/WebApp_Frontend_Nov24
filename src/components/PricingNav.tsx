@@ -109,10 +109,10 @@
 
 "use client";
 
-import React, { useState, useRef, useEffect, } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { FaSearch, FaBars, FaUserCircle } from "react-icons/fa";
-import SignIn from "./SignIn";
+import SignIn from "./Signin";
 import SignUp from "./SignUp";
 import Link from "next/link";
 

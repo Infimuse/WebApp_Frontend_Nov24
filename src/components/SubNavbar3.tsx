@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import {  FaBars, FaUserCircle } from "react-icons/fa";
+import { FaBars, FaUserCircle } from "react-icons/fa";
 import logo from "@/public/assets/logo.png";
-import SignIn from "./SignIn";
+import SignIn from "./Signin";
 import SignUp from "./SignUp";
 import DatePickerComponent from "./DatePicker";
 
@@ -14,24 +14,24 @@ const Header = () => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   // Click outside handler
- useEffect(() => {
-   const handleClickOutside = (event: Event) => {
-     if (
-       dropdownRef.current &&
-       !dropdownRef.current.contains(event.target as Node)
-     ) {
-       setShowDropdown(false);
-     }
-   };
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
 
-   // Add event listener for 'mousedown'
-   document.addEventListener("mousedown", handleClickOutside);
+    // Add event listener for 'mousedown'
+    document.addEventListener("mousedown", handleClickOutside);
 
-   // Cleanup the event listener on component unmount
-   return () => {
-     document.removeEventListener("mousedown", handleClickOutside);
-   };
- }, [dropdownRef]);
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
@@ -94,7 +94,6 @@ const Header = () => {
       </div>
       {showSignIn && <SignIn onClose={() => setShowSignIn(false)} />}
       {showSignUp && <SignUp onClose={() => setShowSignUp(false)} />}
-      
     </header>
   );
 };
