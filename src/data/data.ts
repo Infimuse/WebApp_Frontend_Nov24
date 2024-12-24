@@ -116,7 +116,7 @@ const experiences = [
     // Workshops
     {
       id: '12',
-      image: 'https://images.pexels.com/photos/1799344/pexels-photo-1799344.jpeg',
+      image: 'https://images.pexels.com/photos/385025/pexels-photo-385025.jpeg',
       title: 'Photography Workshop',
       host: 'Photo Studio',
       capacity: 20,

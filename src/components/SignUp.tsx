@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { toast } from 'sonner';
-import SignIn from './Signin'; // Import the SignIn component
+import SignIn from './SignIn'; // Import the SignIn component
 
-function SignUp({ onClose }) {
+
+interface Props{
+  onClose: () => void
+}
+
+function SignUp({ onClose }:Props) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -10,7 +15,7 @@ function SignUp({ onClose }) {
   const [loading, setLoading] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false); // State to toggle between SignUp and SignIn
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:  React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
@@ -33,16 +38,17 @@ function SignUp({ onClose }) {
         toast.error('Sign-up failed: ' + data.message);
       }
     } catch (error) {
-      toast.error('An error occurred: ' + error.message);
+      console.log(error)
+      toast.error('An error occurred: ');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleClickOutside = (e) => {
-    if (e.target.id === 'sign-up-modal') {
+  const handleClickOutside = () => {
+    
       onClose();
-    }
+    
   };
 
   if (isSignIn) {
@@ -58,7 +64,7 @@ function SignUp({ onClose }) {
      
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md relative text-black">
         <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={e => handleSubmit(e)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">First Name</label>
             <input

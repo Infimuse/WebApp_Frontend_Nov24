@@ -1,12 +1,12 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { FaSearch, FaBars, FaUserCircle, FaGlobe } from 'react-icons/fa';
-import SignIn from './Signin';
-import SignUp from './SignUp';
-import Link from 'next/link';
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { FaSearch, FaBars, FaUserCircle, FaGlobe } from "react-icons/fa";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import Link from "next/link";
 
-import DatePickerComponent from './DatePicker';
+import DatePickerComponent from "./DatePicker";
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -21,15 +21,25 @@ const Header = () => {
         setShowDropdown(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownRef]);
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-20">
       {/* Left */}
-      <Link href="/" className="relative flex items-center h-10 cursor-pointer my-auto">
-        <Image src={`/assets/InfiMuse G&T.png`} height={80} width={80} alt="logo" objectFit="contain" objectPosition="left" />
+      <Link
+        href="/"
+        className="relative flex items-center h-10 cursor-pointer my-auto"
+      >
+        <Image
+          src={`/assets/InfiMuse G&T.png`}
+          height={80}
+          width={80}
+          alt="logo"
+          className="object-contain"
+          objectPosition="left"
+        />
       </Link>
 
       {/* Middle search */}
@@ -40,11 +50,19 @@ const Header = () => {
 
       {/* Right */}
       <div className="flex items-center justify-end space-x-4 text-gray-500">
-        <Link href="/communities" className=" flex gap-1 bg-rainbow-gradient p-2 cursor-pointer rounded-full text-white font-semibold">
-        <FaSearch className="h-6 cursor-pointer" />
+        <Link
+          href="/communities"
+          className=" flex gap-1 bg-rainbow-gradient p-2 cursor-pointer rounded-full text-white font-semibold"
+        >
+          <FaSearch className="h-6 cursor-pointer" />
           Communities
         </Link>
-        <Link href="/pricing" className="hidden md:inline cursor-pointer  p-2 rounded-full bg-[#12B9f3]   text-white">Become a host</Link>
+        <Link
+          href="/pricing"
+          className="hidden md:inline cursor-pointer  p-2 rounded-full bg-[#12B9f3]   text-white"
+        >
+          Become a host
+        </Link>
         {/* <FaGlobe className="h-6 cursor-pointer" /> */}
         <div className="relative">
           <div
@@ -55,7 +73,10 @@ const Header = () => {
             <FaUserCircle className="h-6" />
           </div>
           {showDropdown && (
-            <div ref={dropdownRef} className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
+            <div
+              ref={dropdownRef}
+              className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl"
+            >
               <button
                 onClick={() => {
                   setShowDropdown(false);

@@ -89,8 +89,9 @@
 //             height={80}
 //             width={80}
 //             alt="logo"
-//             objectFit="contain"
+//            
 //             objectPosition="left"
+// className="object-contain"
 //           />
 //         </Link>
 

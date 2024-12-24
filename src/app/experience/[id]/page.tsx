@@ -1,21 +1,26 @@
 "use client";
 
-import { useState } from 'react';
-import { notFound } from 'next/navigation';
-import Navbar from '@/components/Navbar';
-import Image from 'next/image';
-import { HeartIcon, GiftIcon, BookmarkIcon, UsersIcon } from '@heroicons/react/24/outline';
-import Footer from '@/components/Footer';
-import Download from '@/components/Download';
-import BookingModal from '@/components/BookingModal';
-import experiences from '@/data/data';
+import { useState } from "react";
+import { notFound } from "next/navigation";
+import Navbar from "@/components/Navbar";
+import Image from "next/image";
+import {
+  HeartIcon,
+  GiftIcon,
+  BookmarkIcon,
+  UsersIcon,
+} from "@heroicons/react/24/outline";
+import Footer from "@/components/Footer";
+import Download from "@/components/Download";
+import BookingModal from "@/components/BookingModal";
+import experiences from "@/data/data";
 
 const getLearningExperience = (id) => {
   return experiences.find((exp) => exp.id === id);
 };
 
 export default function ExperienceDetail({ params }) {
-  const [activeTab, setActiveTab] = useState('description');
+  const [activeTab, setActiveTab] = useState("description");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const experience = getLearningExperience(params.id);
 
@@ -39,34 +44,72 @@ export default function ExperienceDetail({ params }) {
           <h1 className="text-3xl font-bold mb-4">{experience.title}</h1>
           <p className="text-lg mb-2">Hosted by {experience.host}</p>
           <div className="relative w-full h-96 mb-8">
-            <Image src={experience.image} alt={experience.title} layout="fill" objectFit="cover" className="rounded-lg shadow-lg" />
+            <Image
+              src={experience.image}
+              alt={experience.title}
+              fill
+              
+              className="rounded-lg shadow-lg object-cover"
+            />
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-2xl font-bold mb-4">Class Information</h2>
-            <p><strong>Start Date:</strong> {experience.startDate}</p>
-            <p><strong>Time:</strong> {experience.time}</p>
-            <p><strong>Avg Session Duration:</strong> {experience.avgSessionDuration}</p>
-            <p><strong>Number of Classes:</strong> {experience.numOfClasses}</p>
-            <p><strong>Age Group:</strong> {experience.ageGroup}</p>
-            <p><strong>Location:</strong> {experience.location}</p>
-            <p><strong>Attending:</strong> {experience.attending} out of {experience.capacity} slots booked</p>
-            <p><strong>Host Type:</strong> {experience.hostType}</p>
+            <p>
+              <strong>Start Date:</strong> {experience.startDate}
+            </p>
+            <p>
+              <strong>Time:</strong> {experience.time}
+            </p>
+            <p>
+              <strong>Avg Session Duration:</strong>{" "}
+              {experience.avgSessionDuration}
+            </p>
+            <p>
+              <strong>Number of Classes:</strong> {experience.numOfClasses}
+            </p>
+            <p>
+              <strong>Age Group:</strong> {experience.ageGroup}
+            </p>
+            <p>
+              <strong>Location:</strong> {experience.location}
+            </p>
+            <p>
+              <strong>Attending:</strong> {experience.attending} out of{" "}
+              {experience.capacity} slots booked
+            </p>
+            <p>
+              <strong>Host Type:</strong> {experience.hostType}
+            </p>
             <div className="flex items-center mb-2">
-              <p><strong>Avg Rating:</strong></p>
+              <p>
+                <strong>Avg Rating:</strong>
+              </p>
               <div className="text-yellow-500 flex items-center ml-2">
-                {'⭐'.repeat(Math.round(experience.rating))}
+                {"⭐".repeat(Math.round(experience.rating))}
               </div>
             </div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-2xl font-bold mb-4">Start Dates ({experience.dates.length})</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              Start Dates ({experience.dates.length})
+            </h2>
             <div className="grid grid-cols-1 gap-4">
               {experience.dates.map((date, index) => (
-                <div key={index} className="flex justify-between items-center border p-4 rounded-lg">
+                <div
+                  key={index}
+                  className="flex justify-between items-center border p-4 rounded-lg"
+                >
                   <span>{date.date}</span>
                   <div className="flex items-center space-x-4">
-                    <span className="text-green-600">{date.seatsLeft} seats left</span>
-                    <button className="bg-[#A72C76] text-white py-2 px-4 rounded-lg  transition duration-300" onClick={openModal}>Book</button>
+                    <span className="text-green-600">
+                      {date.seatsLeft} seats left
+                    </span>
+                    <button
+                      className="bg-[#A72C76] text-white py-2 px-4 rounded-lg  transition duration-300"
+                      onClick={openModal}
+                    >
+                      Book
+                    </button>
                   </div>
                 </div>
               ))}
@@ -79,29 +122,48 @@ export default function ExperienceDetail({ params }) {
             <ul className="list-disc list-inside mb-4">
               <li>Learn how to Crumb Coat</li>
               <li>Work with American Buttercream</li>
-              <li>Learn various piping techniques including; shells, stars, zig-zags, ruffles & rosettes</li>
+              <li>
+                Learn various piping techniques including; shells, stars,
+                zig-zags, ruffles & rosettes
+              </li>
               <li>Work with multiple piping tips</li>
               <li>Learn how to apply these techniques to your cake.</li>
             </ul>
-            <p className="text-gray-600 italic">All supplies and materials included, classes are hands-on, interactive experiences. So, please dress accordingly. We recommend wearing casual clothing that you won’t mind getting a little sugar on, and flat comfortable shoes. Open toed shoes and sandals are not recommended as this is a safety concern when working within a kitchen. Long hair should be tied back.</p>
+            <p className="text-gray-600 italic">
+              All supplies and materials included, classes are hands-on,
+              interactive experiences. So, please dress accordingly. We
+              recommend wearing casual clothing that you won’t mind getting a
+              little sugar on, and flat comfortable shoes. Open toed shoes and
+              sandals are not recommended as this is a safety concern when
+              working within a kitchen. Long hair should be tied back.
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-2xl font-bold mb-4">Reviews ({experience.reviews})</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              Reviews ({experience.reviews})
+            </h2>
             <div className="text-yellow-500 flex items-center mb-2">
-              {'⭐'.repeat(Math.round(experience.rating))}
+              {"⭐".repeat(Math.round(experience.rating))}
             </div>
-            <p>Lots of fun and technically very informative and easy to learn. Lisa is an amazing instructor! I highly recommend this class to anyone interested in cake decorating and perfecting their craft.</p>
+            <p>
+              Lots of fun and technically very informative and easy to learn.
+              Lisa is an amazing instructor! I highly recommend this class to
+              anyone interested in cake decorating and perfecting their craft.
+            </p>
             <p className="text-right font-semibold mt-2">- KERRY H.</p>
           </div>
         </div>
         <div className="lg:w-1/4 lg:pl-8">
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <a href="/book" className="w-full">
-            <button className="w-full bg-[#12B9F3] text-white font-semibold py-3 rounded-lg shadow-md  transition duration-300 mb-4" href="/book">
-              Book Now
-            </button>
-          </a>
-           
+            <a href="/book" className="w-full">
+              <button
+                className="w-full bg-[#12B9F3] text-white font-semibold py-3 rounded-lg shadow-md  transition duration-300 mb-4"
+                href="/book"
+              >
+                Book Now
+              </button>
+            </a>
+
             <button className="w-full bg-gray-100 text-gray-700 font-semibold py-3 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 mb-4">
               <BookmarkIcon className="inline h-5 w-5 mr-2" /> Save to Wishlist
             </button>
@@ -116,7 +178,7 @@ export default function ExperienceDetail({ params }) {
               <li>All levels</li>
               <li>Age Limit: {experience.ageLimit}</li>
               <li>Earn 10% Rewards</li>
-              <li>Price Lock</li> 
+              <li>Price Lock</li>
             </ul>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
@@ -136,11 +198,17 @@ export default function ExperienceDetail({ params }) {
             <p>{experience.location}</p>
           </div>
           <div className="relative w-full h-64 mb-8">
-            <Image src={experience.mapImage} alt="Map" layout="fill" objectFit="cover" className="rounded-lg shadow-lg" />
+            <Image
+              src={experience.mapImage}
+              alt="Map"
+              fill
+             
+              className="rounded-lg shadow-lg object-cover"
+            />
           </div>
-          
+
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8 flex flex-col items-center">
-            <h1 className=' font-bold mb-4'>Meet the Instructor</h1>
+            <h1 className=" font-bold mb-4">Meet the Instructor</h1>
             <Image
               src="https://randomuser.me/api/portraits/women/50.jpg" // Replace with the actual image URL
               alt="Lisa Mwangi"
@@ -149,7 +217,9 @@ export default function ExperienceDetail({ params }) {
               className="rounded-full mb-4"
             />
             <h2 className="text-2xl font-bold mb-2">Lisa Mwangi</h2>
-            <p className="text-sm text-gray-500 mb-2">Started instructing in 2024</p>
+            <p className="text-sm text-gray-500 mb-2">
+              Started instructing in 2024
+            </p>
             <a href="/staff" className="w-full">
               <button className="w-full bg-[#12B9f3] text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 mt-4">
                 See profile
@@ -158,9 +228,13 @@ export default function ExperienceDetail({ params }) {
           </div>
         </div>
       </div>
-      <Download/>
-      <Footer/>
-      <BookingModal isOpen={isModalOpen} closeModal={closeModal} experience={experience} />
+      <Download />
+      <Footer />
+      <BookingModal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        experience={experience}
+      />
     </div>
   );
 }

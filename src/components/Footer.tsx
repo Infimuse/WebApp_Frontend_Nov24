@@ -18,7 +18,8 @@ const Footer = () => {
           alt={"logo"}
           height={80}
           width={80}
-        //   objectFit="contain"
+        
+        className="object-contain"
           objectPosition="left"
         />
         <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© 2024 Infumuse.</p>

@@ -1,28 +1,30 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import backgroundImage1 from '@/public/assets/pexels-pixabay-247819.jpg'; // Replace with actual image path
-import backgroundImage2 from '@/public/assets/classroom@1x.jpg'; // Replace with actual image path
-import backgroundImage3 from '@/public/assets/pexels-leah-newhouse-50725-325521.jpg'; // Replace with actual image path
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import backgroundImage1 from "@/public/assets/pexels-pixabay-247819.jpg"; // Replace with actual image path
+import backgroundImage2 from "@/public/assets/classroom@1x.jpg"; // Replace with actual image path
+import backgroundImage3 from "@/public/assets/pexels-leah-newhouse-50725-325521.jpg"; // Replace with actual image path
 
 const banners = [
   {
     image: backgroundImage1,
-    title: 'Give Experiences',
-    subtitle: 'Thousands of classes. No expiration. You choose the $ amount. Select a category or let the recipient pick.',
-    buttonText: 'Book Now',
+    title: "Give Experiences",
+    subtitle:
+      "Thousands of classes. No expiration. You choose the $ amount. Select a category or let the recipient pick.",
+    buttonText: "Book Now",
   },
   {
     image: backgroundImage2,
-    title: 'Learn Something New',
-    subtitle: 'Explore a variety of courses to help you learn new skills and advance your career.',
-    buttonText: 'Start Learning',
+    title: "Learn Something New",
+    subtitle:
+      "Explore a variety of courses to help you learn new skills and advance your career.",
+    buttonText: "Start Learning",
   },
   {
     image: backgroundImage3,
-    title: 'Join Our Community',
-    subtitle: 'Connect with like-minded individuals and grow together.',
-    buttonText: 'Sign Up Now',
+    title: "Join Our Community",
+    subtitle: "Connect with like-minded individuals and grow together.",
+    buttonText: "Sign Up Now",
   },
 ];
 
@@ -43,10 +45,9 @@ const HeroBanner = () => {
         <Image
           src={banners[currentBanner].image}
           alt="Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
           quality={100}
-          
         />
         <div className="absolute inset-0 bg-black opacity-50 "></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 sm:px-10 md:px-20">

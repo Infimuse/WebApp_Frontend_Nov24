@@ -1,47 +1,55 @@
 import React, { useState } from 'react';
 import SignUp from './SignUp'; // Import the SignUp component
 
-function SignIn({ onClose }) {
+interface Props{
+  onClose: () => void
+}
+function SignIn({ onClose }:Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false); // State to toggle between SignIn and SignUp
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const response = await fetch('https://whatever.lat/api/v1/customers/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://whatever.lat/api/v1/customers/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Login successful', data);
+        console.log("Login successful", data);
         // Handle successful login (e.g., redirect, show success message, etc.)
         onClose();
       } else {
-        console.error('Login failed', data);
+        console.error("Login failed", data);
         // Handle login failure (e.g., show error message)
       }
     } catch (error) {
-      console.error('An error occurred', error);
+      console.error("An error occurred", error);
       // Handle network or other errors
     } finally {
       setLoading(false);
     }
   };
 
-  const handleClickOutside = (e) => {
-    if (e.target.id === 'sign-in-modal') {
+  const handleClickOutside = (
+    
+  ) => {
+    
       onClose();
-    }
+    
   };
 
   if (isSignUp) {
@@ -52,11 +60,11 @@ function SignIn({ onClose }) {
     <div
       id="sign-in-modal"
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-      onClick={handleClickOutside}
+      onClick={ handleClickOutside}
     >
       <div className="bg-white p-8 rounded-lg text-black shadow-lg w-full max-w-md relative">
         <h2 className="text-2xl font-bold mb-4">Sign In</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={e =>handleSubmit(e)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Email</label>
             <input

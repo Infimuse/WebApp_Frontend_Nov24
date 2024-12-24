@@ -118,7 +118,7 @@ export default function LinkedInPostBox() {
     };
 
      // Handle Audience Change
-     const handleAudienceChange = (newAudience) => {
+     const handleAudienceChange = (newAudience: string) => {
         setAudience(newAudience);
         setIsAudienceDropdownOpen(false); // Close dropdown after selection
     };
@@ -133,15 +133,15 @@ export default function LinkedInPostBox() {
                 </div>
                 <div className="flex justify-between mt-3">
                     <button className="flex items-center space-x-1 hover:bg-gray-100 p-2 rounded cursor-pointer">
-                        <Media className="w-6 h-6 text-blue-500" />
+                        <Media  />
                         <span className="text-sm text-gray-600">Media</span>
                     </button>
                     <button className="flex items-center space-x-1 hover:bg-gray-100 p-2 rounded cursor-pointer">
-                        <Plans className="w-6 h-6 text-green-500" />
+                        <Plans />
                         <span className="text-sm text-gray-600">Progress</span>
                     </button>
                     <button className="flex items-center space-x-1 hover:bg-gray-100 p-2 rounded cursor-pointer">
-                        <Survey className="w-6 h-6 text-red-500" />
+                        <Survey  />
                         <span className="text-sm text-gray-600">Insights</span>
                     </button>
                 </div>
@@ -234,7 +234,7 @@ export default function LinkedInPostBox() {
 
                         {/* Post Textarea */}
                         <textarea
-                            className="w-full p-2 h-28 bg-gray-100 rounded-lg resize-none outline-none mt-2"
+                            className="w-full p-2 h-28 bg-gray-100 text-gray-500 rounded-lg resize-none outline-none mt-2"
                             placeholder="What do you want to talk about?"
                             value={postContent}
                             onChange={(e) => setPostContent(e.target.value)}
@@ -252,7 +252,7 @@ export default function LinkedInPostBox() {
                                     id="mediaUpload"
                                 />
                                 <label htmlFor="mediaUpload" className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 cursor-pointer">
-                                    <Media className="w-6 h-6" />
+                                    <Media />
                                 </label>
 
                                 {/* GIF */}
@@ -260,7 +260,7 @@ export default function LinkedInPostBox() {
                                     className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
                                     onClick={() => setShowGifPicker(true)}
                                 >
-                                    <Gif className="w-6 h-6" />
+                                    <Gif  />
                                 </button>
 
                                 {/* Emoji */}
@@ -268,7 +268,7 @@ export default function LinkedInPostBox() {
                                     className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
                                     onClick={() => setShowEmojiPicker(true)}
                                 >
-                                    <Emoji className="w-6 h-6" />
+                                    <Emoji  />
                                 </button>
 
                                 {/* Plans */}
@@ -276,7 +276,7 @@ export default function LinkedInPostBox() {
                                     className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
                                     onClick={() => setShowPlansPicker(true)}
                                 >
-                                    <Plans className="w-6 h-6" />
+                                    <Plans  />
                                 </button>
                             </div>
 

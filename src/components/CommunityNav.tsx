@@ -1,13 +1,13 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { FaSearch, FaBars, FaUserCircle, FaGlobe } from 'react-icons/fa';
-import SignIn from './Signin';
-import SignUp from './SignUp';
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { FaSearch, FaBars, FaUserCircle, FaGlobe } from "react-icons/fa";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import DatePickerComponent from './DatePicker';
+import DatePickerComponent from "./DatePicker";
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -22,8 +22,8 @@ const Header = () => {
         setShowDropdown(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownRef]);
 
   return (
@@ -38,7 +38,7 @@ const Header = () => {
           height={80}
           width={80}
           alt="logo"
-          objectFit="contain"
+          className="object-contain"
           objectPosition="left"
         />
       </Link>
@@ -99,7 +99,6 @@ const Header = () => {
       </div>
       {showSignIn && <SignIn onClose={() => setShowSignIn(false)} />}
       {showSignUp && <SignUp onClose={() => setShowSignUp(false)} />}
-     
     </header>
   );
 };
