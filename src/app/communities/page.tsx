@@ -30,7 +30,7 @@ export default function HomePage() {
           <MainContent />
         </main>
         {/* Right Sidebar */}
-        <aside className="w-full hidden lg:block lg:w-1/5 bg-white p-4">
+        <aside className="w-full hidden lg:block lg:w-1/5 bg-white">
           {" "}
           {/* Remove sticky class */}
           <RightSidebar />

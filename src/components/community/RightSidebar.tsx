@@ -19,25 +19,25 @@ export default function AllBox() {
                 {/* My Communities Section */}
                 <div className="rounded border-gray-200 cursor-pointer mb-4 h-full p-4">
                     <div className="flex items-center">
-                        <span className="text-sm font-bold text-black p-1 -mt-4">My Communities</span>
+                        <span className="text-lg font-semibold text-black p-1 -mt-4">My Communities</span>
                         <div className="flex space-x-1 ml-auto tt items-center justify-center w-8 h-8 rounded-full transform transition-colors duration-2 hover:bg-primary-trends_circle_hover hover:bg-opacity-25 cursor-pointer">
                             <Circle />
                         </div>
                     </div>
-                    <div className="p-2 text-gray-700 font-bold">SquidGames</div>
-                    <div className="p-2 text-gray-700">30K Posts</div>
+                    <div className="p-2 text-gray-700">SquidGames | 2k Posts</div>
+                    
                 </div>
 
                 {/* Host Communities Section */}
                 <div className="rounded border-gray-200 cursor-pointer h-full p-4">
                     <div className="flex items-center">
-                        <span className="text-sm font-bold text-black p-2 -mt-4">Host Communities</span>
+                        <span className="text-lg font-semibold text-black p-2 -mt-4">Host Communities</span>
                         <div className="flex space-x-1 ml-auto tt items-center justify-center w-8 h-8 rounded-full transform transition-colors duration-2 hover:bg-primary-trends_circle_hover hover:bg-opacity-25 cursor-pointer">
                             <Circle />
                         </div>
                     </div>
-                    <div className="p-2 text-gray-700 font-bold">NewTopic</div>
-                    <div className="p-2 text-gray-700">10K Posts</div>
+                    <div className="p-2 text-gray-700">NewTopic | 500 posts</div>
+                    
                 </div>
 
                 {/* Show More Button */}

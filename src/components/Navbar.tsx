@@ -231,13 +231,17 @@ const Header: React.FC = () => {
 
         {/* Right Navigation */}
         <div className="flex items-center space-x-4">
-          <Link
-            href="/communities"
-            className="flex items-center gap-1 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white px-4 py-2 rounded-full font-semibold"
-          >
-            <FaSearch />
-            Communities
-          </Link>
+          <div className="relative group p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transition-shadow duration-300 hover:shadow-[0_0_20px_5px_rgba(219,112,147,0.5)]">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-0 rounded-full transition-opacity duration-300 group-hover:opacity-100"></div>
+            <Link
+              href="/communities"
+              className="relative flex items-center gap-1 bg-white text-black px-4 py-2 rounded-full font-semibold z-10"
+            >
+              <FaSearch />
+              Communities
+            </Link>
+          </div>
+
           <Link
             href="/pricing"
             className="hidden md:inline-block px-4 py-2 rounded-full text-black hover:bg-gray-100 hover:text-[#BB2460] transition-colors"
