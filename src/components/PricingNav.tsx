@@ -143,7 +143,7 @@ const Header: React.FC = () => {
   }, [dropdownRef]);
 
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-20">
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow p-5 md:px-20">
       {/* Left */}
       <Link
         href="/"
@@ -165,19 +165,22 @@ const Header: React.FC = () => {
 
       {/* Right */}
       <div className="flex items-center justify-end space-x-4 text-gray-500">
-        <Link
-          href="/communities"
-          className="flex gap-1 bg-rainbow-gradient p-2 cursor-pointer rounded-full text-white font-semibold"
-        >
-          <FaSearch className="h-6 cursor-pointer" />
-          Communities
-        </Link>
-        <Link
+        <div className="relative group p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transition-shadow duration-300 hover:shadow-[0_0_20px_5px_rgba(219,112,147,0.5)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-0 rounded-full transition-opacity duration-300 group-hover:opacity-100"></div>
+          <Link
+            href="/communities"
+            className="relative flex items-center gap-1 bg-white text-black px-4 py-2 rounded-full font-semibold z-10"
+          >
+            <FaSearch />
+            Communities
+          </Link>
+        </div>
+        {/* <Link
           href="/pricing"
           className="hidden md:inline cursor-pointer p-2 rounded-full bg-[#12B9f3] text-white"
         >
           Become a host
-        </Link>
+        </Link> */}
 
         {/* Dropdown */}
         <div className="relative">

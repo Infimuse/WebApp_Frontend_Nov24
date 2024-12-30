@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
+import SignIn from "./Signin";
 
 function Pricing() {
+  const [isLogin, setIsLogin] = React.useState(false);
   return (
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      {isLogin && <SignIn onClose={() => {}} />}
       <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
         <h2 className="text-2xl font-bold md:text-4xl md:leading-tight text-black">
           Become a Host
@@ -189,12 +193,12 @@ function Pricing() {
             </li>
           </ul>
 
-          <a
+          <button
             className="mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:border-[#1E78F4] hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none "
-            href="#"
+            onClick={() => setIsLogin(true)}
           >
             Choose plan
-          </a>
+          </button>
         </div>
 
         <div className="flex flex-col border-2 border-[#1E78F4] text-center shadow-xl rounded-xl p-8 ">
@@ -388,12 +392,12 @@ function Pricing() {
             </li>
           </ul>
 
-          <a
+          <button
             className="mt-5 py-3 px-4 inline-flex  justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-            href="#"
+            onClick={() => setIsLogin(true)}
           >
             Choose plan
-          </a>
+          </button>
         </div>
 
         <div className="flex flex-col border border-gray-200 text-center rounded-xl p-8 ">
@@ -579,12 +583,12 @@ function Pricing() {
             </li>
           </ul>
 
-          <a
+          <button
             className="mt-5 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:border-[#1E78F4] hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none "
-            href="#"
+            onClick={() => setIsLogin(true)}
           >
             Choose plan
-          </a>
+          </button>
         </div>
       </div>
     </div>
