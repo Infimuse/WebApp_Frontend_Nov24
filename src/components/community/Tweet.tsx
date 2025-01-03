@@ -44,7 +44,7 @@ const Tweet = ({ tweet }: Props) => {
           </div>
         </div>
         <div>
-      <p className="text-gray-700 text-sm">{displayText}</p>
+      <p className="text-gray-700 text-sm pl-1">{displayText}</p>
       {shouldTruncate && (
         <button
           onClick={toggleExpand}
@@ -83,8 +83,7 @@ const Tweet = ({ tweet }: Props) => {
           </li>
         </ul>
       </div>
-      {/* <img src={tweet.portrait} className="tweet-portrait-left" alt="User Portrait" /> */}
-      {/* <img src={tweet.portrait} className="tweet-portrait-right" alt="User Portrait" /> */}
+     
     </div>
   );
 };
