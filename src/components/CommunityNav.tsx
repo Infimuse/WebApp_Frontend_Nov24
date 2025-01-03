@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           href="/pricing"
           className="hidden md:inline cursor-pointer  p-2 rounded-full hover:bg-gray-100 hover:text-[#BB2460] text-black"
         >
-          Become a host
+          Become a a
         </Link>
         <div className="relative">
           <div
