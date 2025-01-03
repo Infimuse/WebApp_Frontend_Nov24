@@ -114,7 +114,9 @@ const SubNavbar = () => {
               onClick={() => handleCategoryClick(category.name)}
             >
               <span className="text-xl mb-2">{category.icon}</span>
-              <span className="sm:text-sm text-xs font-medium">{category.name}</span>
+              <span className="sm:text-sm text-xs font-medium">
+                {category.name}
+              </span>
             </div>
           ))}
         </div>
@@ -134,13 +136,13 @@ const SubNavbar = () => {
 
       {/* Subcategories */}
       {selectedSubcategories.length > 0 && (
-        <div className="ml-8 mt-4">
+        <div className="ml-8 mt-1.5 sm:mt-4">
           <div className="flex flex-wrap gap-2 mb-4">
             {selectedSubcategories.map((subcategory) => (
               <span
                 key={subcategory}
                 onClick={() => handleSubcategoryClick(subcategory)}
-                className={`px-4 py-2 rounded-full cursor-pointer text-sm font-medium ${
+                className={`sm:px-4 px-1.5 sm:py-2 py-1 rounded-full cursor-pointer sm:text-sm text-xs font-medium ${
                   activeSubcategories.has(subcategory)
                     ? "bg-[#BB2460] text-white"
                     : "bg-[#12B9F3] text-white"
