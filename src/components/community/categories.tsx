@@ -97,7 +97,7 @@ const SubNavbar = () => {
     categories.find((c) => c.name === selectedCategory)?.subcategories || [];
 
   return (
-    <div className="bg-white py-4 sticky top-5 w-full z-10">
+    <div className="bg-white py-4  w-full z-10">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4">
         <div
           className="relative flex items-center space-x-8 overflow-x-auto hide-scroll-bar p-2"

@@ -33,16 +33,21 @@ export default function GlobalNavbar() {
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex flex-shrink-0 z-[100] items-center">
-                <img
-                  className="block h-10  w-auto lg:hidden"
-                  src="/assets/logo.png"
-                  alt="Your Company"
-                />
-                <img
-                  className="hidden h-8 w-auto lg:block"
-                  src="/assets/logo.png"
-                  alt="Your Company"
-                />
+                <Link href="/" className="lg:hidden block">
+                  <img
+                    className="block h-10  w-auto lg:hidden"
+                    src="/assets/logo.png"
+                    alt="Your Company"
+                  />
+                </Link>
+
+                <Link href="/" className="hidden  lg:block">
+                  <img
+                    className="hidden h-10 w-auto lg:block"
+                    src="/assets/logo.png"
+                    alt="Your Company"
+                  />
+                </Link>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8"></div>
             </div>
@@ -136,7 +141,7 @@ export default function GlobalNavbar() {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-0 z-50 transform ${
+        className={`fixed inset-0 z-50 w-[70%] transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 bg-white shadow-lg sm:hidden`}
       >
