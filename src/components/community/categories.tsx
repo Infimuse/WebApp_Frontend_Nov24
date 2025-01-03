@@ -97,7 +97,7 @@ const SubNavbar = () => {
     categories.find((c) => c.name === selectedCategory)?.subcategories || [];
 
   return (
-    <div className="bg-white py-4  w-full z-10">
+    <div className="bg-white py-2 sm:py-4  w-full z-10">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4">
         <div
           className="relative flex items-center space-x-8 overflow-x-auto hide-scroll-bar p-2"
@@ -113,8 +113,8 @@ const SubNavbar = () => {
               }`}
               onClick={() => handleCategoryClick(category.name)}
             >
-              <span className="text-2xl mb-2">{category.icon}</span>
-              <span className="text-sm font-medium">{category.name}</span>
+              <span className="text-xl mb-2">{category.icon}</span>
+              <span className="sm:text-sm text-xs font-medium">{category.name}</span>
             </div>
           ))}
         </div>

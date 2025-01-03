@@ -13,7 +13,7 @@ export default function Location() {
   };
 
   return (
-    <div className="location-slider mt-[-18px] mb-4">
+    <div className="location-slider mt-[-18px] mb-1.5">
       <Slider
         value={distance}
         onChange={handleDistanceChange}
@@ -38,7 +38,7 @@ export default function Location() {
         }}
         className=""
       />
-      <div className="text-black mt-[-18px] mb-8 text-center">
+      <div className="text-black mt-[-18px] mb-2 text-sm text-center">
         {distance[0]} km - {distance[1]} km
       </div>
     </div>
