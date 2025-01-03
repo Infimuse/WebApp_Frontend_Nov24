@@ -170,12 +170,12 @@ export default function LinkedInPostBox() {
       </div>
 
       <div>
-        <FloatingButton label={<FaPlus/>}  onClick={() => setShowModal(true)}/>
+        <FloatingButton label={<FaPlus />} onClick={() => setShowModal(true)} />
       </div>
       {/* Modal for posting */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
-          <div className="bg-white rounded-lg w-full max-w-lg p-4 relative">
+        <div className="fixed inset-0 flex items-center  justify-center bg-gray-800 bg-opacity-75 z-50">
+          <div className="bg-white rounded-lg sm:w-full w-[90%] max-w-lg p-4 relative">
             <button className="absolute top-2 right-2" onClick={closeModal}>
               <IoClose className="text-gray-600 w-6 h-6" />
             </button>
