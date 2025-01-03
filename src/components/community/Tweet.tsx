@@ -1,5 +1,7 @@
-import { FaHeart, FaComment, FaShare } from "react-icons/fa";
-import {useState} from "react"
+import {  FaComment, FaShare } from "react-icons/fa";
+import { HiOutlineHeart } from "react-icons/hi";
+
+import { useState } from "react";
 interface Props {
   tweet: {
     id: number;
@@ -15,16 +17,17 @@ interface Props {
   };
 }
 const Tweet = ({ tweet }: Props) => {
-
-    const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
     setIsExpanded((prev) => !prev);
   };
 
   const shouldTruncate = tweet?.text.length > 150;
-  const displayText = isExpanded || !shouldTruncate ? tweet.text : `${tweet.text.slice(0, 150)}...`;
-
+  const displayText =
+    isExpanded || !shouldTruncate
+      ? tweet.text
+      : `${tweet.text.slice(0, 150)}...`;
 
   return (
     <div key={tweet.id} className="tweet-container w-screen lg:w-full">
@@ -44,37 +47,36 @@ const Tweet = ({ tweet }: Props) => {
           </div>
         </div>
         <div>
-      <p className="text-gray-700 text-sm pl-1">{displayText}</p>
-      {shouldTruncate && (
-        <button
-          onClick={toggleExpand}
-          className="text-blue-500 hover:underline focus:outline-none"
-        >
-          {isExpanded ? "See less" : "See more"}
-        </button>
-      )}
-    </div>
+          <p className="text-gray-700 text-sm pl-1">{displayText}</p>
+          {shouldTruncate && (
+            <button
+              onClick={toggleExpand}
+              className="text-blue-500 hover:underline focus:outline-none"
+            >
+              {isExpanded ? "See less" : "See more"}
+            </button>
+          )}
+        </div>
         {tweet.image && (
           <img className="" src={tweet.image} alt="Tweet Visual" />
         )}
 
         <ul className="flex justify-between w-full gap-3 mt-2 px-2">
           <div className="flex  gap-2">
-<li className="center-item flex items-center gap-1">
-            <div className="action-icon hover:text-red-600">
-              <FaHeart size={20} />
-            </div>
-            <span>{tweet.likes}</span>
-          </li>
+            <li className="center-item flex items-center gap-1">
+              <div className="action-icon hover:text-red-600">
+                <HiOutlineHeart size={20} />
+              </div>
+            </li>
 
-          <li className="center-item flex items-center gap-1">
-            <div className="action-icon hover:text-red-600">
-              <FaComment size={20} />
-            </div>
-            <span>{tweet.replies}</span>
-          </li>
+            <li className="center-item flex items-center gap-1">
+              <div className="action-icon hover:text-red-600">
+                <FaComment size={20} />
+              </div>
+              <span>{tweet.replies}</span>
+            </li>
           </div>
-          
+
           <li className="center-item flex items-center gap-1 align-right">
             <div className="action-icon hover:text-red-600">
               <FaShare size={20} />
@@ -82,8 +84,11 @@ const Tweet = ({ tweet }: Props) => {
             <span>{tweet.shares}</span>
           </li>
         </ul>
+
+        <p className="text-gray-700 text-sm  font-semibold px-2">
+          {tweet.likes} likes
+        </p>
       </div>
-     
     </div>
   );
 };
