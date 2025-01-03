@@ -44,7 +44,7 @@ const Tweet = ({ tweet }: Props) => {
           </div>
         </div>
         <div>
-      <p className="text-gray-700">{displayText}</p>
+      <p className="text-gray-700 text-sm">{displayText}</p>
       {shouldTruncate && (
         <button
           onClick={toggleExpand}
