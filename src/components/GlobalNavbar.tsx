@@ -1,12 +1,13 @@
 "use client";
 import { useState, Fragment } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { TbCalendarSearch } from "react-icons/tb";
 import { HiUsers } from "react-icons/hi";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { Menu, Transition } from "@headlessui/react";
+import { IoPerson } from "react-icons/io5";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -27,13 +28,13 @@ export default function GlobalNavbar() {
                 className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               >
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                <IoPerson className="block h-6 w-6" aria-hidden="true" />
               </button>
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex flex-shrink-0 z-[100] items-center">
                 <img
-                  className="block h-8  w-auto lg:hidden"
+                  className="block h-10  w-auto lg:hidden"
                   src="/assets/logo.png"
                   alt="Your Company"
                 />
@@ -55,7 +56,7 @@ export default function GlobalNavbar() {
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-0 rounded-full transition-opacity duration-300 group-hover:opacity-100"></div>
                   <Link
                     href="/communities"
-                    className="relative text-xs flex items-center gap-1 bg-white text-black px-2 sm:px-4 py-2 rounded-full sm:font-semibold"
+                    className="relative text-[9px] flex items-center gap-1 bg-white text-black px-2 sm:px-4 py-2 rounded-full sm:font-semibold"
                   >
                     Communities
                   </Link>
