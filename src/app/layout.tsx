@@ -1,8 +1,11 @@
+// app/layout.tsx or app/RootLayout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./style.css";
-import { Toaster } from "sonner";
+// import { Toaster } from "sonner";
+import GlobalNavbar from "@/components/GlobalNavbar";
+import BottomNav from "@/components/BottomNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +27,10 @@ export default function RootLayout({
         }}
         className={inter.className}
       >
-        <div className="">
-          <Toaster richColors />
+        <div className="max-h-screen sm:max-h-auto">
+          <GlobalNavbar />
           {children}
+          <BottomNav /> {/* Add the BottomNav here */}
         </div>
       </body>
     </html>

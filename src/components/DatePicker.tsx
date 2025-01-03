@@ -23,7 +23,7 @@ const DatePickerComponent = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center md:mt-20 text-black w-full relative">
+    <div className="flex flex-col items-center justify-center  text-black w-full relative">
       {/* First row with This Week and Next Week buttons */}
       <div className="flex items-center justify-center space-x-4 mb-3">
         <button className="px-10 py-2 bg-gray-100 hover:bg-[#bb2460] hover:text-white whitespace-nowrap rounded-full">

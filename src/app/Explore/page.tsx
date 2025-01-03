@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import experiences from "@/data/experiences";
@@ -12,9 +11,9 @@ import Pagination from "@/components/pagination";
 
 const Explore = () => {
   return (
-    <div className="bg-white pt-5 w-full">
-      <Navbar />
-      <div className="mx-auto px-4 w-full sm:px-2 lg:px-8 my-8 overflow-x-hidden text-black max-w-[1280px] mx-auto">
+    <div className="bg-white w-full">
+      
+      <div className="mx-auto px-4 w-full sm:px-2 lg:px-8 overflow-x-hidden text-black max-w-[1280px] mx-auto">
         <Datepicker />
         <SubNavbar2 />
         <SubNavbar />

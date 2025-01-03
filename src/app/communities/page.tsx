@@ -4,7 +4,6 @@ import React from 'react';
 import Sidebar from '@/components/community/Sidebar';
 import MainContent from '@/components/community/MainContent';
 import RightSidebar from '@/components/community/RightSidebar';
-import Navbar from '@/components/CommunityNav';
 import Footer from '@/components/Footer';
 
 export default function HomePage() {
@@ -16,7 +15,6 @@ export default function HomePage() {
 
   return (
     <div className="bg-white w-full flex flex-col justify-evenly max-w-[1280px] mx-auto">
-      <Navbar />
 
       <div className="flex w-full flex-col md:flex-row gap-4 max-w-[1280px] mx-auto px-4 overflow-x-hidden">
         {" "}
