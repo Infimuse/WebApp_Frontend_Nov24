@@ -1,14 +1,13 @@
- "use client"
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import React, { useEffect, useState } from "react";
+import Footer from "@/components/Footer";
 
 const BookingPage = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem("user");
     if (user) {
       setIsSignedIn(true);
     }
@@ -16,22 +15,34 @@ const BookingPage = () => {
 
   return (
     <>
-      <Navbar />
+      
       <div className="bg-white min-h-screen flex flex-col items-center">
-        <div className="flex flex-col items-center justify-center w-full max-w-6xl px-4 py-20">
-          <div className="w-full bg-white shadow-lg rounded-lg p-8">
-            <header className="mb-8 text-center">
-              <h1 className="text-3xl font-semibold text-gray-900">Confirm and Pay</h1>
+        <div className="flex flex-col items-center justify-center w-full max-w-6xl px-4 py-2">
+          <div className="w-full bg-white shadow-lg rounded-lg p-3">
+            <header className="mb-3 text-center">
+              <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                Confirm and Pay
+              </h1>
             </header>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Right Column for Property Details */}
               <div className="bg-gray-50 p-4 rounded-lg shadow">
                 <div className="flex flex-col items-center">
-                  <img src="https://images.pexels.com/photos/3820380/pexels-photo-3820380.jpeg" alt="Property" className="w-full mb-4 rounded-lg object-cover h-64"/>
-                  <h3 className="text-lg font-semibold text-gray-800 mt-4">Wine Tasting</h3>
-                  <p className="text-sm text-gray-600 mt-2">Hosted by Vineyard</p>
-                  <p className="text-sm font-semibold text-gray-800 mt-2">4.96 (226 reviews) • Superhost</p>
+                  <img
+                    src="https://images.pexels.com/photos/3820380/pexels-photo-3820380.jpeg"
+                    alt="Property"
+                    className="w-full mb-4 rounded-lg object-cover h-64"
+                  />
+                  <h3 className="text-lg font-semibold text-gray-800 mt-4">
+                    Wine Tasting
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-2">
+                    Hosted by Vineyard
+                  </p>
+                  <p className="text-sm font-semibold text-gray-800 mt-2">
+                    4.96 (226 reviews) • Superhost
+                  </p>
                 </div>
                 <div className="mt-8">
                   <p className="text-sm text-gray-600">Price details:</p>
@@ -39,7 +50,9 @@ const BookingPage = () => {
                     <li>Location: 456 Vineyard Rd, Napa Valley, CA</li>
                     <li>Start Date: June 15th, 2023</li>
                     <li>Time: 2:00 PM - 5:00 PM EDT</li>
-                    <li><strong>Total (KES): KSh 48,301.60</strong></li>
+                    <li>
+                      <strong>Total (KES): KSh 48,301.60</strong>
+                    </li>
                   </ul>
                 </div>
                 <div className="mt-8">
@@ -53,7 +66,11 @@ const BookingPage = () => {
                 </div>
                 <div className="mt-8">
                   <p className="text-sm text-gray-600">Cancellation policy:</p>
-                  <p className="text-sm text-gray-800 mt-2">Free cancellation for 48 hours. After that, cancel up to 7 days before check-in and get a 50% refund, minus the service fee.</p>
+                  <p className="text-sm text-gray-800 mt-2">
+                    Free cancellation for 48 hours. After that, cancel up to 7
+                    days before check-in and get a 50% refund, minus the service
+                    fee.
+                  </p>
                 </div>
                 <div className="mt-8">
                   <p className="text-sm text-gray-600">Location:</p>
@@ -72,22 +89,42 @@ const BookingPage = () => {
               <div>
                 {isSignedIn ? (
                   <div className="border rounded-xl mb-10 border-gray-300 p-4">
-                    <h2 className="text-lg font-semibold text-gray-800">Your Booking Details</h2>
-                    <p className="text-sm text-gray-500">Claudias place is usually booked. This is a rare find.</p>
+                    <h2 className="text-lg font-semibold text-gray-800">
+                      Your Booking Details
+                    </h2>
+                    <p className="text-sm text-gray-500">
+                      Claudias place is usually booked. This is a rare find.
+                    </p>
                   </div>
                 ) : (
                   <div className="mb-8">
-                    <h2 className="text-lg font-semibold text-gray-800">Log in or sign up to book</h2>
+                    <h2 className="text-lg font-semibold text-gray-800">
+                      Log in or sign up to book
+                    </h2>
                     <div className="mt-4">
-                      <input type="text" placeholder="Phone number" className="form-input mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md" />
-                      <button className="mt-4 w-full bg-pink-500 text-white py-2 px-4 rounded">Continue</button>
-                      
+                      <input
+                        type="text"
+                        placeholder="Phone number"
+                        className="form-input mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                      />
+                      <button className="mt-4 w-full bg-pink-500 text-white py-2 px-4 rounded">
+                        Continue
+                      </button>
+
                       <div className="flex justify-center space-x-4 mt-4">
-                        <button className="p-2 border rounded text-blue-600 border-blue-600">Facebook</button>
-                        <button className="p-2 border rounded text-red-600 border-red-600">Google</button>
-                        <button className="p-2 border rounded text-gray-800 border-gray-800">Apple</button>
+                        <button className="p-2 border rounded text-blue-600 border-blue-600">
+                          Facebook
+                        </button>
+                        <button className="p-2 border rounded text-red-600 border-red-600">
+                          Google
+                        </button>
+                        <button className="p-2 border rounded text-gray-800 border-gray-800">
+                          Apple
+                        </button>
                       </div>
-                      <button className="mt-4 w-full border-gray-500 text-gray-800 border py-2 px-4 rounded hover:bg-pink-600">Continue with Email</button>
+                      <button className="mt-4 w-full border-gray-500 text-gray-800 border py-2 px-4 rounded hover:bg-pink-600">
+                        Continue with Email
+                      </button>
                     </div>
                   </div>
                 )}
