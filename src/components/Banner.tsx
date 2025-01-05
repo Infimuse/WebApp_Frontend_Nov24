@@ -50,13 +50,13 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-[75vh]">
+    <div className="relative w-full mt- hidden sm:block overflow-hidden min-h-[75vh]">
       <div className="w-full h-full overflow-hidden mx-auto max-w-screen-xl">
         <Image
           src={banners[currentBanner].image}
           alt="Background"
           fill
-         className="object-cover"
+          className="object-cover"
           quality={100}
         />
         <div className="absolute inset-0 bg-black opacity-25"></div>

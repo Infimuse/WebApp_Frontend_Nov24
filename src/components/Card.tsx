@@ -31,7 +31,7 @@ const Card = ({
   ));
 
   return (
-    <div className="block bg-white rounded-lg shadow-md overflow-hidden max-w-[100%] min-w-[300px] h-auto relative">
+    <div className="block w-full bg-white rounded-lg shadow-md overflow-hidden max-w-[100%] sm:min-w-[300px] h-auto relative">
       <Link href={`/experience/${id}`}>
         <div className="relative w-full h-32 sm:h-40">
           <Image src={image} alt={title} fill className="object-cover" />
