@@ -531,6 +531,7 @@ import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import SubNavbar2 from "@/components/SubNavbar2";
 import Banner from "@/components/Banner";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
 import "./globals.css";
 
@@ -899,14 +900,17 @@ const HomePage = () => {
 
   return (
     <div className="bg-white w-full">
-      <div className="pt-30" />
+
       <Banner />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-4 text-black">
+
+      <UpcomingEvents/>
+
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8 mb-2 text-black">
         <SubNavbar2 />
         <SubNavbar />
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div className="sm:flex justify-between items-center mb-4">
+          <div className="hidden sm:flex justify-between items-center mb-4">
             <div>
               <h2 className="text-2xl font-bold text-gray-700">
                 Explore and Connect

@@ -5,12 +5,9 @@ import Link from "next/link";
 
 const categories = [
   { name: "All", path: "/" },
-  { name: "Experiences", path: "/activities" },
-  { name: "Activities", path: "/learning-experiences" },
-  { name: "Hangouts", path: "/sipping-hangouts" },
-  { name: "For Kids ", path: "/Kids-activities" },
   { name: "Workshops", path: "/workshops" },
-  // { name: 'Packages', path: '/packages' }
+   { name: "For Kids ", path: "/Kids-activities" },
+
 ];
 
 const SubNavbar2 = () => {
@@ -18,7 +15,7 @@ const SubNavbar2 = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0].path);
 
   return (
-    <div className="bg-white py-2 border-b">
+    <div className="bg-white border-b">
       <div className="mx-auto w-full">
         <div className="flex gap-2 z-10 items-center py-2 px-4 w-full md:justify-center justify-start overflow-x-auto whitespace-nowrap sm:gap-1 ">
           {categories.map((category, index) => (

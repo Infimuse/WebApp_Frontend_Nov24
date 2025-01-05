@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 const Download = () =>{
   return (
-    <div className="bg-gray-800 py-20 rounded-lg text-white p-8 mx-4 sm:mx-6 md:mx-8 lg:mx-20 my-12">
+    <div className="bg-gray-800 py-20 rounded-lg text-white p-8 mx-4 sm:mx-6 md:mx-8 lg:mx-20  my-4 sm:my-6">
       <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <div className="text-center md:text-left">
-          <h2 className="text-3xl font-bold mb-4">Get the Host App</h2>
-          <p className="mb-4">
+          <h2 className="text-2xl font-bold mb-4">Get the Host App</h2>
+          <p className="mb-4 text-xs sm:text-sm">
             Download the app from the Play Store to easily manage your events,
             track bookings, and connect with your attendees. Experience the best
             tools to enhance your event management process.

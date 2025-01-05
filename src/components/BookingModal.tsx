@@ -37,7 +37,7 @@ const BookingModal = (data:BookingModalProps) => {
             >
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <div className="flex justify-between items-center mb-4">
-                  <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                  <Dialog.Title as="h3" className="text-lg font-semibold  leading-6 text-gray-900">
                     Book Your Experience
                   </Dialog.Title>
                   <button onClick={data.closeModal}>
@@ -55,6 +55,7 @@ const BookingModal = (data:BookingModalProps) => {
                     type="number"
                     id="groupSize"
                     name="groupSize"
+                    placeholder="Number in attendance"
                     min="1"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />

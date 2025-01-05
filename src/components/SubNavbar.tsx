@@ -113,8 +113,8 @@ const SubNavbar = () => {
               }`}
               onClick={() => handleCategoryClick(category.name)}
             >
-              <span className="text-2xl mb-2">{category.icon}</span>
-              <span className="text-sm font-medium">{category.name}</span>
+              <span className="text-sm sm:text-2xl mb-2">{category.icon}</span>
+              <span className="text-xs sm:text-sm font-medium">{category.name}</span>
             </div>
           ))}
         </div>
@@ -140,7 +140,7 @@ const SubNavbar = () => {
               <span
                 key={subcategory}
                 onClick={() => handleSubcategoryClick(subcategory)}
-                className={`px-4 py-2 rounded-full cursor-pointer text-sm font-medium ${
+                className={`px-2 sm:px-4 py-1 sm:py-2 rounded-full cursor-pointer text-xs sm:text-sm font-medium ${
                   activeSubcategories.has(subcategory)
                     ? "bg-[#BB2460] text-white"
                     : "bg-[#12B9F3] text-white"

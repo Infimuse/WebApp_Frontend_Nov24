@@ -29,7 +29,7 @@ export default function RootLayout({
       >
         <div className="max-h-screen sm:max-h-auto">
           <GlobalNavbar />
-          <div className="sm:py-16">{children}</div>
+          <div className="sm:py-16 pt-[calc(60px+1rem)]">{children}</div>
           <BottomNav /> {/* Add the BottomNav here */}
         </div>
       </body>
