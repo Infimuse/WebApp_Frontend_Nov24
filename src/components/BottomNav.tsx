@@ -25,12 +25,10 @@ const navData = [
     path: "/Explore",
   },
   {
-    name: "Notifications",
-    activeicon: <IoNotificationsSharp size={24} className="text-gray-600" />,
-    inActiveIcon: (
-      <IoNotificationsOutline size={24} className="text-gray-600" />
-    ),
-    path: "/notifications",
+    name: "Communities",
+    activeicon: <BsPeopleFill size={24} className="text-gray-600" />,
+    inActiveIcon: <BsPeople size={24} className="text-gray-600" />,
+    path: "/communities",
   },
   {
     name: "Messages",
@@ -38,11 +36,14 @@ const navData = [
     inActiveIcon: <IoMailOutline size={24} className="text-gray-600" />,
     path: "/messages",
   },
+
   {
-    name: "Communities",
-    activeicon: <BsPeopleFill size={24} className="text-gray-600" />,
-    inActiveIcon: <BsPeople size={24} className="text-gray-600" />,
-    path: "/communities",
+    name: "Notifications",
+    activeicon: <IoNotificationsSharp size={24} className="text-gray-600" />,
+    inActiveIcon: (
+      <IoNotificationsOutline size={24} className="text-gray-600" />
+    ),
+    path: "/notifications",
   },
 ];
 
