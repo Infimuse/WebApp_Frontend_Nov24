@@ -97,8 +97,8 @@ const SubNavbar = () => {
     categories.find((c) => c.name === selectedCategory)?.subcategories || [];
 
   return (
-    <div className="bg-white py-2 sm:py-4  w-full z-10">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4">
+    <div className="bg-white py-i sm:py-4  w-full z-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-4">
         <div
           className="relative flex items-center space-x-8 overflow-x-auto hide-scroll-bar p-2"
           ref={containerRef}
@@ -137,7 +137,7 @@ const SubNavbar = () => {
       {/* Subcategories */}
       {selectedSubcategories.length > 0 && (
         <div className="ml-8 mt-1.5 sm:mt-4">
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mb-1">
             {selectedSubcategories.map((subcategory) => (
               <span
                 key={subcategory}

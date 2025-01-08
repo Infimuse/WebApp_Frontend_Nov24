@@ -534,6 +534,7 @@ import Banner from "@/components/Banner";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
 import "./globals.css";
+import { FaArrowRight } from "react-icons/fa";
 
 interface ArrowProps {
   onClick: () => void;
@@ -900,10 +901,9 @@ const HomePage = () => {
 
   return (
     <div className="bg-white w-full">
-
       <Banner />
 
-      <UpcomingEvents/>
+      <UpcomingEvents />
 
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 mb-2 text-black">
         <SubNavbar2 />
@@ -997,6 +997,15 @@ const HomePage = () => {
             {renderCards("Kids Activities")}
           </div>
           <Arrow onClick={() => scrollToEnd(kidsActivitiesRef)} />
+
+          <div className="flex justify-center items-center">
+            <Link
+              href={`/Explore`}
+              className="flex items-center gap-3 underline text-xs sm:texr-sm font-semibold"
+            >
+              View More <FaArrowRight />
+            </Link>
+          </div>
         </section>
       </div>
       <Footer />

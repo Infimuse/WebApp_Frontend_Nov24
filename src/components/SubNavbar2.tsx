@@ -17,7 +17,7 @@ const SubNavbar2 = () => {
   const [activeCategory, setActiveCategory] = useState([categories[0].path]);
 
   return (
-    <div className="bg-white border-b">
+    <div className="bg-white ">
       <div className="mx-auto w-full hide-scroll-bar">
         <div className="flex gap-2 z-10 items-center py-2 px-4 w-full md:justify-center justify-start overflow-x-auto whitespace-nowrap sm:gap-1  hide-scrollbar">
           {categories.map((category, index) => (

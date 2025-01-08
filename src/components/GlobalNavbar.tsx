@@ -5,7 +5,7 @@ import Link from "next/link";
 import { TbCalendarSearch } from "react-icons/tb";
 import { HiUsers } from "react-icons/hi";
 import { MdAdminPanelSettings } from "react-icons/md";
-import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaSearch } from "react-icons/fa";
 import { Menu, Transition } from "@headlessui/react";
 import { IoPerson } from "react-icons/io5";
 import { IoChevronDown } from "react-icons/io5";
@@ -189,6 +189,17 @@ export default function GlobalNavbar() {
         </div>
 
         <div className="p-4 space-y-4">
+          {/* Profile Area */}
+          <div className="flex items-center gap-3 text-gray-700 p-2 bg-gray-100 rounded-lg">
+            <div>
+              <img src="/assets/classroom@1x.jpg" className="w-10 h-10 rounded-full"/>
+            </div>
+            <div>
+              <h3 className="text-sm">Test User</h3>
+              <p className="text-sm">Host</p>
+            </div>
+          </div>
+
           <a
             href="#"
             className=" text-base font-medium text-gray-700 hover:text-indigo-500 flex items-center"
@@ -197,6 +208,14 @@ export default function GlobalNavbar() {
             {/* Icon for Upcoming Bookings */}
             Upcoming Bookings
           </a>
+          <Link
+            href="/Explore"
+            className=" text-base font-medium text-gray-700 hover:text-indigo-500 flex items-center"
+          >
+            <FaSearch size={18} className="mr-2" />{" "}
+            {/* Icon for Upcoming Bookings */}
+            Discover Groups
+          </Link>
           <span
             onClick={() => setShowCommunities(!showCommunities)}
             className=" text-base font-medium text-gray-700 hover:text-indigo-500 flex items-center"
