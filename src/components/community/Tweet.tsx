@@ -2,6 +2,7 @@ import { PiShareFat } from "react-icons/pi";
 import { HiOutlineHeart } from "react-icons/hi";
 import { useState } from "react";
 import CommentsDrawer from "../CommentsDrawer";
+import { FaHeart } from "react-icons/fa";
 
 interface Props {
   tweet: {
@@ -22,6 +23,7 @@ const Tweet = ({ tweet }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [comments, setComments] = useState<string[]>([]);
   const [newComment, setNewComment] = useState("");
+  const [liked, setLiked] = useState(false);
 
   const toggleExpand = () => {
     setIsExpanded((prev) => !prev);
@@ -37,6 +39,23 @@ const Tweet = ({ tweet }: Props) => {
     if (newComment.trim()) {
       setComments((prev) => [...prev, newComment.trim()]);
       setNewComment("");
+    }
+  };
+
+  const handleShare = async () => {
+    try {
+      if (navigator.share) {
+        // Using the Web Share API if available
+        await navigator.share({
+          title: "Test post",
+          url: "https://example.com",
+        });
+      } else {
+        // Fallback for browsers that do not support the Web Share API
+        alert("Sharing is not supported on this device/browser");
+      }
+    } catch (error) {
+      console.error("Error sharing:", error);
     }
   };
 
@@ -75,8 +94,15 @@ const Tweet = ({ tweet }: Props) => {
         <ul className="flex justify-between w-full gap-3 mt-2 px-2">
           <div className="flex gap-2">
             <li className="center-item flex items-center gap-1">
-              <div className="action-icon hover:text-red-600">
-                <HiOutlineHeart size={20} />
+              <div
+                className="action-icon hover:text-red-600"
+                onClick={() => setLiked(true)}
+              >
+                {liked ? (
+                  <FaHeart size={20} color="red" />
+                ) : (
+                  <HiOutlineHeart size={20} />
+                )}
               </div>
             </li>
 
@@ -87,7 +113,7 @@ const Tweet = ({ tweet }: Props) => {
           </div>
 
           <li className="center-item flex items-center gap-1 align-right">
-            <div className="action-icon hover:text-red-600">
+            <div className="action-icon hover:text-red-600" onClick={() => handleShare}>
               <PiShareFat size={20} />
             </div>
             <span>{tweet.shares}</span>
@@ -99,7 +125,7 @@ const Tweet = ({ tweet }: Props) => {
         </p>
 
         {/* Comments Section */}
-        <div className="w-full px-2 mt-4">
+        <div className="hidden sm:flex w-full px-2 mt-4">
           <div className="flex gap-2 mb-3">
             <input
               type="text"

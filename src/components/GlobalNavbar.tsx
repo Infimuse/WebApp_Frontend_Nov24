@@ -56,7 +56,7 @@ export default function GlobalNavbar() {
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8"></div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <button
+              {/* <button
                 type="button"
                 className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
@@ -64,6 +64,29 @@ export default function GlobalNavbar() {
                 <div
                   className={`relative group p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transition-shadow duration-300 hover:shadow-[0_0_20px_5px_rgba(219,112,147,0.5)] ${
                     pathName === "/commmunites"
+                      ? "shadow-[0_0_20px_5px_rgba(219,112,147,0.5)]"
+                      : ""
+                  }`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-0 rounded-full transition-opacity duration-300 group-hover:opacity-100"></div>
+                  <Link
+                    href="/communities"
+                    className="relative text-[9px] flex items-center gap-1 bg-white text-black px-2 sm:px-4 py-2 rounded-full sm:font-semibold"
+                  >
+                    Communities
+                  </Link>
+                </div>
+              </button> */}
+
+              <button
+                type="button"
+                className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                <span className="sr-only">View notifications</span>
+                <div
+                  className={`relative group p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transition-shadow duration-300 hover:shadow-[0_0_20px_5px_rgba(219,112,147,0.5)] ${
+                    pathName === "/communities" ||
+                    window.location.pathname === "/communities"
                       ? "shadow-[0_0_20px_5px_rgba(219,112,147,0.5)]"
                       : ""
                   }`}

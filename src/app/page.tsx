@@ -954,7 +954,7 @@ const HomePage = () => {
         </section>
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div className="sm:flex justify-between items-center mb-4">
+          <div className="hidden sm:flex justify-between items-center mb-4">
             <div>
               <h2 className="text-2xl font-bold">Workshops</h2>
               <p className="text-gray-600">
@@ -977,7 +977,7 @@ const HomePage = () => {
         </section>
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div className="sm:flex justify-between items-center mb-4">
+          <div className="hidden sm:flex justify-between items-center mb-4">
             <div>
               <h2 className="text-2xl font-bold">For Kids</h2>
               <p className="text-gray-600">
