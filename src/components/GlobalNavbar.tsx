@@ -85,8 +85,7 @@ export default function GlobalNavbar() {
                 <span className="sr-only">View notifications</span>
                 <div
                   className={`relative group p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transition-shadow duration-300 hover:shadow-[0_0_20px_5px_rgba(219,112,147,0.5)] ${
-                    pathName === "/communities" ||
-                    window.location.pathname === "/communities"
+                    pathName === "/communities"
                       ? "shadow-[0_0_20px_5px_rgba(219,112,147,0.5)]"
                       : ""
                   }`}
@@ -192,7 +191,10 @@ export default function GlobalNavbar() {
           {/* Profile Area */}
           <div className="flex items-center gap-3 text-gray-700 p-2 bg-gray-100 rounded-lg">
             <div>
-              <img src="/assets/classroom@1x.jpg" className="w-10 h-10 rounded-full"/>
+              <img
+                src="/assets/classroom@1x.jpg"
+                className="w-10 h-10 rounded-full"
+              />
             </div>
             <div>
               <h3 className="text-sm">Test User</h3>

@@ -157,17 +157,17 @@ import { FaSearch, FaBars, FaUserCircle } from "react-icons/fa";
 import SignIn from "./Signin";
 import SignUp from "./SignUp";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
 const Header: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const [showSignIn, setShowSignIn] = useState<boolean>(false);
   const [showSignUp, setShowSignUp] = useState<boolean>(false);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [scrolledBeyondBanner, setScrolledBeyondBanner] =
-    useState<boolean>(false);
+  // const [scrolledBeyondBanner, setScrolledBeyondBanner] =
+  useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const pathname = usePathname();
+  // const pathName = usePathname();
 
   // Check for authentication token
   useEffect(() => {
@@ -190,20 +190,6 @@ const Header: React.FC = () => {
   }, []);
 
   // Scroll behavior to toggle header background
-  useEffect(() => {
-    const handleScroll = () => {
-      if (pathname === "/Explore") {
-        setScrolledBeyondBanner(true);
-        return;
-      }
-
-      const bannerHeight = window.innerHeight * 0.75;
-      setScrolledBeyondBanner(window.scrollY > bannerHeight);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
 
   // Sign out handler
   const handleSignOut = () => {
@@ -213,9 +199,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full bg-white shadow-md transition-all duration-300 ${
-        scrolledBeyondBanner ? "bg-white" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 z-50 w-full bg-white shadow-md transition-all duration-300 `}
     >
       <div className="max-w-[1240px] mx-auto flex items-center justify-between p-5">
         {/* Logo */}
