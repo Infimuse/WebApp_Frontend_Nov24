@@ -1,7 +1,7 @@
-import { BiShare } from "react-icons/bi";
+import { PiShareFat } from "react-icons/pi";
 import { HiOutlineHeart } from "react-icons/hi";
 import { useState } from "react";
-import { BsChat } from "react-icons/bs";
+import CommentsDrawer from "../CommentsDrawer";
 
 interface Props {
   tweet: {
@@ -81,16 +81,14 @@ const Tweet = ({ tweet }: Props) => {
             </li>
 
             <li className="center-item flex items-center gap-1">
-              <div className="action-icon hover:text-red-600">
-                <BsChat size={20} />
-              </div>
+              <CommentsDrawer post={tweet.text} />
               <span>{tweet.replies}</span>
             </li>
           </div>
 
           <li className="center-item flex items-center gap-1 align-right">
             <div className="action-icon hover:text-red-600">
-              <BiShare size={20} />
+              <PiShareFat size={20} />
             </div>
             <span>{tweet.shares}</span>
           </li>

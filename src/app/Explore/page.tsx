@@ -13,9 +13,10 @@ import SearchBar from "@/components/SearchBar";
 const Explore = () => {
   return (
     <div className="bg-white w-full">
-      <SearchBar />
+      
 
-      <div className="mx-auto px-4 w-full sm:px-2 lg:px-8 overflow-x-hidden text-black max-w-[1280px] mx-auto">
+      <div className="mx-auto px-4 w-full sm:px-2 lg:px-8 overflow-x-hidden text-black max-w-[1280px]">
+        <SearchBar />
         {/* <Datepicker /> */}
         <SubNavbar2 />
         <SubNavbar />

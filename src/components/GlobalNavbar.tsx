@@ -8,13 +8,17 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { Menu, Transition } from "@headlessui/react";
 import { IoPerson } from "react-icons/io5";
+import { IoChevronDown } from "react-icons/io5";
+import { usePathname } from "next/navigation";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function GlobalNavbar() {
+  const pathName = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [showCommunities, setShowCommunities] = useState(false);
 
   return (
     <>
@@ -57,7 +61,13 @@ export default function GlobalNavbar() {
                 className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="sr-only">View notifications</span>
-                <div className="relative group p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transition-shadow duration-300 hover:shadow-[0_0_20px_5px_rgba(219,112,147,0.5)]">
+                <div
+                  className={`relative group p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transition-shadow duration-300 hover:shadow-[0_0_20px_5px_rgba(219,112,147,0.5)] ${
+                    pathName === "/commmunites"
+                      ? "shadow-[0_0_20px_5px_rgba(219,112,147,0.5)]"
+                      : ""
+                  }`}
+                >
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-0 rounded-full transition-opacity duration-300 group-hover:opacity-100"></div>
                   <Link
                     href="/communities"
@@ -164,14 +174,21 @@ export default function GlobalNavbar() {
             {/* Icon for Upcoming Bookings */}
             Upcoming Bookings
           </a>
-          <a
-            href="#"
+          <span
+            onClick={() => setShowCommunities(!showCommunities)}
             className=" text-base font-medium text-gray-700 hover:text-indigo-500 flex items-center"
           >
-            <HiUsers size={18} className="mr-2" />{" "}
+            <HiUsers size={18} className="mr-2 flex items-center gap-2" />{" "}
             {/* Icon for My Communities */}
             My Communities
-          </a>
+            <IoChevronDown className="ml-3" />
+          </span>
+          {showCommunities && (
+            <div className="pl-5 flex flex-col gap-1 text-gray-700">
+              <div>Golds Gym</div>
+              <div>Victor Salsa Westlands</div>
+            </div>
+          )}
           <a
             href="#"
             className=" text-base font-medium text-gray-700 hover:text-indigo-500 flex items-center"

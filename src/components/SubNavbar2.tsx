@@ -1,7 +1,6 @@
 // components/SubNavbar2.js
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 
 const categories = [
   { name: "All", path: "/" },
@@ -10,7 +9,7 @@ const categories = [
   { name: "For Kids ", path: "/Kids-activities" },
   { name: "Today", path: "/today" },
   { name: "Tomorrow", path: "/tomorrow" },
-  { name: "Weekend", path: "/eekend" },
+  { name: "Weekend", path: "/weekend" },
 ];
 
 const SubNavbar2 = () => {
@@ -20,11 +19,11 @@ const SubNavbar2 = () => {
   return (
     <div className="bg-white border-b">
       <div className="mx-auto w-full hide-scroll-bar">
-        <div className="flex gap-2 z-10 items-center py-2 px-4 w-full md:justify-center justify-start overflow-x-auto whitespace-nowrap sm:gap-1 ">
+        <div className="flex gap-2 z-10 items-center py-2 px-4 w-full md:justify-center justify-start overflow-x-auto whitespace-nowrap sm:gap-1  hide-scrollbar">
           {categories.map((category, index) => (
-            <Link key={index} href={category.path} passHref>
+            <div key={index} >
               <div
-                className={`flex items-center cursor-pointer px-3 py-2 rounded-full ${
+                className={`flex items-center cursor-pointer px-2 sm:px-3 py-2 rounded-full ${
                   activeCategory.includes(category.path)
                     ? "bg-[#18bdfa] text-white"
                     : "text-black hover:bg-[#18bdfa] hover:text-white"
@@ -33,9 +32,9 @@ const SubNavbar2 = () => {
                   setActiveCategory([...activeCategory, category.path])
                 }
               >
-                <a className="text-sm font-medium">{category.name}</a>
+                <a className="text-xs sm:text-sm font-medium">{category.name}</a>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
