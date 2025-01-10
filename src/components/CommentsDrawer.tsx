@@ -1,34 +1,3 @@
-// "use client";
-
-// import { Drawer } from "vaul";
-// import { BsChat } from "react-icons/bs";
-
-// interface Props {
-//   post: string;
-// }
-
-// export default function CommentsDrawer(props: Props) {
-//   return (
-//     <Drawer.Root>
-//       <Drawer.Trigger>
-//         <div className="action-icon hover:text-red-600">
-//           <BsChat size={20} />
-//         </div>
-//       </Drawer.Trigger>
-//       <Drawer.Portal>
-//         <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-//         <Drawer.Content className="bg-gray-100 h-[50%] fixed bottom-0 rounded-t-[10px]  left-0 right-0 outline-none">
-//           <div className="p-4 bg-white text-black max-w-[1280px] w-full mx-auto">
-//             {/* Content */}
-
-//             <div>{props.post}</div>
-//           </div>
-//         </Drawer.Content>
-//       </Drawer.Portal>
-//     </Drawer.Root>
-//   );
-// }
-
 "use client";
 
 import { Drawer } from "vaul";

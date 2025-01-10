@@ -10,6 +10,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { IoPerson } from "react-icons/io5";
 import { IoChevronDown } from "react-icons/io5";
 import { usePathname } from "next/navigation";
+import UserMenu from "./UserMenu"
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -189,18 +190,9 @@ export default function GlobalNavbar() {
 
         <div className="p-4 space-y-4">
           {/* Profile Area */}
-          <div className="flex items-center gap-3 text-gray-700 p-2 bg-gray-100 rounded-lg">
-            <div>
-              <img
-                src="/assets/classroom@1x.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-            </div>
-            <div>
-              <h3 className="text-sm">Test User</h3>
-              <p className="text-sm">Host</p>
-            </div>
-          </div>
+          
+           <UserMenu/>
+          
 
           <a
             href="#"
