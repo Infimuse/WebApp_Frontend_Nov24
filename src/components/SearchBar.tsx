@@ -1,7 +1,7 @@
 "use client";
 import { FaSearch } from "react-icons/fa";
-import { LuSettings2 } from "react-icons/lu";
 import CalendarPicker from "./CalendarPicker";
+import FiltersDrawer from "./FiltersDrawer"
 
 const SearchBar = () => {
   return (
@@ -15,9 +15,7 @@ const SearchBar = () => {
         <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
       </div>
       <CalendarPicker />
-      <button className="p-3 shadow text-gray-600 rounded-md bg-gray-100 h-full flex items-center justify-center">
-        <LuSettings2 />
-      </button>
+      <FiltersDrawer/>
     </div>
   );
 };
