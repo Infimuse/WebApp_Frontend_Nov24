@@ -40,7 +40,7 @@ export default function GlobalNavbar() {
                 <Link href="/" className="lg:hidden block">
                   <img
                     className="block h-10  w-auto lg:hidden"
-                    src="/assets/logo.png"
+                    src="/assets/InfiMuse.png"
                     alt="Your Company"
                   />
                 </Link>
@@ -48,7 +48,7 @@ export default function GlobalNavbar() {
                 <Link href="/" className="hidden  lg:block">
                   <img
                     className="hidden h-10 w-auto lg:block"
-                    src="/assets/logo.png"
+                    src="/assets/InfiMuse.png"
                     alt="Your Company"
                   />
                 </Link>

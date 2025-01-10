@@ -205,7 +205,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/assets/InfiMuse G&T.png"
+            src="/assets/InfiMuse.png"
             alt="Logo"
             width={80}
             height={80}

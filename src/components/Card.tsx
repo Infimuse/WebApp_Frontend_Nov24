@@ -72,7 +72,7 @@ const Card = ({
           <FaMoneyBillAlt className="inline mr-2" /> Ksh {price}
         </div>
 
-        <Link href={`/experience/${id}`}>
+        <Link href={`/book`}>
           <button className="bg-[#12B9f3] text-white py-2 text-xs sm:text-sm w-full rounded-lg mt-2">
             Book Now
           </button>

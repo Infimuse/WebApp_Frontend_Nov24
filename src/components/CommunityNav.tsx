@@ -41,7 +41,7 @@ const Header: React.FC = () => {
         className="relative flex items-center h-10 cursor-pointer my-auto"
       >
         <Image
-          src={`/assets/InfiMuse G&T.png`}
+          src={`/assets/InfiMuse.png`}
           height={80}
           width={80}
           alt="logo"

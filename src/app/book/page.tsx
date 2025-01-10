@@ -17,56 +17,56 @@ const BookingPage = () => {
     <>
       
       <div className="bg-white min-h-screen flex flex-col items-center">
-        <div className="flex flex-col items-center justify-center w-full max-w-6xl px-4 py-2">
-          <div className="w-full bg-white shadow-lg rounded-lg p-3">
-            <header className="mb-3 text-center">
-              <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">
+        <div className="flex flex-col items-center justify-center w-full max-w-6xl px-4">
+          <div className="w-full bg-white shadow-lg rounded-lg">
+            <header className="mb-2.5 sm:mb-3">
+              <h1 className="text-sm sm:text-2xl font-semibold text-gray-900">
                 Confirm and Pay
               </h1>
             </header>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Right Column for Property Details */}
-              <div className="bg-gray-50 p-4 rounded-lg shadow">
-                <div className="flex flex-col items-center">
+              <div className="bg-gray-50 p-1.5 sm:p-4 rounded-lg shadow">
+                <div className="flex flex-col">
                   <img
                     src="https://images.pexels.com/photos/3820380/pexels-photo-3820380.jpeg"
                     alt="Property"
-                    className="w-full mb-4 rounded-lg object-cover h-64"
+                    className="w-full sm:mb-4 rounded-lg object-cover h-58"
                   />
-                  <h3 className="text-lg font-semibold text-gray-800 mt-4">
+                  <h3 className="text-sm font-semibold text-gray-800 mt-1.5 sm:mt-4">
                     Wine Tasting
                   </h3>
-                  <p className="text-sm text-gray-600 mt-2">
+                  <p className="text-sm text-gray-600">
                     Hosted by Vineyard
                   </p>
-                  <p className="text-sm font-semibold text-gray-800 mt-2">
+                  <p className="text-sm font-semibold text-gray-800">
                     4.96 (226 reviews) • Superhost
                   </p>
                 </div>
-                <div className="mt-8">
+                <div className="mt-3 sm:mt-8">
                   <p className="text-sm text-gray-600">Price details:</p>
                   <ul className="list-disc pl-5 mt-2">
-                    <li>Location: 456 Vineyard Rd, Napa Valley, CA</li>
-                    <li>Start Date: June 15th, 2023</li>
-                    <li>Time: 2:00 PM - 5:00 PM EDT</li>
-                    <li>
+                    <li className="text-xs">Location: 456 Vineyard Rd, Napa Valley, CA</li>
+                    <li className="text-xs">Start Date: June 15th, 2023</li>
+                    <li className="text-xs">Time: 2:00 PM - 5:00 PM EDT</li>
+                    <li className="text-xs">
                       <strong>Total (KES): KSh 48,301.60</strong>
                     </li>
                   </ul>
                 </div>
-                <div className="mt-8">
+                <div className="mt-3 sm:mt-8">
                   <p className="text-sm text-gray-600">Amenities:</p>
                   <ul className="list-disc pl-5 mt-2">
-                    <li>Free parking on premises</li>
-                    <li>Wi-Fi</li>
-                    <li>Kitchen</li>
-                    <li>Air conditioning</li>
+                    <li className="text-xs">Free parking on premises</li>
+                    <li className="text-xs">Wi-Fi</li>
+                    <li className="text-xs">Kitchen</li>
+                    <li className="text-xs">Air conditioning</li>
                   </ul>
                 </div>
-                <div className="mt-8">
+                <div className="mt-3 sm:mt-8">
                   <p className="text-sm text-gray-600">Cancellation policy:</p>
-                  <p className="text-sm text-gray-800 mt-2">
+                  <p className="text-xs text-gray-800 mt-2">
                     Free cancellation for 48 hours. After that, cancel up to 7
                     days before check-in and get a 50% refund, minus the service
                     fee.
@@ -98,7 +98,7 @@ const BookingPage = () => {
                   </div>
                 ) : (
                   <div className="mb-8">
-                    <h2 className="text-lg font-semibold text-gray-800">
+                    <h2 className="text-sm sm:text-lg font-semibold text-gray-800">
                       Log in or sign up to book
                     </h2>
                     <div className="mt-4">

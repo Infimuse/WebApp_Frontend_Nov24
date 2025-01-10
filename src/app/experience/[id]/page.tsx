@@ -36,20 +36,20 @@ export default function ExperienceDetail() {
     <div className="bg-gray-100 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex flex-col overflow-x-hidden lg:flex-row">
         <div className="lg:w-3/4">
-          <h1 className="text-xl sm:text-3xl font-bold mb-2 sm:mb-3">
+          <h1 className="text-sm sm:text-3xl font-bold sm:mb-2 sm:mb-3">
             {experience.title}
           </h1>
-          <p className="text-sm sm:text-lg mb-2">Hosted by {experience.host}</p>
-          <div className="relative w-full h-80 mb-4">
+          <p className="text-xs sm:text-lg mb-2">Hosted by {experience.host}</p>
+          <div className="relative w-full h-52 mb-4">
             <Image
               src={experience.image}
               alt={experience.title}
               fill
-              className="rounded-lg shadow-lg object-cover"
+              className="rounded-md shadow-lg object-cover"
             />
           </div>
-          <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-8">
-            <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4">
+          <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-3 sm:mb-8">
+            <h2 className="text-sm sm:text-2xl font-bold  sm:mb-4">
               Class Information
             </h2>
             <p className="text-xs sm:text-sm">
@@ -88,7 +88,7 @@ export default function ExperienceDetail() {
             </div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4">
+            <h2 className="text-sm sm:text-2xl font-bold mb-2 sm:mb-4">
               Start Dates ({experience.dates.length})
             </h2>
             <div className="grid grid-cols-1 gap-4">
@@ -181,10 +181,10 @@ export default function ExperienceDetail() {
             </ul>
           </div>
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-xl font-semibold mb-2 sm:mb-3">
+            <h2 className="text-sm ssm:text-xl font-semibold mb-2 sm:mb-3">
               Group Tickets
             </h2>
-            <p className="text-lg mb-2">Bring your friends and save!</p>
+            <p className="text-sm mb-2">Bring your friends and save!</p>
             <ul className="list-disc list-inside mb-4">
               <li className="text-xs sm:text-sm">Group of 5: 10% discount</li>
               <li className="text-xs sm:text-sm">Group of 10: 15% discount</li>
