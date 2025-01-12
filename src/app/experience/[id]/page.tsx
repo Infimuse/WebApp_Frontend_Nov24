@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { BookmarkIcon, UsersIcon } from "@heroicons/react/24/outline";
+import { BookmarkIcon } from "@heroicons/react/24/outline";
 import Footer from "@/components/Footer";
 import Download from "@/components/Download";
 import BookingModal from "@/components/BookingModal";
 import experiences from "@/data/data";
 import { useParams } from "next/navigation";
+import TicketCard, { tickets } from "@/components/TicketCard";
 
 const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
@@ -34,9 +35,9 @@ export default function ExperienceDetail() {
 
   return (
     <div className="bg-gray-100 text-gray-800 min-h-screen">
-      <div className="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex flex-col overflow-x-hidden lg:flex-row">
+      <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8 flex flex-col overflow-x-hidden lg:flex-row">
         <div className="lg:w-3/4">
-          <h1 className="text-sm sm:text-3xl font-bold sm:mb-2 sm:mb-3">
+          <h1 className="text-sm sm:text-3xl font-bold sm:mb-2">
             {experience.title}
           </h1>
           <p className="text-xs sm:text-lg mb-2">Hosted by {experience.host}</p>
@@ -114,18 +115,26 @@ export default function ExperienceDetail() {
             </div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">Class Description</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">
+              Class Description
+            </h2>
             <p className="mb-4 text-xs sm:text-sm">{experience.description}</p>
             <h3 className="text-lg font-semibold mb-2">You Will Learn:</h3>
             <ul className="list-disc list-inside mb-4">
               <li className="text-xs sm:text-sm">Learn how to Crumb Coat</li>
-              <li className="text-xs sm:text-sm">Work with American Buttercream</li>
+              <li className="text-xs sm:text-sm">
+                Work with American Buttercream
+              </li>
               <li className="text-xs sm:text-sm">
                 Learn various piping techniques including; shells, stars,
                 zig-zags, ruffles & rosettes
               </li>
-              <li className="text-xs sm:text-sm">Work with multiple piping tips</li>
-              <li className="text-xs sm:text-sm">Learn how to apply these techniques to your cake.</li>
+              <li className="text-xs sm:text-sm">
+                Work with multiple piping tips
+              </li>
+              <li className="text-xs sm:text-sm">
+                Learn how to apply these techniques to your cake.
+              </li>
             </ul>
             <p className="text-gray-600 italic text-xs sm:text-sm">
               All supplies and materials included, classes are hands-on,
@@ -182,20 +191,18 @@ export default function ExperienceDetail() {
           </div>
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm ssm:text-xl font-semibold mb-2 sm:mb-3">
-              Group Tickets
+              Ticket Types
             </h2>
-            <p className="text-sm mb-2">Bring your friends and save!</p>
-            <ul className="list-disc list-inside mb-4">
-              <li className="text-xs sm:text-sm">Group of 5: 10% discount</li>
-              <li className="text-xs sm:text-sm">Group of 10: 15% discount</li>
-              <li className="text-xs sm:text-sm">Group of 20: 20% discount</li>
-            </ul>
-            <button className="w-full bg-[#12B9f3] text-white font-semibold py-2 sm:py-3 text-xs sm:text-sm rounded-lg shadow-md transition duration-300">
-              <UsersIcon className="inline h-5 w-5 mr-2" /> Book Group Tickets
-            </button>
+            <div className="grid grid-cols-2 sm:grid-cols-1 gap-5">
+              {tickets.map((ticket, idx) => (
+                <TicketCard ticket={ticket} key={idx} />
+              ))}
+            </div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-sm sm:text-xl font-semibold mb-2 sm:mb-4">Location</h2>
+            <h2 className="text-sm sm:text-xl font-semibold mb-2 sm:mb-4">
+              Location
+            </h2>
             <p className="text-xs sm:text-xs">{experience.location}</p>
           </div>
           <div className="relative w-full h-64 mb-3 sm:mb-5">

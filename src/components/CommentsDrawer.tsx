@@ -30,8 +30,14 @@ export default function CommentsDrawer(props: Props) {
               <div className="space-y-4">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, i) => (
                   <div key={i} className="bg-gray-50 p-3 rounded-lg">
-                    <div className="font-medium">User Name</div>
+                    <div>
+                      <div className="font-medium">User Name</div>
                     <div className="text-gray-600">Example comment {i + 1}</div>
+                    </div>
+                    <div className="flex text-[9px] mt-2 gap-3">
+                      <span>Like</span>
+                      <span>Delete</span>
+                    </div>
                   </div>
                 ))}
               </div>
