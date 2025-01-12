@@ -6,7 +6,6 @@ import SubNavbar from "@/components/SubNavbar";
 import Footer from "@/components/Footer";
 import Card, { HomeCard } from "@/components/Card";
 import SubNavbar2 from "@/components/SubNavbar2";
-import CartButton from "@/components/CartButton";
 import Banner from "@/components/Banner";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
@@ -379,7 +378,7 @@ const HomePage = () => {
   return (
     <div className="bg-white w-full">
       <Banner />
-      <CartButton />
+      
       <UpcomingEvents />
 
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 mb-2 text-black">
