@@ -104,7 +104,7 @@ interface CardProps {
   slotsBooked: number;
 }
 export const HomeCard = ({
-  id,
+  
   image,
   title,
   host,
