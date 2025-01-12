@@ -118,25 +118,24 @@ export const HomeCard = ({
 
   return (
     <div className="block w-full bg-white rounded-lg shadow-md overflow-hidden max-w-[100%] sm:min-w-[300px] h-auto relative">
-      <Link href={`/experience/${id}`}>
-        <div className="relative w-full h-32 sm:h-40">
+      <div className="flex flex-col gap-2">
+          <div className="relative w-full flex justify-between items-center">
           {/* Slots Left */}
-          <div className="absolute bottom-0 left-0  bg-[#BB2460] font-semibold sm:font-bold text-white  py-1 px-2 sm:px-3 m-2  rounded-2xl text-xs sm:text-sm">
+          <div className=" bottom-0 left-0  bg-[#BB2460] font-semibold sm:font-bold text-white  py-1 px-2 sm:px-3 m-2  rounded-2xl text-xs sm:text-sm">
             {/* <FaUsers className="inline mr-1"/> */}
             {slotsBooked} slots left
           </div>
           {/* Rating */}
-          <div className="absolute flex items-center gap-1  bottom-0 right-0  bg-black bg-opacity-25 text-white py-1 rounded-full px-2 text-sm m-2  mr-2  ">
+          <div className=" flex items-center gap-1  bottom-0 right-0  bg-black bg-opacity-25 text-white py-1 rounded-full px-2 text-sm m-2  mr-2  ">
             {ratingStars}
             <span className="mt-[-2px] text-xs sm:text-sm">{rating}</span>
           </div>
         </div>
-      </Link>
       <div
-        className="p-4 flex flex-col justify-between space-y-2"
+        className="p-4 flex flex-row justify-between items-center space-y-2"
         style={{ minHeight: "160px" }}
       >
-        <div className="flex gap-2">
+        
           <article className="flex-1">
             <h3 className="text-sm sm:text-lg font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
               {title}
@@ -159,8 +158,8 @@ export const HomeCard = ({
               <FaMoneyBillAlt className="inline mr-2" /> Ksh {price}
             </div>
           </article>
-          <article className="flex-1">
-            <Image src={image} alt={title} fill className="" />
+          <article className="w-full flex-1">
+            <Image src={image} width={50} height={50} alt={title} className="w-full h-[40%] rounded-md" />
           </article>
         </div>
 

@@ -1,14 +1,12 @@
-
-
 "use client";
 
 import React, { useRef } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import SubNavbar from "@/components/SubNavbar";
 import Footer from "@/components/Footer";
-import Card from "@/components/Card";
+import Card, { HomeCard } from "@/components/Card";
 import SubNavbar2 from "@/components/SubNavbar2";
-import CartButton from "@/components/CartButton"
+import CartButton from "@/components/CartButton";
 import Banner from "@/components/Banner";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
@@ -381,7 +379,7 @@ const HomePage = () => {
   return (
     <div className="bg-white w-full">
       <Banner />
-<CartButton/>
+      <CartButton />
       <UpcomingEvents />
 
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 mb-2 text-black">
@@ -408,11 +406,21 @@ const HomePage = () => {
           <div className="space-y-8">
             <div
               ref={ExploreRef}
-              className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
+              className="grid hidden sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
             >
               {experiences.slice(0, 8).map((experience) => (
                 <div key={experience.id}>
                   <Card {...experience} />
+                </div>
+              ))}
+            </div>
+            <div
+              ref={ExploreRef}
+              className="grid  sm:hidden grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
+            >
+              {experiences.slice(0, 8).map((experience) => (
+                <div key={experience.id}>
+                  <HomeCard {...experience} />
                 </div>
               ))}
             </div>
