@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { ChangeEvent, Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
@@ -8,6 +8,18 @@ function classNames(...classes: string[]) {
 }
 
 const UserMenu = () => {
+  const [editImage, setEditImage] = useState(false);
+
+  const [fileName, setFileName] = useState("");
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0];
+    if (file) {
+      setFileName(file.name); // Update the file name
+    } else {
+      setFileName(""); // Clear file name if no file is selected
+    }
+  };
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -49,43 +61,47 @@ const UserMenu = () => {
             <Menu.Item>
               {({ active }) => (
                 <a
+                  onClick={() => setEditImage(!editImage)}
                   href="#"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
                 >
-                  View profile
+                  Edit Image
                 </a>
               )}
             </Menu.Item>
             <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Become A Host
-                </a>
-              )}
-            </Menu.Item>
-          </div>
-
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Logout
-                </a>
+              {() => (
+                <div className="text-gray-600 text-xs flex border border-dotted text-center flex-col gap-2 p-2">
+                  <label
+                    htmlFor="fileInput"
+                    className="custom-file-label"
+                    style={{
+                      display: "inline-block",
+                      padding: "10px 20px",
+                      backgroundColor: "#fff",
+                      color: "#777",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {fileName || "Choose File"}
+                  </label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    onChange={(e) => handleFileChange(e)}
+                    style={{
+                      display: "none", // Hide the default input
+                    }}
+                  />
+                  {fileName && <p>Selected File: {fileName}</p>}
+                  <button className="p-1.5 text-white mx-2 rounded-md bg-[#BB2460]">
+                    Change
+                  </button>
+                </div>
               )}
             </Menu.Item>
           </div>

@@ -94,9 +94,6 @@ Card.propTypes = {
 
 export default Card;
 
-
-
-
 interface CardProps {
   id: string;
   image: string;
@@ -139,31 +136,31 @@ export const HomeCard = ({
         className="p-4 flex flex-col justify-between space-y-2"
         style={{ minHeight: "160px" }}
       >
-        <h3 className="text-sm sm:text-lg font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
-          {title}
-        </h3>
-        <p className="text-gray-500 text-xs sm:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap mb-1">
-          Hosted by {host}
-        </p>
+        <div className="flex gap-2">
+          <article className="flex-1">
+            <h3 className="text-sm sm:text-lg font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
+              {title}
+            </h3>
+            <p className="text-gray-500 text-xs sm:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap mb-1">
+              Hosted by {host}
+            </p>
 
-        <div className="text-gray-500 text-xs sm:text-sm flex items-center">
-          <FaMapMarkerAlt className="mr-2" />
-          <span>Nairobi Westlands</span>
-        </div>
+            <div className="text-gray-500 text-xs sm:text-sm flex items-center">
+              <FaMapMarkerAlt className="mr-2" />
+              <span>Nairobi Westlands</span>
+            </div>
 
-        <div className="text-gray-500 flex text-xs sm:text-sm items-center">
-          <FaCalendarAlt className="inline mr-2" />
-          <span>Sat, 26 Jun 06:00 PM</span>
-        </div>
+            <div className="text-gray-500 flex text-xs sm:text-sm items-center">
+              <FaCalendarAlt className="inline mr-2" />
+              <span>Sat, 26 Jun 06:00 PM</span>
+            </div>
 
-        <div className="text-gray-500 flex text-xs sm:text-sm items-center">
-          <FaMoneyBillAlt className="inline mr-2" /> Ksh {price}
-        </div>
-
-        <div>
-          <article></article>
-          <article>
-            <Image src={image} alt={title} fill className="object-cover" />
+            <div className="text-gray-500 flex text-xs sm:text-sm items-center">
+              <FaMoneyBillAlt className="inline mr-2" /> Ksh {price}
+            </div>
+          </article>
+          <article className="flex-1">
+            <Image src={image} alt={title} fill className="" />
           </article>
         </div>
 
@@ -186,5 +183,3 @@ Card.propTypes = {
   rating: PropTypes.number.isRequired,
   slotsBooked: PropTypes.number.isRequired,
 };
-
-

@@ -10,7 +10,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { IoPerson } from "react-icons/io5";
 import { IoChevronDown } from "react-icons/io5";
 import { usePathname } from "next/navigation";
-import UserMenu from "./UserMenu"
+import UserMenu from "./UserMenu";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -40,7 +40,7 @@ export default function GlobalNavbar() {
               <div className="flex flex-shrink-0 z-[100] items-center">
                 <Link href="/" className="lg:hidden block">
                   <img
-                    className="block h-10  w-auto lg:hidden"
+                    className="block h-14  w-auto lg:hidden"
                     src="/assets/InfiMuse.png"
                     alt="Your Company"
                   />
@@ -48,7 +48,7 @@ export default function GlobalNavbar() {
 
                 <Link href="/" className="hidden  lg:block">
                   <img
-                    className="hidden h-10 w-auto lg:block"
+                    className="hidden h-16 w-auto lg:block"
                     src="/assets/InfiMuse.png"
                     alt="Your Company"
                   />
@@ -190,9 +190,8 @@ export default function GlobalNavbar() {
 
         <div className="p-4 space-y-4">
           {/* Profile Area */}
-          
-           <UserMenu/>
-          
+
+          <UserMenu />
 
           <a
             href="#"

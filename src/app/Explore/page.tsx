@@ -2,14 +2,12 @@ import React from "react";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import experiences from "@/data/experiences";
-
-import SubNavbar from "@/components/SubNavbar";
-// import Datepicker from "@/components/DatePicker";
 import SubNavbar2 from "@/components/SubNavbar2";
 import Location from "@/components/community/location";
 import Pagination from "@/components/pagination";
 import SearchBar from "@/components/SearchBar";
 import CartButton from "@/components/CartButton";
+import CategoryNav from "@/components/CategoryNav";
 
 const Explore = () => {
   return (
@@ -20,8 +18,8 @@ const Explore = () => {
         <SearchBar />
         {/* <Datepicker /> */}
         <SubNavbar2 />
-        <SubNavbar />
-        <div className="flex  py-6 border-b mt-[-56px] ">
+        <CategoryNav />
+        <div className=" border-b ">
           <Location />
         </div>
         {/* <SubNavbar2 /> */}

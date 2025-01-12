@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import {
   FaFootballBall,
   FaHiking,
@@ -11,7 +11,6 @@ import {
 import { GiCookingPot, GiStairsGoal } from "react-icons/gi";
 import { MdPsychology } from "react-icons/md";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import Link from "next/link";
 
 const categories = [
   {
@@ -60,8 +59,38 @@ const categories = [
   },
 ];
 
-const SubNavbar = () => {
+const CategoryNav = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedSubcategories, setSelectedSubcategories] = useState<{
+    [key: string]: Set<string>;
+  }>({});
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const handleCategoryClick = (categoryName: string) => {
+    setSelectedCategory((prev) =>
+      prev === categoryName ? null : categoryName
+    );
+  };
+
+  const handleSubcategoryClick = (
+    categoryName: string,
+    subcategory: string
+  ) => {
+    setSelectedSubcategories((prev) => {
+      const newState = { ...prev };
+      if (!newState[categoryName]) {
+        newState[categoryName] = new Set();
+      }
+
+      if (newState[categoryName].has(subcategory)) {
+        newState[categoryName].delete(subcategory);
+      } else {
+        newState[categoryName].add(subcategory);
+      }
+
+      return newState;
+    });
+  };
 
   const scrollLeft = () => {
     containerRef.current?.scrollBy({ left: -200, behavior: "smooth" });
@@ -71,8 +100,11 @@ const SubNavbar = () => {
     containerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
   };
 
+  const activeSubcategories =
+    categories.find((c) => c.name === selectedCategory)?.subcategories || [];
+
   return (
-    <Link href="/Explore" className="bg-white py-1  w-full">
+    <div className="bg-white py-1  w-full">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="relative flex items-center justify-center space-x-8 overflow-x-auto hide-scroll-bar px-5"
@@ -81,7 +113,12 @@ const SubNavbar = () => {
           {categories.map((category) => (
             <div
               key={category.name}
-              className={`relative flex flex-col items-center cursor-pointer transition duration-150 ease-in-out`}
+              className={`relative flex flex-col items-center cursor-pointer transition duration-150 ease-in-out ${
+                selectedCategory === category.name
+                  ? "text-[#BB2460]"
+                  : "text-gray-800"
+              }`}
+              onClick={() => handleCategoryClick(category.name)}
             >
               <span className="text-sm sm:text-2xl mb-2">{category.icon}</span>
               <span className="text-xs sm:text-sm font-medium">
@@ -103,8 +140,46 @@ const SubNavbar = () => {
           <IoIosArrowForward className="text-gray-800 text-xl cursor-pointer" />
         </div>
       </div>
-    </Link>
+
+      {/* Subcategories */}
+      <div className="ml-8">
+        {/* Render all previously selected subcategories */}
+        <div className="flex flex-wrap gap-2 mb-4 justify-center">
+          {Object.keys(selectedSubcategories).map((category) =>
+            [...selectedSubcategories[category]].map((subcategory) => (
+              <span
+                key={`${category}-${subcategory}`}
+                className="px-2 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-[#BB2460] text-white"
+              >
+                {subcategory}
+              </span>
+            ))
+          )}
+        </div>
+
+        {/* Render active subcategories for the current category */}
+        {activeSubcategories.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4 justify-center">
+            {activeSubcategories.map((subcategory) => (
+              <span
+                key={subcategory}
+                onClick={() =>
+                  handleSubcategoryClick(selectedCategory!, subcategory)
+                }
+                className={`px-2 sm:px-4 py-1 sm:py-2 rounded-full cursor-pointer text-xs sm:text-sm font-medium ${
+                  selectedSubcategories[selectedCategory!]?.has(subcategory)
+                    ? "bg-[#BB2460] text-white"
+                    : "bg-[#12B9F3] text-white"
+                }`}
+              >
+                {subcategory}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
-export default SubNavbar;
+export default CategoryNav;
