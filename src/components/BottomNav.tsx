@@ -3,13 +3,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { RiSearch2Fill, RiSearch2Line } from "react-icons/ri";
-import { BsPeople, BsPeopleFill } from "react-icons/bs";
+
 import {
   IoMailOutline,
   IoMailSharp,
   IoNotificationsOutline,
   IoNotificationsSharp,
 } from "react-icons/io5";
+import { HiOutlineUserGroup, HiUserGroup } from "react-icons/hi";
 
 const navData = [
   {
@@ -26,8 +27,8 @@ const navData = [
   },
   {
     name: "Communities",
-    activeicon: <BsPeopleFill size={24} className="text-gray-600" />,
-    inActiveIcon: <BsPeople size={24} className="text-gray-600" />,
+    activeicon: <HiUserGroup size={24} className="text-gray-600" />,
+    inActiveIcon: <HiOutlineUserGroup size={24} className="text-gray-600" />,
     path: "/communities",
   },
   {
