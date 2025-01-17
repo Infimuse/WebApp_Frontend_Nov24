@@ -58,7 +58,7 @@ export default function Location() {
   };
 
   return (
-    <div className="location-slider mb-1.5">
+    <div className="location-slider my-2.5">
       <Slider
         value={distance}
         onChange={handleDistanceChange}

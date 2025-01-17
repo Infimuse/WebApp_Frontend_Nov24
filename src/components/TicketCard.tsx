@@ -1,29 +1,59 @@
-import { useState } from "react";
+import { SetStateAction } from "react";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import { CiCircleInfo } from "react-icons/ci";
 
 interface Props {
-  ticket: Ticket;
+  ticket: {
+    quantity: number;
+    name: string;
+    price: number;
+    admits: number;
+    description: string;
+  };
+  setTickets: React.Dispatch<
+    SetStateAction<
+      {
+        quantity: number;
+        name: string;
+        price: number;
+        admits: number;
+        description: string;
+      }[]
+    >
+  >;
 }
 export default function TicketCard(props: Props) {
-  const [ticketCount, setTicketCount] = useState(0);
-
-  // Function to add tickets
   const handleAdd = () => {
-    setTicketCount(ticketCount + 1);
+    props.setTickets((prevTickets) => {
+      return prevTickets.map((ticket) => {
+        if (ticket.name === props.ticket.name) {
+          return { ...ticket, quantity: ticket.quantity + 1 };
+        }
+        return ticket;
+      });
+    });
   };
 
-  // Function to remove tickets
   const handleRemove = () => {
-    if (ticketCount > 0) {
-      setTicketCount(ticketCount - 1);
-    }
+    props.setTickets((prevTickets) => {
+      return prevTickets.map((ticket) => {
+        if (ticket.name === props.ticket.name) {
+          return {
+            ...ticket,
+            quantity: Math.max(0, ticket.quantity - 1),
+          };
+        }
+        return ticket;
+      });
+    });
   };
 
   return (
     <div
       className={`p-4 ${
-        ticketCount > 0 ? "text-[#BB2460] border-[#BB2460]" : "text-gray-600"
+        props.ticket.quantity > 0
+          ? "text-[#BB2460] border-[#BB2460]"
+          : "text-gray-600"
       } border shadow-md rounded-md relative`}
     >
       <div>
@@ -47,16 +77,16 @@ export default function TicketCard(props: Props) {
           <FaPlusCircle
             size={18}
             className={`${
-              ticketCount > 0 ? "text-[#BB2460]" : "text-gray-500"
+              props.ticket.quantity > 0 ? "text-[#BB2460]" : "text-gray-500"
             }`}
           />
         </span>
-        <span>{ticketCount}</span>
+        <span>{props.ticket.quantity}</span>
         <span onClick={handleRemove} className="cursor-pointer">
           <FaMinusCircle
             size={18}
             className={`${
-              ticketCount > 0 ? "text-[#BB2460]" : "text-gray-500"
+              props.ticket.quantity > 0 ? "text-[#BB2460]" : "text-gray-500"
             }`}
           />
         </span>

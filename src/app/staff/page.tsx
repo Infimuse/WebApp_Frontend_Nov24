@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 
@@ -34,38 +34,38 @@ const instructor = {
 const InstructorDetail = () => {
   return (
     <div className="bg-gray-100 text-gray-800 min-h-screen">
-      <Navbar />
-      <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <div className="flex items-center mb-6">
-            <Image src={instructor.profilePicture} alt={instructor.name} width={150} height={150} className="rounded-full" />
-            <div className="ml-6">
-              <h1 className="text-3xl font-bold">{instructor.name}</h1>
-              <p className="text-lg"><strong>School:</strong> {instructor.school}</p>
-              <p className="text-lg"><strong>Fun Fact:</strong> {instructor.funFact}</p>
-              <p className="text-lg"><strong>Pets:</strong> {instructor.pets}</p>
-              <p className="text-lg"><strong>Speaks:</strong> {instructor.language}</p>
-              <p className="text-lg"><strong>Location:</strong> {instructor.location}</p>
+      
+      <div className="max-w-7xl mx-auto py-4 px-2 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-lg shadow-md p-2.5 sm:p-6 mb-4 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:mb-6">
+            <Image src={instructor.profilePicture} alt={instructor.name} width={150} height={150} className="rounded-full mb-3 w-20 h-20" />
+            <div className="sm:ml-6">
+              <h1 className="text-lg sm:text-3xl font-bold">{instructor.name}</h1>
+              <p className="text-xs sm:text-lg"><strong>School:</strong> {instructor.school}</p>
+              <p className="text-xs sm:text-lg"><strong>Fun Fact:</strong> {instructor.funFact}</p>
+              <p className="text-xs sm:text-lg"><strong>Pets:</strong> {instructor.pets}</p>
+              <p className="text-xs sm:text-lg"><strong>Speaks:</strong> {instructor.language}</p>
+              <p className="text-xs sm:text-lg"><strong>Location:</strong> {instructor.location}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Bio</h2>
-          <p className="text-lg leading-relaxed">{instructor.bio}</p>
+        <div className="bg-white rounded-lg shadow-md p-2.5 sm:p-6 mb-3 sm:mb-8">
+          <h2 className="text-sm sm:text-2xl font-bold mb-4">Bio</h2>
+          <p className="text-xs sm:text-lg leading-relaxed">{instructor.bio}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Classes Instructed</h2>
+        <div className="bg-white rounded-lg shadow-md p-2.5 sm:p-6 mb-8">
+          <h2 className="text-sm sm:text-2xl font-bold mb-4">Classes Instructed</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {instructor.classesInstructed.map((classItem, index) => (
               <div key={index} className="bg-gray-100 rounded-lg p-4 shadow-sm">
-                <h3 className="text-xl font-semibold">{classItem.title}</h3>
-                <p className="mt-2">{classItem.description}</p>
+                <h3 className="text-sm sm:text-xl font-semibold">{classItem.title}</h3>
+                <p className="mt-2 text-xs sm:text-sm">{classItem.description}</p>
                 <div className="flex items-center mt-4">
-                  <div className="text-yellow-500 flex items-center">
+                  <div className="text-yellow-500 text-xs sm:text-sm flex items-center">
                     {'⭐'.repeat(Math.round(classItem.rating))}
                     {'⭐'.repeat(5 - Math.round(classItem.rating))} {/* For empty stars */}
                   </div>
-                  <p className="ml-2 text-lg">{classItem.rating}</p>
+                  <p className="ml-2 text-xs sm:text-lg">{classItem.rating}</p>
                 </div>
               </div>
             ))}

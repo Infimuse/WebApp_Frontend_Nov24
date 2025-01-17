@@ -804,7 +804,7 @@ const CategoryNav = () => {
     categories.find((c) => c.name === selectedCategory)?.subcategories || [];
 
   return (
-    <div className="bg-white py-1 w-full">
+    <div className="bg-white my-3 py-1 w-full">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="relative flex items-center justify-center space-x-8 overflow-x-auto hide-scroll-bar px-5"

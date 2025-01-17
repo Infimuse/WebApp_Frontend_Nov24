@@ -6,7 +6,6 @@ import "./style.css";
 import "react-infinite-calendar/styles.css";
 import GlobalNavbar from "@/components/GlobalNavbar";
 import BottomNav from "@/components/BottomNav";
-import ScrollToTopButton from "@/components/ScrollToTopButton"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +30,6 @@ export default function RootLayout({
         <div className="max-h-screen sm:max-h-auto">
           <GlobalNavbar />
           <div className="sm:py-16 pt-[calc(60px+1rem)]">{children}</div>
-          <ScrollToTopButton/>
           <BottomNav /> {/* Add the BottomNav here */}
         </div>
       </body>

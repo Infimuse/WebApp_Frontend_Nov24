@@ -117,7 +117,7 @@ export const HomeCard = ({
   ));
 
   return (
-    <div className="block w-full bg-white rounded-lg shadow-md overflow-hidden max-w-[100%] sm:min-w-[300px] h-auto relative">
+    <div className="block w-full bg-white rounded-lg shadow-lg overflow-hidden max-w-[100%] sm:min-w-[300px] h-auto relative">
       <div className="flex flex-col gap-2">
           <div className="relative w-full flex justify-between items-center">
           {/* Slots Left */}
@@ -131,18 +131,19 @@ export const HomeCard = ({
             <span className="mt-[-2px] text-xs sm:text-sm">{rating}</span>
           </div>
         </div>
-      <div
-        className="p-4 flex flex-row justify-between items-center space-y-2"
-        style={{ minHeight: "160px" }}
-      >
-        
-          <article className="flex-1">
-            <h3 className="text-sm sm:text-lg font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
+        <h3 className="text-sm sm:text-lg font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
               {title}
             </h3>
-            <p className="text-gray-500 text-xs sm:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap mb-1">
+            <p className="text-gray-500 text-xs sm:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap ">
               Hosted by {host}
             </p>
+      <div
+        className="px-4 flex flex-row justify-between "
+        // style={{ minHeight: "160px" }}
+      >
+        
+          <article className="w-[50%]">
+            
 
             <div className="text-gray-500 text-xs sm:text-sm flex items-center">
               <FaMapMarkerAlt className="mr-2" />
@@ -158,8 +159,8 @@ export const HomeCard = ({
               <FaMoneyBillAlt className="inline mr-2" /> Ksh {price}
             </div>
           </article>
-          <article className="w-full flex-1">
-            <Image src={image} width={50} height={50} alt={title} className="w-full h-[40%] rounded-md" />
+          <article className="w-full w-[50%]">
+            <img src={image}  alt={title} className="w-full  rounded-md h-full h-[50px] image-cover" />
           </article>
         </div>
 

@@ -5,7 +5,7 @@ import FiltersDrawer from "./FiltersDrawer"
 
 const SearchBar = () => {
   return (
-    <div className=" sm:hidden w-full flex items-center gap-2 sm:p-2 sm:px-4 mb-2">
+    <div className=" w-full flex items-center gap-2 sm:p-2 sm:px-4 mb-2">
       <div className="relative w-full">
         <input
           type="text"

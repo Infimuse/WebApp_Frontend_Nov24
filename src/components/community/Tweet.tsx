@@ -1,7 +1,7 @@
 import { PiShareFat } from "react-icons/pi";
 import { useState } from "react";
 import CommentsDrawer from "../CommentsDrawer";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { GoHeartFill, GoHeart } from "react-icons/go";
 
 interface Props {
   tweet: {
@@ -20,8 +20,6 @@ interface Props {
 
 const Tweet = ({ tweet }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [comments, setComments] = useState<string[]>([]);
-  const [newComment, setNewComment] = useState("");
   const [liked, setLiked] = useState(false);
 
   const toggleExpand = () => {
@@ -34,15 +32,8 @@ const Tweet = ({ tweet }: Props) => {
       ? tweet.text
       : `${tweet.text.slice(0, 150)}...`;
 
-  const handleAddComment = () => {
-    if (newComment.trim()) {
-      setComments((prev) => [...prev, newComment.trim()]);
-      setNewComment("");
-    }
-  };
-
   const handleShare = async () => {
-    console.log("clicked")
+    console.log("clicked");
     try {
       if (navigator.share) {
         // Using the Web Share API if available
@@ -50,7 +41,7 @@ const Tweet = ({ tweet }: Props) => {
           title: "Test post",
           url: "https://example.com",
         });
-        console.log("shared")
+        console.log("shared");
       } else {
         // Fallback for browsers that do not support the Web Share API
         alert("Sharing is not supported on this device/browser");
@@ -82,9 +73,9 @@ const Tweet = ({ tweet }: Props) => {
           {shouldTruncate && (
             <button
               onClick={toggleExpand}
-              className="text-blue-500 hover:underline focus:outline-none"
+              className="text-[#BB2460] text-xs hover:underline focus:outline-none"
             >
-              {isExpanded ? "See less" : "See more"}
+              {isExpanded ? "Less" : "More"}
             </button>
           )}
         </div>
@@ -96,13 +87,13 @@ const Tweet = ({ tweet }: Props) => {
           <div className="flex gap-2">
             <li className="center-item flex items-center gap-1">
               <div
-                className="action-icon hover:text-red-600"
+                className="action-icon hover:text-[#BB2460]"
                 onClick={() => setLiked(!liked)}
               >
                 {liked ? (
-                  <FaHeart size={20} color="red" />
+                  <GoHeartFill size={23} color="#BB2460" />
                 ) : (
-                  <FaRegHeart size={20} />
+                  <GoHeart size={23} />
                 )}
               </div>
             </li>
@@ -114,7 +105,10 @@ const Tweet = ({ tweet }: Props) => {
           </div>
 
           <li className="center-item flex items-center gap-1 align-right">
-            <div className="action-icon hover:text-red-600" onClick={() => handleShare()}>
+            <div
+              className="action-icon hover:text-[#BB2460]"
+              onClick={() => handleShare()}
+            >
               <PiShareFat size={20} />
             </div>
             <span>{tweet.shares}</span>
@@ -126,38 +120,6 @@ const Tweet = ({ tweet }: Props) => {
         </p>
 
         {/* Comments Section */}
-        <div className="hidden sm:flex w-full px-2 mt-4">
-          <div className="flex gap-2 mb-3">
-            <input
-              type="text"
-              placeholder="Add a comment..."
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              className="flex-1 border border-gray-300 rounded-md text-gray-600 p-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-            />
-            <button
-              onClick={handleAddComment}
-              className="bg-blue-500 text-white text-sm px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none"
-            >
-              Post
-            </button>
-          </div>
-          {comments.length > 0 && (
-            <div className="comments-list pl-3 text-gray-600">
-              <p className="text-sm font-semibold mb-2">Comments:</p>
-              <ul className="space-y-2">
-                {comments.map((comment, index) => (
-                  <li
-                    key={index}
-                    className="text-sm text-gray-700 bg-gray-100 p-2 rounded-md"
-                  >
-                    {comment}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
       </div>
     </div>
   );

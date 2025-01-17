@@ -9,7 +9,7 @@ import Download from "@/components/Download";
 import BookingModal from "@/components/BookingModal";
 import experiences from "@/data/data";
 import { useParams } from "next/navigation";
-import TicketCard, { tickets } from "@/components/TicketCard";
+import Tickets from "@/components/Tickets";
 
 const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
@@ -90,7 +90,7 @@ export default function ExperienceDetail() {
           </div>
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-2xl font-bold mb-2 sm:mb-4">
-              Start Dates ({experience.dates.length})
+              Other Options ({experience.dates.length})
             </h2>
             <div className="grid grid-cols-1 gap-4">
               {experience.dates.map((date, index) => (
@@ -145,6 +145,7 @@ export default function ExperienceDetail() {
               working within a kitchen. Long hair should be tied back.
             </p>
           </div>
+          <Tickets/>
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-xl font-bold mb-2 sm:mb-4">
               Reviews ({experience.reviews})
@@ -163,42 +164,7 @@ export default function ExperienceDetail() {
           </div>
         </div>
         <div className="lg:w-1/4 lg:pl-8">
-          <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <a href="/book" className="w-full">
-              <button className="w-full bg-[#12B9F3] text-white font-semibold py-2 text-xs sm:text-sm sm:py-3 rounded-lg shadow-md  transition duration-300 mb-4">
-                Book Now
-              </button>
-            </a>
-
-            <button className="w-full bg-gray-100 text-gray-700 font-semibold py-2 text-xs sm:text-sm sm:py-3 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 mb-4">
-              <BookmarkIcon className="inline h-5 w-5 mr-2" /> Save to Wishlist
-            </button>
-            <div className="text-center text-gray-500 text-xs sm:text-sm">
-              1139 people wishlisted
-            </div>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-xl font-semibold mb-2 sm:mb-4">Price</h2>
-            <p className="text-2xl font-bold mb-2">{experience.price}</p>
-            <ul className="list-disc list-inside">
-              <li className="text-xs sm:text-sm">All levels</li>
-              <li className="text-xs sm:text-sm">
-                Age Limit: {experience.ageLimit}
-              </li>
-              <li className="text-xs sm:text-sm">Earn 10% Rewards</li>
-              <li className="text-xs sm:text-sm">Price Lock</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-sm ssm:text-xl font-semibold mb-2 sm:mb-3">
-              Ticket Types
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-1 gap-5">
-              {tickets.map((ticket, idx) => (
-                <TicketCard ticket={ticket} key={idx} />
-              ))}
-            </div>
-          </div>
+          
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-xl font-semibold mb-2 sm:mb-4">
               Location

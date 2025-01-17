@@ -69,7 +69,7 @@ const BookedEventsCarousel: React.FC = () => {
       </div> */}
 
       {/* Normal Horizontal Scrolling */}
-      <h3 className="text-black font-semibold mb-2 text-sm text-center">
+      <h3 className="text-black font-semibold mb-2 text-sm text-left">
         Upcoming Bookings
       </h3>
       <div

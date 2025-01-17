@@ -5,7 +5,7 @@ import Link from "next/link";
 import { TbCalendarSearch } from "react-icons/tb";
 import { HiUsers } from "react-icons/hi";
 import { MdAdminPanelSettings } from "react-icons/md";
-import { FaSignInAlt, FaSignOutAlt, FaSearch } from "react-icons/fa";
+import { FaSignOutAlt, FaSearch } from "react-icons/fa";
 import { Menu, Transition } from "@headlessui/react";
 import { IoPerson } from "react-icons/io5";
 import { IoChevronDown } from "react-icons/io5";
@@ -232,13 +232,7 @@ export default function GlobalNavbar() {
             {/* Icon for Become a Host */}
             Become a Host
           </a>
-          <a
-            href="#"
-            className=" text-base font-medium text-gray-700 hover:text-indigo-500 flex items-center"
-          >
-            <FaSignInAlt size={18} className="mr-2" /> {/* Icon for Sign In */}
-            Sign In
-          </a>
+
           <a
             href="#"
             className=" text-base font-medium text-gray-700 hover:text-indigo-500 flex items-center"

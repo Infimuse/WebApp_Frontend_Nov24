@@ -11,6 +11,7 @@ import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
 import "./globals.css";
 import { FaArrowRight } from "react-icons/fa";
+import ScrollToTopButton from "@/components/ScrollToTopButton"
 
 interface ArrowProps {
   onClick: () => void;
@@ -376,31 +377,20 @@ const HomePage = () => {
   };
 
   return (
-    <div className="bg-white w-full">
+    <div className="bg-white w-full relative">
       <Banner />
-      
+<ScrollToTopButton/>
       <UpcomingEvents />
 
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 mb-2 text-black">
-        <SubNavbar2 />
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8 pt-3 mb-2 text-black">
+       
         <SubNavbar />
+        <div className="my-4">
+          <SubNavbar2/>
+        </div>
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div className="hidden sm:flex justify-between items-center mb-4">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-700">
-                Explore and Connect
-              </h2>
-              <p className="text-gray-600">
-                Discover fun Learning Experiences & Group Hangouts around you
-              </p>
-            </div>
-            <Link href="/Explore">
-              <button className="text-black py-2 px-4 rounded-lg underline">
-                View More
-              </button>
-            </Link>
-          </div>
+          
 
           <div className="space-y-8">
             <div
@@ -440,19 +430,7 @@ const HomePage = () => {
         </section>
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div className="hidden sm:flex justify-between items-center mb-4">
-            <div>
-              <h2 className="text-2xl font-bold">Workshops</h2>
-              <p className="text-gray-600">
-                Join our workshops and enhance your skills in various fields.
-              </p>
-            </div>
-            <Link href="/workshops">
-              <button className="text-black py-2 px-4 rounded-lg underline">
-                View More
-              </button>
-            </Link>
-          </div>
+         
           <div
             ref={workshopsRef}
             className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
@@ -463,19 +441,7 @@ const HomePage = () => {
         </section>
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div className="hidden sm:flex justify-between items-center mb-4">
-            <div>
-              <h2 className="text-2xl font-bold">For Kids</h2>
-              <p className="text-gray-600">
-                Fun and educational activities designed for kids of all ages.
-              </p>
-            </div>
-            <Link href="/Kids-activities">
-              <button className="text-black py-2 px-4 rounded-lg underline">
-                View More
-              </button>
-            </Link>
-          </div>
+       
           <div
             ref={kidsActivitiesRef}
             className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"

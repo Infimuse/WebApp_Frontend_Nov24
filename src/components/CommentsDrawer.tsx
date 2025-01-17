@@ -13,7 +13,7 @@ export default function CommentsDrawer(props: Props) {
   return (
     <Drawer.Root>
       <Drawer.Trigger>
-        <div className="action-icon hover:text-red-600">
+        <div className="action-icon hover:[#BB2460]">
           <BsChat size={20} />
         </div>
       </Drawer.Trigger>
