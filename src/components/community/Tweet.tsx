@@ -69,19 +69,23 @@ const Tweet = ({ tweet }: Props) => {
           </div>
         </div>
         <div>
-          <p className="text-gray-700 text-sm pl-1">{displayText}</p>
+          <p className="text-gray-700 text-sm pl-2">{displayText}</p>
           {shouldTruncate && (
             <button
               onClick={toggleExpand}
-              className="text-[#BB2460] text-xs hover:underline focus:outline-none"
+              className="text-[#BB2460] text-xs pl-2 hover:underline focus:outline-none"
             >
               {isExpanded ? "Less" : "More"}
             </button>
           )}
         </div>
+        <div className="px-2">
         {tweet.image && (
-          <img className="" src={tweet.image} alt="Tweet Visual" />
+          <img className="rounded-md" src={tweet.image} alt="Tweet Visual" />
         )}
+        </div>
+     
+
 
         <ul className="flex justify-between w-full gap-3 mt-2 px-2">
           <div className="flex gap-2">

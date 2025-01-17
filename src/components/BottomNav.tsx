@@ -11,6 +11,7 @@ import {
   IoNotificationsSharp,
 } from "react-icons/io5";
 import { HiOutlineUserGroup, HiUserGroup } from "react-icons/hi";
+import NotificationModal from "./NotificationModal";
 
 const navData = [
   {
@@ -38,14 +39,6 @@ const navData = [
     path: "/messages",
   },
 
-  {
-    name: "Notifications",
-    activeicon: <IoNotificationsSharp size={24} className="text-gray-600" />,
-    inActiveIcon: (
-      <IoNotificationsOutline size={24} className="text-gray-600" />
-    ),
-    path: "/notifications",
-  },
 ];
 
 const BottomNav = () => {
@@ -58,6 +51,7 @@ const BottomNav = () => {
             {pathName === item.path ? item.activeicon : item.inActiveIcon}
           </Link>
         ))}
+        <NotificationModal />
       </div>
     </div>
   );
