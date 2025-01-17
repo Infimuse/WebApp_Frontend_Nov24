@@ -4,12 +4,7 @@ import { usePathname } from "next/navigation";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { RiSearch2Fill, RiSearch2Line } from "react-icons/ri";
 
-import {
-  IoMailOutline,
-  IoMailSharp,
-  IoNotificationsOutline,
-  IoNotificationsSharp,
-} from "react-icons/io5";
+import { IoMailOutline, IoMailSharp } from "react-icons/io5";
 import { HiOutlineUserGroup, HiUserGroup } from "react-icons/hi";
 import NotificationModal from "./NotificationModal";
 
@@ -38,7 +33,6 @@ const navData = [
     inActiveIcon: <IoMailOutline size={24} className="text-gray-600" />,
     path: "/messages",
   },
-
 ];
 
 const BottomNav = () => {
