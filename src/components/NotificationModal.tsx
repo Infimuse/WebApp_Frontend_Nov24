@@ -109,10 +109,10 @@ const Ratings: React.FC = () => {
   // };
 
   return (
-    <div className="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-md">
+    <div className="p-2 max-w-lg mx-auto bg-white rounded-lg shadow-md">
       {/* Instructor Rating */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+        <h3 className="text-sm text-left font-semibold text-gray-700 mb-2">
           Instructor Satisfaction
         </h3>
         <div className="flex space-x-4">
@@ -135,7 +135,7 @@ const Ratings: React.FC = () => {
 
       {/* Venue Rating */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+        <h3 className="text-sm text-left font-semibold text-gray-700 mb-2">
           Venue Satisfaction
         </h3>
         <div className="flex space-x-4">
@@ -158,7 +158,7 @@ const Ratings: React.FC = () => {
 
       {/* Review Textarea */}
       <div className="mb-1">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+        <h3 className="text-sm text-left font-semibold text-gray-700 mb-2">
           Write a Review
         </h3>
         <textarea
