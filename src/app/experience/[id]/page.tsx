@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { BookmarkIcon } from "@heroicons/react/24/outline";
 import Footer from "@/components/Footer";
 import Download from "@/components/Download";
 import BookingModal from "@/components/BookingModal";
@@ -145,7 +144,7 @@ export default function ExperienceDetail() {
               working within a kitchen. Long hair should be tied back.
             </p>
           </div>
-          <Tickets/>
+          <Tickets />
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-xl font-bold mb-2 sm:mb-4">
               Reviews ({experience.reviews})
@@ -164,7 +163,6 @@ export default function ExperienceDetail() {
           </div>
         </div>
         <div className="lg:w-1/4 lg:pl-8">
-          
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-xl font-semibold mb-2 sm:mb-4">
               Location
