@@ -1,10 +1,7 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { IoNotifications } from "react-icons/io5";
-import {
-  IoNotificationsOutline,
-  IoNotificationsSharp,
-} from "react-icons/io5";
+import { IoNotificationsOutline, IoNotificationsSharp } from "react-icons/io5";
 
 export default function NotificationModal() {
   const [open, setOpen] = useState(false);
@@ -16,7 +13,7 @@ export default function NotificationModal() {
       <span onClick={() => setOpen(true)} className="relative">
         <span className="p-1 w-1 h-1 rounded-full bg-[#BB2460] absolute top-0 right-0" />
         {open ? (
-          <IoNotificationsSharp size={24} className="text-gray-600"/>
+          <IoNotificationsSharp size={24} className="text-gray-600" />
         ) : (
           <IoNotificationsOutline size={24} className="text-gray-600" />
         )}
@@ -67,7 +64,7 @@ export default function NotificationModal() {
                         Rate your Experience
                       </Dialog.Title>
                       <div className="mt-2">
-                       <Ratings/>
+                        <Ratings />
                       </div>
                     </div>
                   </div>
@@ -90,10 +87,6 @@ export default function NotificationModal() {
   );
 }
 
-
-
-
-
 const Ratings: React.FC = () => {
   const [instructorRating, setInstructorRating] = useState<number | null>(null);
   const [venueRating, setVenueRating] = useState<number | null>(null);
@@ -106,22 +99,22 @@ const Ratings: React.FC = () => {
     { id: 4, emoji: "😁", label: "Very Satisfied" },
   ];
 
-  const handleSubmit = () => {
-    const feedback = {
-      instructorRating,
-      venueRating,
-      review,
-    };
-    console.log("Feedback submitted:", feedback);
-  };
+  // const handleSubmit = () => {
+  //   const feedback = {
+  //     instructorRating,
+  //     venueRating,
+  //     review,
+  //   };
+  //   console.log("Feedback submitted:", feedback);
+  // };
 
   return (
     <div className="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-md">
-
-
       {/* Instructor Rating */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">Instructor Satisfaction</h3>
+        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+          Instructor Satisfaction
+        </h3>
         <div className="flex space-x-4">
           {faces.map((face) => (
             <button
@@ -142,7 +135,9 @@ const Ratings: React.FC = () => {
 
       {/* Venue Rating */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">Venue Satisfaction</h3>
+        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+          Venue Satisfaction
+        </h3>
         <div className="flex space-x-4">
           {faces.map((face) => (
             <button
@@ -163,7 +158,9 @@ const Ratings: React.FC = () => {
 
       {/* Review Textarea */}
       <div className="mb-1">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">Write a Review</h3>
+        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+          Write a Review
+        </h3>
         <textarea
           value={review}
           onChange={(e) => setReview(e.target.value)}
@@ -174,9 +171,6 @@ const Ratings: React.FC = () => {
       </div>
 
       {/* Submit Button */}
-     
     </div>
   );
 };
-
-
