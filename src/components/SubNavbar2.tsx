@@ -87,7 +87,7 @@ const SubNavbar2 = () => {
                 className={`flex items-center cursor-pointer px-2 sm:px-3 py-2 rounded-full ${
                   activeCategory.includes(category.path)
                     ? "bg-[#18bdfa] text-white"
-                    : "text-black hover:bg-[#18bdfa] hover:text-white"
+                    : "text-blac"
                 }`}
                 onClick={() => toggleCategory(category.path)}
               >

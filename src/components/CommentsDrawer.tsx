@@ -32,11 +32,13 @@ export default function CommentsDrawer(props: Props) {
                   <div key={i} className="bg-gray-50 p-3 rounded-lg">
                     <div>
                       <div className="font-medium">User Name</div>
-                    <div className="text-gray-600">Example comment {i + 1}</div>
+                      <div className="text-gray-600">
+                        Example comment {i + 1}
+                      </div>
                     </div>
                     <div className="flex text-[9px] mt-2 gap-3">
-                      <span>Like</span>
-                      <span>Delete</span>
+                      <span className="hover:text-[#13BAEF]">Like</span>
+                      <span className="hover:text-[#BB2460]">Delete</span>
                     </div>
                   </div>
                 ))}

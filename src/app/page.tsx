@@ -11,7 +11,8 @@ import UpcomingEvents from "@/components/UpcomingEvents";
 import Link from "next/link";
 import "./globals.css";
 import { FaArrowRight } from "react-icons/fa";
-import ScrollToTopButton from "@/components/ScrollToTopButton"
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Location from "@/components/community/location";
 
 interface ArrowProps {
   onClick: () => void;
@@ -379,19 +380,18 @@ const HomePage = () => {
   return (
     <div className="bg-white w-full relative">
       <Banner />
-<ScrollToTopButton/>
+      <ScrollToTopButton />
       <UpcomingEvents />
 
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 pt-3 mb-2 text-black">
-       
         <SubNavbar />
         <div className="my-4">
-          <SubNavbar2/>
+          <SubNavbar2 />
         </div>
-
+        <div className="max-w-[1240px] mx-auto my-2">
+          <Location />
+        </div>
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          
-
           <div className="space-y-8">
             <div
               ref={ExploreRef}
@@ -430,7 +430,6 @@ const HomePage = () => {
         </section>
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-         
           <div
             ref={workshopsRef}
             className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
@@ -441,7 +440,6 @@ const HomePage = () => {
         </section>
 
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-       
           <div
             ref={kidsActivitiesRef}
             className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
