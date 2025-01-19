@@ -192,7 +192,7 @@ interface Props {
   label?: React.ReactNode;
 }
 
-export const FloatingButton = ({ onClick, label }: Props) => {
+const FloatingButton = ({ onClick, label }: Props) => {
   return (
     <button
       onClick={onClick}
