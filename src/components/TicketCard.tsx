@@ -73,8 +73,8 @@ export default function TicketCard(props: Props) {
         </h6>
       </div>
       <div className="flex justify-center gap-3 items-center">
-        <span onClick={handleAdd} className="cursor-pointer">
-          <FaPlusCircle
+        <span onClick={handleRemove} className="cursor-pointer">
+          <FaMinusCircle
             size={18}
             className={`${
               props.ticket.quantity > 0 ? "text-[#BB2460]" : "text-gray-500"
@@ -82,8 +82,9 @@ export default function TicketCard(props: Props) {
           />
         </span>
         <span>{props.ticket.quantity}</span>
-        <span onClick={handleRemove} className="cursor-pointer">
-          <FaMinusCircle
+
+        <span onClick={handleAdd} className="cursor-pointer">
+          <FaPlusCircle
             size={18}
             className={`${
               props.ticket.quantity > 0 ? "text-[#BB2460]" : "text-gray-500"

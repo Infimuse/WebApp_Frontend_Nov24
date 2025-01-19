@@ -59,7 +59,10 @@
 // ];
 
 // const CategoryNav = () => {
-//   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+//   const [selectedCategories, setSelectedCategories] = useState<Set<string>>(
+//     new Set()
+//   );
+//   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
 //   const [selectedSubcategories, setSelectedSubcategories] = useState<{
 //     [key: string]: Set<string>;
 //   }>({});
@@ -67,9 +70,19 @@
 
 //   // Toggle category selection
 //   const handleCategoryClick = (categoryName: string) => {
-//     setSelectedCategory((prev) =>
-//       prev === categoryName ? null : categoryName
-//     );
+//     setSelectedCategories((prev) => {
+//       const newSet = new Set(prev);
+//       if (newSet.has(categoryName)) {
+//         newSet.delete(categoryName); // Deselect if already selected
+//         if (currentCategory === categoryName) {
+//           setCurrentCategory(null);
+//         }
+//       } else {
+//         newSet.add(categoryName); // Select the category
+//         setCurrentCategory(categoryName); // Update current category
+//       }
+//       return newSet;
+//     });
 //   };
 
 //   // Toggle subcategory selection
@@ -103,9 +116,9 @@
 //     containerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
 //   };
 
-//   // Get active subcategories for the selected category
+//   // Get subcategories for the current category
 //   const activeSubcategories =
-//     categories.find((c) => c.name === selectedCategory)?.subcategories || [];
+//     categories.find((c) => c.name === currentCategory)?.subcategories || [];
 
 //   return (
 //     <div className="bg-white my-3 py-1 w-full">
@@ -114,29 +127,22 @@
 //           className="relative flex items-center justify-center space-x-8 overflow-x-auto hide-scroll-bar px-5"
 //           ref={containerRef}
 //         >
-//           {categories.map((category) => {
-//             const hasSelectedSubcategories =
-//               selectedSubcategories[category.name]?.size > 0;
-
-//             return (
-//               <div
-//                 key={category.name}
-//                 className={`relative flex flex-col items-center cursor-pointer transition duration-150 ease-in-out ${
-//                   selectedCategory === category.name || hasSelectedSubcategories
-//                     ? "text-[#BB2460]"
-//                     : "text-gray-800"
-//                 }`}
-//                 onClick={() => handleCategoryClick(category.name)}
-//               >
-//                 <span className="text-sm sm:text-2xl mb-2">
-//                   {category.icon}
-//                 </span>
-//                 <span className="text-xs sm:text-sm font-medium">
-//                   {category.name}
-//                 </span>
-//               </div>
-//             );
-//           })}
+//           {categories.map((category) => (
+//             <div
+//               key={category.name}
+//               className={`relative flex flex-col items-center cursor-pointer transition duration-150 ease-in-out ${
+//                 selectedCategories.has(category.name)
+//                   ? "text-[#BB2460]"
+//                   : "text-gray-800"
+//               }`}
+//               onClick={() => handleCategoryClick(category.name)}
+//             >
+//               <span className="text-sm sm:text-2xl mb-2">{category.icon}</span>
+//               <span className="text-xs sm:text-sm font-medium">
+//                 {category.name}
+//               </span>
+//             </div>
+//           ))}
 //         </div>
 //         <div
 //           className="absolute left-1 top-1/2 transform -translate-y-1/2 flex justify-center items-center bg-white"
@@ -153,17 +159,17 @@
 //       </div>
 
 //       {/* Subcategories */}
-//       <div className="ml-8">
-//         {activeSubcategories.length > 0 && (
+//       {currentCategory && (
+//         <div className="ml-8 my-3">
 //           <div className="flex flex-wrap gap-2 mb-4 justify-center">
 //             {activeSubcategories.map((subcategory) => (
 //               <span
 //                 key={subcategory}
 //                 onClick={() =>
-//                   handleSubcategoryClick(selectedCategory!, subcategory)
+//                   handleSubcategoryClick(currentCategory, subcategory)
 //                 }
 //                 className={`px-2 sm:px-4 py-1 sm:py-2 rounded-full cursor-pointer text-xs sm:text-sm font-medium ${
-//                   selectedSubcategories[selectedCategory!]?.has(subcategory)
+//                   selectedSubcategories[currentCategory]?.has(subcategory)
 //                     ? "bg-[#BB2460] text-white"
 //                     : "bg-[#12B9F3] text-white"
 //                 }`}
@@ -172,8 +178,8 @@
 //               </span>
 //             ))}
 //           </div>
-//         )}
-//       </div>
+//         </div>
+//       )}
 //     </div>
 //   );
 // };
@@ -244,7 +250,6 @@ const CategoryNav = () => {
   const [selectedCategories, setSelectedCategories] = useState<Set<string>>(
     new Set()
   );
-  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const [selectedSubcategories, setSelectedSubcategories] = useState<{
     [key: string]: Set<string>;
   }>({});
@@ -256,12 +261,8 @@ const CategoryNav = () => {
       const newSet = new Set(prev);
       if (newSet.has(categoryName)) {
         newSet.delete(categoryName); // Deselect if already selected
-        if (currentCategory === categoryName) {
-          setCurrentCategory(null);
-        }
       } else {
         newSet.add(categoryName); // Select the category
-        setCurrentCategory(categoryName); // Update current category
       }
       return newSet;
     });
@@ -297,10 +298,6 @@ const CategoryNav = () => {
   const scrollRight = () => {
     containerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
   };
-
-  // Get subcategories for the current category
-  const activeSubcategories =
-    categories.find((c) => c.name === currentCategory)?.subcategories || [];
 
   return (
     <div className="bg-white my-3 py-1 w-full">
@@ -341,24 +338,31 @@ const CategoryNav = () => {
       </div>
 
       {/* Subcategories */}
-      {currentCategory && (
-        <div className="ml-8">
+      {selectedCategories.size > 0 && (
+        <div className="ml-8 my-3">
           <div className="flex flex-wrap gap-2 mb-4 justify-center">
-            {activeSubcategories.map((subcategory) => (
-              <span
-                key={subcategory}
-                onClick={() =>
-                  handleSubcategoryClick(currentCategory, subcategory)
-                }
-                className={`px-2 sm:px-4 py-1 sm:py-2 rounded-full cursor-pointer text-xs sm:text-sm font-medium ${
-                  selectedSubcategories[currentCategory]?.has(subcategory)
-                    ? "bg-[#BB2460] text-white"
-                    : "bg-[#12B9F3] text-white"
-                }`}
-              >
-                {subcategory}
-              </span>
-            ))}
+            {[...selectedCategories].map((categoryName) => {
+              const category = categories.find((c) => c.name === categoryName);
+              return (
+                <React.Fragment key={categoryName}>
+                  {category?.subcategories.map((subcategory) => (
+                    <span
+                      key={subcategory}
+                      onClick={() =>
+                        handleSubcategoryClick(categoryName, subcategory)
+                      }
+                      className={`px-2 sm:px-4 py-1 sm:py-2 rounded-full cursor-pointer text-xs sm:text-sm font-medium ${
+                        selectedSubcategories[categoryName]?.has(subcategory)
+                          ? "bg-[#BB2460] text-white"
+                          : "bg-[#12B9F3] text-white"
+                      }`}
+                    >
+                      {subcategory}
+                    </span>
+                  ))}
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
       )}

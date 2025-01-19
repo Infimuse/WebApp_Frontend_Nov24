@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import SubNavbar from "@/components/SubNavbar";
 import Footer from "@/components/Footer";
-import Card, { HomeCard } from "@/components/Card";
+import Card from "@/components/Card";
 import SubNavbar2 from "@/components/SubNavbar2";
 import Banner from "@/components/Banner";
 import UpcomingEvents from "@/components/UpcomingEvents";
@@ -385,10 +385,10 @@ const HomePage = () => {
 
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 pt-3 mb-2 text-black">
         <SubNavbar />
-        <div className="my-4">
+        <div className="my-5">
           <SubNavbar2 />
         </div>
-        <div className="max-w-[1240px] mx-auto my-2">
+        <div className="max-w-[1240px] mx-auto my-3">
           <Location />
         </div>
         <section className="relative mb-8 max-w-[1240px] mx-auto">
@@ -409,7 +409,7 @@ const HomePage = () => {
             >
               {experiences.slice(0, 8).map((experience) => (
                 <div key={experience.id}>
-                  <HomeCard {...experience} />
+                  <Card {...experience} />
                 </div>
               ))}
             </div>

@@ -87,32 +87,8 @@ export default function ExperienceDetail() {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-sm sm:text-2xl font-bold mb-2 sm:mb-4">
-              Other Options ({experience.dates.length})
-            </h2>
-            <div className="grid grid-cols-1 gap-4">
-              {experience.dates.map((date, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between items-center border p-2 text-xs sm:text-sm sm:p-4 rounded-lg"
-                >
-                  <span>{date.date}</span>
-                  <div className="flex items-center space-x-4">
-                    <span className="text-green-600">
-                      {date.seatsLeft} seats left
-                    </span>
-                    <button
-                      className="bg-[#A72C76] text-white py-2 px-4 rounded-lg  transition duration-300"
-                      onClick={openModal}
-                    >
-                      Book
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Tickets />
+
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">
               Class Description
@@ -144,8 +120,36 @@ export default function ExperienceDetail() {
               working within a kitchen. Long hair should be tied back.
             </p>
           </div>
-          <Tickets />
+
+        
+
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
+            <h2 className="text-sm sm:text-2xl font-bold mb-2 sm:mb-4">
+              Other Options ({experience.dates.length})
+            </h2>
+            <div className="grid grid-cols-1 gap-4">
+              {experience.dates.map((date, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center border p-2 text-xs sm:text-sm sm:p-4 rounded-lg"
+                >
+                  <span>{date.date}</span>
+                  <div className="flex items-center space-x-4">
+                    <span className="text-green-600">
+                      {date.seatsLeft} seats left
+                    </span>
+                    <button
+                      className="bg-[#A72C76] text-white py-2 px-4 rounded-lg  transition duration-300"
+                      onClick={openModal}
+                    >
+                      Book
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+            <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-xl font-bold mb-2 sm:mb-4">
               Reviews ({experience.reviews})
             </h2>
@@ -163,21 +167,6 @@ export default function ExperienceDetail() {
           </div>
         </div>
         <div className="lg:w-1/4 lg:pl-8">
-          <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
-            <h2 className="text-sm sm:text-xl font-semibold mb-2 sm:mb-4">
-              Location
-            </h2>
-            <p className="text-xs sm:text-xs">{experience.location}</p>
-          </div>
-          <div className="relative w-full h-64 mb-3 sm:mb-5">
-            <Image
-              src={experience.mapImage}
-              alt="Map"
-              fill
-              className="rounded-lg shadow-lg object-cover"
-            />
-          </div>
-
           <div className="bg-white rounded-lg shadow-lg p-3 sm:p-5 mb-3 sm:mb-5 flex flex-col items-center">
             <h1 className=" font-bold mb-4">Meet the Instructor</h1>
             <Image
@@ -196,6 +185,20 @@ export default function ExperienceDetail() {
                 See profile
               </button>
             </a>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
+            <h2 className="text-sm sm:text-xl font-semibold mb-2 sm:mb-4">
+              Location
+            </h2>
+            <p className="text-xs sm:text-xs">{experience.location}</p>
+          </div>
+          <div className="relative w-full h-64 mb-3 sm:mb-5">
+            <Image
+              src={experience.mapImage}
+              alt="Map"
+              fill
+              className="rounded-lg shadow-lg object-cover"
+            />
           </div>
         </div>
       </div>

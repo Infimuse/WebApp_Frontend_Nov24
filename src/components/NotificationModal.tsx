@@ -87,16 +87,19 @@ export default function NotificationModal() {
   );
 }
 
-const Ratings: React.FC = () => {
+export const Ratings: React.FC = () => {
   const [instructorRating, setInstructorRating] = useState<number | null>(null);
   const [venueRating, setVenueRating] = useState<number | null>(null);
+  const [sessionRating, setSessionRating] = useState<number | null>(null);
+
   const [review, setReview] = useState("");
 
   const faces = [
-    { id: 1, emoji: "😡", label: "Very Dissatisfied" },
-    { id: 2, emoji: "😟", label: "Dissatisfied" },
-    { id: 3, emoji: "😊", label: "Satisfied" },
-    { id: 4, emoji: "😁", label: "Very Satisfied" },
+    { id: 1, emoji: "😫", label: "Very Dissatisfied" },
+    { id: 2, emoji: "☹️", label: "Dissatisfied" },
+    { id: 3, emoji: "😐", label: "Average" },
+    { id: 4, emoji: "😊", label: "Satisfied" },
+    { id: 5, emoji: "😍", label: "Very Satisfied" },
   ];
 
   // const handleSubmit = () => {
@@ -109,20 +112,46 @@ const Ratings: React.FC = () => {
   // };
 
   return (
-    <div className="p-2 max-w-lg mx-auto bg-white rounded-lg shadow-md">
-      {/* Instructor Rating */}
+    <div className=" max-w-lg mx-auto  rounded-lg ">
+      {/* Session Rating */}
       <div className="mb-6">
-        <h3 className="text-sm text-left font-semibold text-gray-700 mb-2">
-          Instructor Satisfaction
+        <h3 className="text-sm text-center font-bold text-gray-700 mb-2">
+          Rate Your Experience
+        </h3>
+        <h3 className="text-sm text-left  text-gray-700 mb-2">
+          How was Bowling for Beginners on 20th January 2025?
+        </h3>
+        <div className="flex space-x-4">
+          {faces.map((face) => (
+            <button
+              key={face.id}
+              onClick={() => setSessionRating(face.id)}
+              className={`p-1 rounded-full border text-xl ${
+                sessionRating === face.id
+                  ? "bg-pink-100 border-[#BB2460] text-[#BB2460]"
+                  : "bg-gray-100 border-gray-300 text-gray-500"
+              }`}
+              aria-label={face.label}
+            >
+              {face.emoji}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Instructor Rating */}
+      <div className="mb-3">
+        <h3 className="text-sm text-left  text-gray-700 mb-2">
+          How was Steve Jobs?
         </h3>
         <div className="flex space-x-4">
           {faces.map((face) => (
             <button
               key={face.id}
               onClick={() => setInstructorRating(face.id)}
-              className={`p-3 rounded-full border text-xl ${
+              className={`p-1 rounded-full border text-xl ${
                 instructorRating === face.id
-                  ? "bg-purple-100 border-purple-600 text-purple-600"
+                  ? "bg-pink-100 border-[#bb2460] text-[#bb2460]"
                   : "bg-gray-100 border-gray-300 text-gray-500"
               }`}
               aria-label={face.label}
@@ -134,18 +163,18 @@ const Ratings: React.FC = () => {
       </div>
 
       {/* Venue Rating */}
-      <div className="mb-6">
-        <h3 className="text-sm text-left font-semibold text-gray-700 mb-2">
-          Venue Satisfaction
+      <div className="mb-3">
+        <h3 className="text-sm text-left  text-gray-700 mb-2">
+          How was Sarit Center?
         </h3>
         <div className="flex space-x-4">
           {faces.map((face) => (
             <button
               key={face.id}
               onClick={() => setVenueRating(face.id)}
-              className={`p-3 rounded-full border text-xl ${
+              className={`p-1 rounded-full border text-xl ${
                 venueRating === face.id
-                  ? "bg-purple-100 border-purple-600 text-purple-600"
+                  ? "bg-pink-100 border-[#bb2460] text-[#bb2460]"
                   : "bg-gray-100 border-gray-300 text-gray-500"
               }`}
               aria-label={face.label}
@@ -158,7 +187,7 @@ const Ratings: React.FC = () => {
 
       {/* Review Textarea */}
       <div className="mb-1">
-        <h3 className="text-sm text-left font-semibold text-gray-700 mb-2">
+        <h3 className="text-sm text-left  text-gray-700 mb-2">
           Write a Review
         </h3>
         <textarea
@@ -171,6 +200,14 @@ const Ratings: React.FC = () => {
       </div>
 
       {/* Submit Button */}
+      <div>
+        <button
+          type="button"
+          className="inline-flex w-full justify-center rounded-md border border-transparent bg-[#BB2460] px-4 py-2 text-base font-medium text-white shadow-sm  focus:outline-none  sm:ml-3 sm:w-auto text-xs sm:text-sm"
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 };

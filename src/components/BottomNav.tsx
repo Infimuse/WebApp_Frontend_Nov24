@@ -3,10 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { RiSearch2Fill, RiSearch2Line } from "react-icons/ri";
-
 import { IoMailOutline, IoMailSharp } from "react-icons/io5";
 import { HiOutlineUserGroup, HiUserGroup } from "react-icons/hi";
-import NotificationModal from "./NotificationModal";
+
+import { IoNotificationsOutline, IoNotificationsSharp } from "react-icons/io5";
 
 const navData = [
   {
@@ -33,6 +33,14 @@ const navData = [
     inActiveIcon: <IoMailOutline size={24} className="text-gray-600" />,
     path: "/messages",
   },
+  {
+    name: "Notifications",
+    path: "/notifications",
+    activeicon: <IoNotificationsSharp size={24} className="text-gray-600" />,
+    inActiveIcon: (
+      <IoNotificationsOutline size={24} className="text-gray-600" />
+    ),
+  },
 ];
 
 const BottomNav = () => {
@@ -45,7 +53,6 @@ const BottomNav = () => {
             {pathName === item.path ? item.activeicon : item.inActiveIcon}
           </Link>
         ))}
-        <NotificationModal />
       </div>
     </div>
   );
