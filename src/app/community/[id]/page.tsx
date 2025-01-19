@@ -173,7 +173,7 @@ export default function HomePage() {
 
             {/* Floating button inside the scrollable content */}
           </div>
-          {/* <FloatingButton onClick={() => {}} /> */}
+          <FloatingButton onClick={() => {}} />
         </main>
 
         {/* Right Sidebar */}
@@ -196,7 +196,7 @@ export const FloatingButton = ({ onClick, label }: Props) => {
   return (
     <button
       onClick={onClick}
-      className="sticky bottom-1/2 transform translate-y-1/2 right-5 w-10 h-10 bg-[#12b9f3] text-white rounded-full shadow-lg flex items-center justify-center transition duration-300 z-50"
+      className="hidden  sticky bottom-1/2 transform translate-y-1/2 right-5 w-10 h-10 bg-[#12b9f3] text-white rounded-full shadow-lg  items-center justify-center transition duration-300 z-50"
     >
       {label}
     </button>
