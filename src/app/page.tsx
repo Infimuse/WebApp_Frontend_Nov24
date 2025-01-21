@@ -383,9 +383,9 @@ const HomePage = () => {
       <ScrollToTopButton />
       <UpcomingEvents />
 
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 pt-3 mb-2 text-black">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8 pt-1 mb-2 text-black">
         <SubNavbar />
-        <div className="my-5">
+        <div className="mt-3 mb-5">
           <SubNavbar2 />
         </div>
         <div className="max-w-[1240px] mx-auto my-3">
