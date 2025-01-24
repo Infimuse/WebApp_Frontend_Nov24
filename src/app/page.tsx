@@ -351,9 +351,9 @@ const HomePage = () => {
       <UpcomingEvents />
 
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 pt-1 mb-2 text-black">
-        <SubNavbar />
-        <div className="mt-3 mb-5">
-          <SubNavbar2 />
+        <SubNavbar2 />
+        <div className="mt-3 mb-10">
+          <SubNavbar />
         </div>
         <div className="max-w-[1240px] mx-auto my-3">
           <Location />

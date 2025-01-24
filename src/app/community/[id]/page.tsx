@@ -6,11 +6,15 @@ import Tweets from "@/components/community/Tweets";
 import BackButton from "@/components/BackButton";
 import RightSidebar from "@/components/community/RightSidebar";
 import Footer from "@/components/Footer";
+import FloatingButton from "@/components/FloatingButton";
+import { MdEdit } from "react-icons/md";
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
+  const [members, setMembers] = useState(false);
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (members: boolean) => {
+    setMembers(members);
     setShowModal(true);
   };
   return (
@@ -21,7 +25,9 @@ export default function HomePage() {
           <Sidebar />
         </div>
 
-        {showModal && <Example />}
+        {showModal && (
+          <Example members={members} setOpen={setShowModal} open={showModal} />
+        )}
 
         {/* Main content */}
         <main className="border-b border-primary-container_border_color pt-[-5] w-full lg:w-3/5 bg-white lg:p-4 relative overflow-y-auto h-screen">
@@ -42,21 +48,18 @@ export default function HomePage() {
                   <h2 className="font-bold">Community Name</h2>
                   <p className="font-semibold">Hosted by Victor</p>
                   <div className="flex gap-3 font-bold mt-3">
-                    <span
-                      className="p-3 hover:bg-gray-100 rounded-lg"
-                      onClick={handleButtonClick}
-                    >
+                    <span className="p-3 hover:bg-gray-100 rounded-lg">
                       11 Posts
                     </span>
                     <span
                       className="p-3 hover:bg-gray-100 rounded-lg"
-                      onClick={handleButtonClick}
+                      onClick={() => handleButtonClick(false)}
                     >
                       3 Team
                     </span>
                     <span
                       className="p-3 hover:bg-gray-100 rounded-lg"
-                      onClick={handleButtonClick}
+                      onClick={() => handleButtonClick(true)}
                     >
                       56 Members
                     </span>
@@ -106,12 +109,17 @@ export default function HomePage() {
 
             {/* Floating button inside the scrollable content */}
           </div>
-          <FloatingButton onClick={() => {}} />
+          <FloatingButton onClick={() => {}} label={<MdEdit color="white" />}/>
         </main>
 
         {/* Right Sidebar */}
         <aside className="w-full hidden lg:block lg:w-1/5 bg-white">
           <RightSidebar />
+          <div className="p-3 text-xs">
+            <span className="text-gray-300 mr-2">Privacy</span>
+            <span className="text-gray-300 mr-2">Terms</span>
+            <h6 className="text-gray-300 mr-2">@Infimuse LTD</h6>
+          </div>
         </aside>
       </div>
 
@@ -120,35 +128,25 @@ export default function HomePage() {
   );
 }
 
-interface Props {
-  onClick: () => void;
-  label?: React.ReactNode;
-}
 
-const FloatingButton = ({ onClick, label }: Props) => {
-  return (
-    <button
-      onClick={onClick}
-      className="hidden  sticky bottom-1/2 transform translate-y-1/2 right-5 w-10 h-10 bg-[#12b9f3] text-white rounded-full shadow-lg  items-center justify-center transition duration-300 z-50"
-    >
-      {label}
-    </button>
-  );
-};
 
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-function Example() {
-  const [open, setOpen] = useState(true);
-  const [activeTab, setActiveTab] = useState("members");
+interface Propsc {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  open: boolean;
+  members: boolean;
+}
+function Example(props: Propsc) {
+ 
 
   const members = ["Alice Johnson", "Bob Smith", "Charlie Brown"];
   const staff = ["Eve White", "Frank Black", "Grace Green"];
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={props.open} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={props.setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -172,49 +170,48 @@ function Example() {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md sm:p-6">
+              <Dialog.Panel className="relative flex items-center justify-center transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-[200px] sm:p-6">
                 <div>
-                  <div className="flex justify-between border-b pb-2">
-                    <button
-                      className={`px-4 py-2 text-sm font-medium ${
-                        activeTab === "members"
-                          ? "border-b-2 border-[#BB2460] text-[#BB2460]"
-                          : "text-gray-500"
-                      }`}
-                      onClick={() => setActiveTab("members")}
-                    >
-                      Members
-                    </button>
-                    <button
-                      className={`px-4 py-2 text-sm font-medium ${
-                        activeTab === "staff"
-                          ? "border-b-2 border-[#BB2460] text-[#BB2460]"
-                          : "text-gray-500"
-                      }`}
-                      onClick={() => setActiveTab("staff")}
-                    >
-                      Staff
-                    </button>
-                  </div>
-
                   <div className="mt-4">
-                    {activeTab === "members" && (
-                      <ul className="space-y-2">
-                        {members.map((member, index) => (
-                          <li key={index} className="text-sm text-gray-700">
-                            {member}
-                          </li>
-                        ))}
-                      </ul>
+                    {props.members && (
+                      <div>
+                        <button
+                          className={`px-4 py-2 text-sm font-medium mb-3 ${
+                            props.members
+                              ? "border-b-2 border-[#BB2460] text-[#BB2460]"
+                              : "text-gray-500"
+                          }`}
+                        >
+                          Members
+                        </button>
+                        <ul className="space-y-2">
+                          {members.map((member, index) => (
+                            <li key={index} className="text-sm text-gray-700">
+                              {member}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
-                    {activeTab === "staff" && (
-                      <ul className="space-y-2">
-                        {staff.map((staffMember, index) => (
-                          <li key={index} className="text-sm text-gray-700">
-                            {staffMember}
-                          </li>
-                        ))}
-                      </ul>
+                    {props.members === false && (
+                      <div>
+                        <button
+                          className={`px-4 py-2 text-sm font-medium mb-3 ${
+                            props.members === false
+                              ? "border-b-2 border-[#BB2460] text-[#BB2460]"
+                              : "text-gray-500"
+                          }`}
+                        >
+                          Team
+                        </button>
+                        <ul className="space-y-2">
+                          {staff.map((staffMember, index) => (
+                            <li key={index} className="text-sm text-gray-700">
+                              {staffMember}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import BackButton from "@/components/BackButton";
+import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
@@ -40,7 +41,7 @@ const InstructorDetail = () => {
       <div className="max-w-7xl mx-auto py-4 px-2 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-md p-2.5 sm:p-6 mb-4 sm:mb-8">
           <BackButton />
-          <div className="flex gap-20 flex-col sm:flex-row sm:items-center sm:mb-6">
+          <div className="flex sm:gap-20 flex-col sm:flex-row sm:items-center mt-3 sm:mb-6">
             <Image
               src={instructor.profilePicture}
               alt={instructor.name}
@@ -72,13 +73,13 @@ const InstructorDetail = () => {
 
           <div className="flex items-center gap-3 mt-3">
             <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
-              Sport
+              Badminton
             </span>
             <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
-              Art
+              Padel
             </span>
             <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
-              Leisure
+              Table Tennis
             </span>
           </div>
         </div>
@@ -86,6 +87,12 @@ const InstructorDetail = () => {
           <h2 className="text-sm sm:text-2xl font-bold mb-4">Bio</h2>
           <p className="text-xs sm:text-lg leading-relaxed">{instructor.bio}</p>
         </div>
+        <div className="my-3 flex gap-5 py-5 overflow-auto">
+          {experiences.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
+        </div>
+
         <div className="bg-white rounded-lg shadow-md p-2.5 sm:p-6 mb-8">
           <h2 className="text-sm sm:text-2xl font-bold mb-4">Reviews</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -117,3 +124,84 @@ const InstructorDetail = () => {
 };
 
 export default InstructorDetail;
+
+const experiences = [
+  // Sipping Hangouts
+  {
+    id: "10",
+    image: "https://images.pexels.com/photos/1473007/pexels-photo-1473007.jpeg",
+    title: "Wine Tasting",
+    host: "Vineyard",
+    status: "Upcoming",
+    category: "Sipping Hangouts",
+    price: " 50",
+    rating: 4.5,
+    slotsBooked: 10,
+  },
+  {
+    id: "144",
+    image: "https://images.pexels.com/photos/2132257/pexels-photo-2132257.jpeg",
+    title: "Beer Brewing Workshop",
+    host: "Local Brewery",
+    status: "Upcoming",
+    category: "Sipping Hangouts",
+    price: " 60",
+    rating: 4.3,
+    slotsBooked: 7,
+  },
+  {
+    id: "5",
+    image: "https://images.pexels.com/photos/533355/pexels-photo-533355.jpeg",
+    title: "Cocktail Mixology Class",
+    host: "Mixology Bar",
+    status: "Upcoming",
+    category: "Sipping Hangouts",
+    price: " 70",
+    rating: 4.7,
+    slotsBooked: 12,
+  },
+  {
+    id: "141",
+    image: "https://images.pexels.com/photos/2132257/pexels-photo-2132257.jpeg",
+    title: "Beer Brewing Workshop",
+    host: "Local Brewery",
+    status: "Upcoming",
+    category: "Sipping Hangouts",
+    price: " 60",
+    rating: 4.3,
+    slotsBooked: 7,
+  },
+  {
+    id: "159",
+    image: "https://images.pexels.com/photos/533355/pexels-photo-533355.jpeg",
+    title: "Cocktail Mixology Class",
+    host: "Mixology Bar",
+    status: "Upcoming",
+    category: "Sipping Hangouts",
+    price: " 70",
+    rating: 4.7,
+    slotsBooked: 12,
+  },
+  {
+    id: "14",
+    image: "https://images.pexels.com/photos/2132257/pexels-photo-2132257.jpeg",
+    title: "Beer Brewing Workshop",
+    host: "Local Brewery",
+    status: "Upcoming",
+    category: "Sipping Hangouts",
+    price: " 60",
+    rating: 4.3,
+    slotsBooked: 7,
+  },
+  {
+    id: "15",
+    image: "https://images.pexels.com/photos/533355/pexels-photo-533355.jpeg",
+    title: "Cocktail Mixology Class",
+    host: "Mixology Bar",
+    status: "Upcoming",
+    category: "Sipping Hangouts",
+    price: " 70",
+    rating: 4.7,
+    slotsBooked: 12,
+  },
+];

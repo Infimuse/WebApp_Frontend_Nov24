@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Media, Gif, Survey, Emoji, Plans } from "./İcons";
-import { FaPlus, FaUserCircle } from "react-icons/fa"; // Profile icon or image
+import { Media, Gif,  Emoji, Plans } from "./İcons";
+import { FaUserCircle } from "react-icons/fa"; // Profile icon or image
 import { IoClose } from "react-icons/io5"; // Close button
 import FloatingButton from "../FloatingButton";
+import { MdEdit } from "react-icons/md";
 
 interface GifPickerProps {
   onClose: () => void;
@@ -145,7 +146,7 @@ export default function LinkedInPostBox() {
   return (
     <>
       {/* Start a Post button */}
-      <div className="bg-white w-full hidden sm:block p-4 rounded-xl shadow-md mb-4 border border-gray-300">
+      {/* <div className="bg-white w-full hidden sm:block p-4 rounded-xl shadow-md mb-4 border border-gray-300">
         <div
           className="flex items-center space-x-2 cursor-pointer"
           onClick={() => setShowModal(true)}
@@ -167,10 +168,10 @@ export default function LinkedInPostBox() {
             <span className="text-sm text-gray-600">Insights</span>
           </button>
         </div>
-      </div>
+      </div> */}
 
       <div>
-        <FloatingButton label={<FaPlus />} onClick={() => setShowModal(true)} />
+        <FloatingButton label={<MdEdit />} onClick={() => setShowModal(true)} />
       </div>
       {/* Modal for posting */}
       {showModal && (

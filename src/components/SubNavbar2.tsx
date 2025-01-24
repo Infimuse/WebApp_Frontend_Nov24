@@ -80,7 +80,7 @@ const SubNavbar2 = () => {
   return (
     <div className="bg-white">
       <div className="mx-auto w-full hide-scroll-bar">
-        <div className="flex gap-2 z-10 items-center py-2 px-4 w-full md:justify-center justify-start overflow-x-auto whitespace-nowrap sm:gap-1 hide-scrollbar">
+        <div className="flex gap-2 z-10 items-center  px-4 w-full md:justify-center justify-start overflow-x-auto whitespace-nowrap sm:gap-1 hide-scrollbar">
           {categories.map((category, index) => (
             <div key={index}>
               <div
