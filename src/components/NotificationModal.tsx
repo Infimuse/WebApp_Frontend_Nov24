@@ -191,6 +191,7 @@ export const Ratings: React.FC = () => {
           Write a Review
         </h3>
         <textarea
+          style={{ fontSize: "16px" }}
           value={review}
           onChange={(e) => setReview(e.target.value)}
           className="w-full text-xs p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"

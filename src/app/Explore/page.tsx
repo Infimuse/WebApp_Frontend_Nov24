@@ -6,6 +6,7 @@ import Location from "@/components/community/location";
 import SearchBar from "@/components/SearchBar";
 import CategoryNav from "@/components/CategoryNav";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Footer from "@/components/Footer";
 
 const Explore = () => {
   return (
@@ -30,7 +31,7 @@ const Explore = () => {
           </div>
           <div className="flex justify-center mt-8"></div>
         </div>
-        
+        <Footer />
       </div>
     </div>
   );
