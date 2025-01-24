@@ -1,32 +1,16 @@
 "use client";
-
-import React, { useRef } from "react";
-import { IoIosArrowForward } from "react-icons/io";
+import React from "react";
 import SubNavbar from "@/components/SubNavbar";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import SubNavbar2 from "@/components/SubNavbar2";
 import Banner from "@/components/Banner";
 import UpcomingEvents from "@/components/UpcomingEvents";
-import Link from "next/link";
+
 import "./globals.css";
-import { FaArrowRight } from "react-icons/fa";
+
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import Location from "@/components/community/location";
-
-interface ArrowProps {
-  onClick: () => void;
-}
-
-const Arrow = ({ onClick }: ArrowProps) => (
-  <div
-    onClick={onClick}
-    className="absolute hidden md:block top-1/2 transform -translate-y-1/2 flex justify-center items-center bg-gray-300 shadow-xl p-2 rounded-full cursor-pointer animate-dance"
-    style={{ right: "-38px" }} // Adjust the 'right' value to keep the arrow visible
-  >
-    <IoIosArrowForward className="text-black text-xl" />
-  </div>
-);
 
 const experiences = [
   // Sipping Hangouts
@@ -360,23 +344,6 @@ const experiences = [
 ];
 
 const HomePage = () => {
-  const ExploreRef = useRef<HTMLDivElement | null>(null);
-  const kidsActivitiesRef = useRef<HTMLDivElement | null>(null);
-  const workshopsRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollToEnd = (ref: React.MutableRefObject<HTMLDivElement | null>) => {
-    ref.current?.scrollTo({
-      left: ref.current.scrollWidth,
-      behavior: "smooth",
-    });
-  };
-
-  const renderCards = (category: string) => {
-    return experiences
-      .filter((experience) => experience.category === category)
-      .map((experience) => <Card key={experience.id} {...experience} />);
-  };
-
   return (
     <div className="bg-white w-full relative">
       <Banner />
@@ -392,69 +359,10 @@ const HomePage = () => {
           <Location />
         </div>
         <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div className="space-y-8">
-            <div
-              ref={ExploreRef}
-              className="grid hidden sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
-            >
-              {experiences.slice(0, 8).map((experience) => (
-                <div key={experience.id}>
-                  <Card {...experience} />
-                </div>
-              ))}
-            </div>
-            <div
-              ref={ExploreRef}
-              className="grid  sm:hidden grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
-            >
-              {experiences.slice(0, 8).map((experience) => (
-                <div key={experience.id}>
-                  <Card {...experience} />
-                </div>
-              ))}
-            </div>
-            <Arrow onClick={() => scrollToEnd(ExploreRef)} />
-
-            <div
-              ref={ExploreRef}
-              className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
-            >
-              {experiences.slice(8, 16).map((experience) => (
-                <div key={experience.id}>
-                  <Card {...experience} />
-                </div>
-              ))}
-            </div>
-            <Arrow onClick={() => scrollToEnd(ExploreRef)} />
-          </div>
-        </section>
-
-        <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div
-            ref={workshopsRef}
-            className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
-          >
-            {renderCards("Workshops")}
-          </div>
-          <Arrow onClick={() => scrollToEnd(workshopsRef)} />
-        </section>
-
-        <section className="relative mb-8 max-w-[1240px] mx-auto">
-          <div
-            ref={kidsActivitiesRef}
-            className="grid sm:flex grid-cols-1 gap-4 sm:gap-10 overflow-x-auto pb-4 hide-scrollbar"
-          >
-            {renderCards("Kids Activities")}
-          </div>
-          <Arrow onClick={() => scrollToEnd(kidsActivitiesRef)} />
-
-          <div className="flex justify-center items-center">
-            <Link
-              href={`/Explore`}
-              className="flex items-center gap-3 underline text-xs sm:texr-sm font-semibold"
-            >
-              View More <FaArrowRight />
-            </Link>
+          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {experiences.map((experience) => (
+              <Card key={experience.id} {...experience} />
+            ))}
           </div>
         </section>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 // import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { IoWarningOutline } from "react-icons/io5";
+import Link from "next/link"
 
 interface Event {
   id: number;
@@ -77,7 +78,8 @@ const BookedEventsCarousel: React.FC = () => {
         className="flex space-x-4 overflow-x-auto pb-4 hide-scrollbar"
       >
         {events.map((event) => (
-          <div
+          <Link
+          href="/ticket/12"
             key={event.id}
             className="relative flex-none w-3/4 sm:w-1/3 h-full rounded-lg shadow-lg"
           >
@@ -93,7 +95,7 @@ const BookedEventsCarousel: React.FC = () => {
               <p className="text-white font-thin text-xs">{event.location}</p>
               <p className="text-white font-thin text-xs">{event.date}</p>
             </div>
-          </div>
+          </Link>
         ))}
 
         {events.length < 1 && (

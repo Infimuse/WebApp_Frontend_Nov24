@@ -3,7 +3,7 @@ import { Ratings } from "@/components/NotificationModal";
 
 const page = () => {
   return (
-    <div className="text-gray-700 px-5">
+    <div className="text-gray-700 px-5 pb-[90px]">
       <h3 className="font-semibold text-center text-lg">Notifications</h3>
       <hr />
       <section className="mt-3">

@@ -4,7 +4,7 @@ import React from 'react';
 import Sidebar from '@/components/community/Sidebar';
 import MainContent from '@/components/community/MainContent';
 import RightSidebar from '@/components/community/RightSidebar';
-import Footer from '@/components/Footer';
+
 
 export default function HomePage() {
   // const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -30,10 +30,15 @@ export default function HomePage() {
           {" "}
           {/* Remove sticky class */}
           <RightSidebar />
+          <div className="p-3 text-xs">
+            <span className="text-gray-300 mr-2">Privacy</span>
+            <span className="text-gray-300 mr-2">Terms</span>
+            <h6 className="text-gray-300 mr-2">@Infimuse LTD</h6>
+          </div>
         </aside>
       </div>
 
-      <Footer />
+    
     </div>
   );
 }

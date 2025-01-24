@@ -59,11 +59,10 @@ export default function ExperienceDetail() {
               <strong>Time:</strong> {experience.time}
             </p>
             <p className="text-xs sm:text-sm">
-              <strong>Avg Session Duration:</strong>{" "}
-              {experience.avgSessionDuration}
+              <strong>Duration:</strong> {experience.avgSessionDuration}
             </p>
             <p className="text-xs sm:text-sm">
-              <strong>Number of Classes:</strong> {experience.numOfClasses}
+              <strong>Number of sessions:</strong> {experience.numOfClasses}
             </p>
             <p className="text-xs sm:text-sm">
               <strong>Age Group:</strong> {experience.ageGroup}
@@ -75,12 +74,9 @@ export default function ExperienceDetail() {
               <strong>Attending:</strong> {experience.attending} out of{" "}
               {experience.capacity} slots booked
             </p>
-            <p className="text-xs sm:text-sm">
-              <strong>Host Type:</strong> {experience.hostType}
-            </p>
             <div className="flex items-center mb-2">
               <p className="text-xs sm:text-sm">
-                <strong>Avg Rating:</strong>
+                <strong>Rating:</strong>
               </p>
               <div className="text-yellow-500 flex items-center ml-2">
                 {"⭐".repeat(Math.round(experience.rating))}
@@ -121,11 +117,9 @@ export default function ExperienceDetail() {
             </p>
           </div>
 
-        
-
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-2xl font-bold mb-2 sm:mb-4">
-              Other Options ({experience.dates.length})
+              Workshop Sessions ({experience.dates.length})
             </h2>
             <div className="grid grid-cols-1 gap-4">
               {experience.dates.map((date, index) => (
@@ -149,7 +143,7 @@ export default function ExperienceDetail() {
               ))}
             </div>
           </div>
-            <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
+          <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-3 sm:mb-5">
             <h2 className="text-sm sm:text-xl font-bold mb-2 sm:mb-4">
               Reviews ({experience.reviews})
             </h2>

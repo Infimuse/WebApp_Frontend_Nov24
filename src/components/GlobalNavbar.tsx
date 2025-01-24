@@ -241,6 +241,12 @@ export default function GlobalNavbar() {
             {/* Icon for Sign Out */}
             Sign Out
           </a>
+
+          <div className="p-3 text-xs">
+            <span className="text-gray-300 mr-2">Privacy</span>
+            <span className="text-gray-300 mr-2">Terms</span>
+            <h6 className="text-gray-300 mr-2">@Infimuse LTD</h6>
+          </div>
         </div>
       </div>
 
