@@ -9,6 +9,7 @@ import BookingModal from "@/components/BookingModal";
 import experiences from "@/data/data";
 import { useParams } from "next/navigation";
 import Tickets from "@/components/Tickets";
+import BackButton from "@/components/BackButton";
 
 const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
@@ -36,7 +37,8 @@ export default function ExperienceDetail() {
     <div className="bg-gray-100 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8 flex flex-col overflow-x-hidden lg:flex-row">
         <div className="lg:w-3/4">
-          <h1 className="text-sm sm:text-3xl font-bold sm:mb-2">
+          <h1 className="text-sm flex items-center gap-2 sm:text-3xl font-bold sm:mb-2">
+            <BackButton />
             {experience.title}
           </h1>
           <p className="text-xs sm:text-lg mb-2">Hosted by {experience.host}</p>

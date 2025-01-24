@@ -1,3 +1,4 @@
+import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
@@ -38,6 +39,7 @@ const InstructorDetail = () => {
     <div className="bg-gray-100 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto py-4 px-2 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-md p-2.5 sm:p-6 mb-4 sm:mb-8">
+          <BackButton />
           <div className="flex gap-20 flex-col sm:flex-row sm:items-center sm:mb-6">
             <Image
               src={instructor.profilePicture}
@@ -69,16 +71,16 @@ const InstructorDetail = () => {
           </div>
 
           <div className="flex items-center gap-3 mt-3">
-                    <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
-                      Sport
-                    </span>
-                    <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
-                      Art
-                    </span>
-                    <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
-                      Leisure
-                    </span>
-                  </div>
+            <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
+              Sport
+            </span>
+            <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
+              Art
+            </span>
+            <span className="px-3 py-1 text-white text-xs bg-[#BB2460] rounded-2xl">
+              Leisure
+            </span>
+          </div>
         </div>
         <div className="bg-white rounded-lg shadow-md p-2.5 sm:p-6 mb-3 sm:mb-8">
           <h2 className="text-sm sm:text-2xl font-bold mb-4">Bio</h2>
@@ -108,7 +110,6 @@ const InstructorDetail = () => {
           </div>
         </div>
         <hr />
-
       </div>
       <Footer />
     </div>
