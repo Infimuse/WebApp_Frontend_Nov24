@@ -78,7 +78,7 @@ interface Props {
 export default function CommentsDrawer(props: Props) {
   return (
     <Drawer.Root>
-      <Drawer.Trigger>
+      <Drawer.Trigger className="outline-none">
         <div className="action-icon hover:[#BB2460]">
           <BsChat size={20} />
         </div>
