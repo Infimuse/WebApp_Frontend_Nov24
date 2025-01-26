@@ -183,6 +183,7 @@ export const Ratings: React.FC = () => {
             </button>
           ))}
         </div>
+        <></>
       </div>
 
       {/* Review Textarea */}
