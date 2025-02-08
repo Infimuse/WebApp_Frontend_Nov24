@@ -30,7 +30,7 @@ const Ticket = () => {
           </p>
         </section>
 
-        <div className="mt-4 flex items-center justify-center p-3">
+        <div className="mt-4 flex items-center justify-center p-3 pb-20">
           <QRCode
             value="infimuse.com"
             fgColor="#BB2460"

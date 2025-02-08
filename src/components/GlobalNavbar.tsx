@@ -92,12 +92,16 @@ export default function GlobalNavbar() {
                   }`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-0 rounded-full transition-opacity duration-300 group-hover:opacity-100"></div>
-                  <Link
-                    href="/communities"
-                    className="relative text-[9px] flex items-center gap-1 bg-white text-black px-2 sm:px-4 py-2 rounded-full sm:font-semibold"
-                  >
-                    Communities
-                  </Link>
+                 <Link
+  href="/communities"
+  className="relative 
+             text-[9px] sm:text-[12px] 
+             flex items-center gap-1 bg-white text-black px-2 sm:px-4 py-2 
+             rounded-full sm:font-semibold"
+>
+  Communities
+</Link>
+
                 </div>
               </button>
 

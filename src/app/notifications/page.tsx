@@ -10,6 +10,9 @@ const page = () => {
         <article className="bg-gray-100 p-3 my-3 text-xs sm:text-sm rounded-lg shadow">
           Your account has been activated!
         </article>
+        <article className="bg-gray-100 p-3 my-3 text-xs sm:text-sm rounded-lg shadow">
+          Welcome to the community <strong className="font-semibold">Squid Game</strong>
+        </article>
 
         <article className="bg-gray-100 p-3 my-3 text-xs sm:text-sm rounded-lg shadow">
           <Ratings />
