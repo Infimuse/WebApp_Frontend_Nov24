@@ -34,10 +34,12 @@ type Experience = {
   // Add other experience properties here
 };
 
-type PageProps = {
+// Updated type definition for App Router page props
+type Props = {
   params: {
     id: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateStaticParams() {
@@ -50,7 +52,7 @@ const getLearningExperience = (id: string): Experience | undefined => {
   return experiences.find((exp) => exp.id === id);
 };
 
-export default function ExperienceDetail({ params }: PageProps) {
+export default async function ExperienceDetail({ params }: Props) {
   const experience = getLearningExperience(params.id);
 
   if (!experience) {
