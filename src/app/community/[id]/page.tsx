@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import { MdEdit } from "react-icons/md";
 
+export async function generateStaticParams() {}
+
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [members, setMembers] = useState(false);
@@ -109,7 +111,7 @@ export default function HomePage() {
 
             {/* Floating button inside the scrollable content */}
           </div>
-          <FloatingButton onClick={() => {}} label={<MdEdit color="white" />}/>
+          <FloatingButton onClick={() => {}} label={<MdEdit color="white" />} />
         </main>
 
         {/* Right Sidebar */}
@@ -128,8 +130,6 @@ export default function HomePage() {
   );
 }
 
-
-
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -139,8 +139,6 @@ interface Propsc {
   members: boolean;
 }
 function Example(props: Propsc) {
- 
-
   const members = ["Alice Johnson", "Bob Smith", "Charlie Brown"];
   const staff = ["Eve White", "Frank Black", "Grace Green"];
 

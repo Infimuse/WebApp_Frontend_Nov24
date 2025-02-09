@@ -11,6 +11,8 @@ import { useParams } from "next/navigation";
 import Tickets from "@/components/Tickets";
 import BackButton from "@/components/BackButton";
 
+export async function generateStaticParams() {}
+
 const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
 };
