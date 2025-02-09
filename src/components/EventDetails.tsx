@@ -7,7 +7,11 @@ import Footer from "./Footer";
 import BookingModal from "./BookingModal";
 import { useState } from "react";
 import { notFound } from "next/navigation";
-import { getLearningExperience } from "@/app/experience/[id]/page";
+import experiences from "@/data/data";
+
+const getLearningExperience = (id: string) => {
+  return experiences.find((exp) => exp.id === id);
+};
 
 interface Props {
   id: string;

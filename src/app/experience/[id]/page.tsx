@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export const getLearningExperience = (id: string) => {
+const getLearningExperience = (id: string) => {
   return experiences.find((exp) => exp.id === id);
 };
 
