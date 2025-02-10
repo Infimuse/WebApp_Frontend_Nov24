@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media, Gif,  Emoji, Plans } from "./İcons";
+import { Media, Gif, Emoji, Plans } from "./İcons";
 import { FaUserCircle } from "react-icons/fa"; // Profile icon or image
 import { IoClose } from "react-icons/io5"; // Close button
 import FloatingButton from "../FloatingButton";
@@ -219,7 +219,7 @@ export default function LinkedInPostBox() {
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                           onClick={() => handleAudienceChange("Public")}
                         >
-                          Public
+                          Select a Community
                         </li>
                         <li
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
